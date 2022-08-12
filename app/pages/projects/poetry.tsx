@@ -1,8 +1,9 @@
 import styles from "styles/poetry.module.sass"
 import chud from "styles/chud.module.sass"
 import CluckHUD from 'app/core/components/CluckHUD'
+import { BlitzPage } from "blitz"
 
-export default function Poetry() {
+const Poetry: BlitzPage = () => {
 	return (
 		<main className={styles.main}>
 			<CluckHUD theme={chud.Book} />
@@ -146,3 +147,5 @@ export default function Poetry() {
 		</main>
 	)
 }
+
+export default Poetry;

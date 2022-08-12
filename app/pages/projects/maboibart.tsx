@@ -1,14 +1,10 @@
 import Image from "next/image"
-import Link from "next/link"
 import styles from "styles/bartyboy.module.sass"
 import chud from "styles/chud.module.sass"
-import { serialize } from "next-mdx-remote/serialize"
-import { MDXRemote } from "next-mdx-remote"
-import { promises as fs } from "fs"
-import path from "path"
-import CluckHUD from 'app/core/components/CluckHUD'
+import CluckHUD from "app/core/components/CluckHUD"
+import { BlitzPage } from "blitz"
 
-export default function bart({ source }: { source: any }) {
+const Bart: BlitzPage = () => {
 	return (
 		<main className={styles.main}>
 			<CluckHUD theme={chud.Volcano} />
@@ -26,19 +22,18 @@ export default function bart({ source }: { source: any }) {
 				</div>
 
 				<div className={styles.content}>
-					<MDXRemote {...source} components={components} className={styles.mdx} />
+					<p>
+						A Discord bot I made with Node.js and Discord.js over the summer. <br />
+						It&apos;s currently deployed on Heroku through a GitHub pipeline, though I
+						haven&apos;t updated it in a while. <br />
+						There&apos;s not much of a purpose to be honest, but it was fun. <br />I
+						never did get it on the marketplace though, since I would need a developer
+						license for that. Maybe one day.
+					</p>
 				</div>
-			</div >
+			</div>
 		</main>
 	)
 }
 
-const components = {}
-
-export async function getStaticProps() {
-	const mdPath = path.join(process.cwd(), "public/markdown/bart.mdx")
-	const rawMarkdown = await fs.readFile(mdPath, "utf8")
-	const postMd = await serialize(rawMarkdown)
-
-	return { props: { source: postMd } }
-}
+export default Bart

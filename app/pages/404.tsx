@@ -1,7 +1,8 @@
+import { BlitzPage } from "blitz";
 import Link from "next/link";
 import styles from "styles/404.module.sass";
 
-export default function FourOhFour() {
+const FourOhFour: BlitzPage = () => {
 	return (
 		<div className={styles.cont}>
 			<div className={styles.infoBox}>
@@ -22,3 +23,5 @@ export default function FourOhFour() {
 		</div>
 	);
 }
+
+export default FourOhFour;
