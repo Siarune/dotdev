@@ -3,4 +3,6 @@
 
 yarn tsc
 yarn lint
+vercel
+vercel --prod
 # yarn test
