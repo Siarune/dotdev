@@ -3,7 +3,7 @@
 .link a
 	text-decoration: none
 
-.navbar, .Moon, .Forest, .Book, .Volcano
+.navbar, .Moon, .Forest, .Book, .Volcano, .OffWhite
 	position: sticky
 	top: 0
 	left: 0
@@ -41,7 +41,7 @@
 	.btn
 		background-color: theme.$Forest_Bg_2
 		border: 1px solid theme.$Forest_Bg_2
-		
+
 		h3
 			color: theme.$Forest_Text
 
@@ -73,7 +73,18 @@
 		h3
 			color: theme.$Volcano_Disabled
 
+.OffWhite
+	background: theme.$OffWhite_Bg
 
+	.intro h2:before
+		border: 3px outset theme.$secondaryColor
+
+	.btn
+		background-color: theme.$OffWhite_Fg
+		// border: 1px solid theme.$Volcano_Bg
+
+		h3
+			color: black
 
 .navbarNav
 	display: flex

@@ -1,0 +1,66 @@
+@use 'theme'
+
+.main
+	background: #f8f8ff
+	min-height: 100vh
+	max-height: max-content
+	color: black
+	overflow: scroll
+
+	a
+		text-decoration: dashed underline
+	p
+		text-align: center
+
+.container
+	display: flex
+	flex-direction: column
+	align-items: center
+	height: 90vh
+
+.app
+	border-radius: 10px
+	padding: 3px
+	background: whitesmoke
+	width: 30vw
+	box-shadow: rgba(3, 8, 20, 0.1) 0 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0 0.075rem 0.175rem
+	margin-bottom: 0.75rem
+
+	@media (max-width:1000px)
+		width: 75vw
+
+	.info
+		max-width: 75%
+
+	svg
+		width: 16px
+
+	summary
+		display: flex
+		flex-direction: row
+		align-items: center
+		justify-content: space-between
+
+		p
+			text-align: left
+
+		h4, p
+			margin-top: .125rem
+			margin-bottom: .125rem
+
+		h4, p, svg
+			// margin-right: 1rem
+			padding: 5px
+
+		svg
+			width: 32px
+
+	summary::marker
+		content: ""
+
+.footer
+	opacity: 0.4
+	text-align: center
+	position: absolute
+	bottom:0
+	font-size: small
