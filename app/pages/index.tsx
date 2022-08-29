@@ -1,17 +1,15 @@
 import { BlitzPage, Link } from "blitz"
-import CluckHUD from "app/core/components/CluckHUD"
+import App from "app/core/components/App"
+import theme from "styles/app.module.sass"
+import navTheme from "styles/chud.module.sass"
 import styles from "styles/index.module.sass"
-import chud from "styles/chud.module.sass"
 
 const Home: BlitzPage = () => {
 	return (
-		<main className={styles.main}>
-			<CluckHUD theme={chud.Moon} />
-
-			<div className={styles.cont}>
+		<App theme={theme.Moon} navTheme={navTheme.Moon} title="siarune">
+			<div className={styles.main}>
 				<div className={styles.bio}>
 					<h2>About Me</h2>
-
 					<p>
 						Hey, Sia here. Nice place, huh?
 						<br />
@@ -74,11 +72,6 @@ const Home: BlitzPage = () => {
 						<h4>A curated list of quality-of-life android apps</h4>
 					</div>
 				</div>
-				{/* <div className={styles.containr}>
-						<div className={styles.chevron}></div>
-						<div className={styles.chevron}></div>
-						<div className={styles.chevron}></div>
-					</div> */}
 			</div>
 
 			<footer className={styles.footer}>
@@ -87,7 +80,7 @@ const Home: BlitzPage = () => {
 					liscence
 				</p>
 			</footer>
-		</main>
+		</App>
 	)
 }
 

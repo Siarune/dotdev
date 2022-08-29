@@ -1,12 +1,12 @@
 import styles from "styles/poetry.module.sass"
-import chud from "styles/chud.module.sass"
-import CluckHUD from 'app/core/components/CluckHUD'
+import theme from "styles/app.module.sass"
+import navTheme from "styles/chud.module.sass"
 import { BlitzPage } from "blitz"
+import App from "app/core/components/App"
 
 const Poetry: BlitzPage = () => {
 	return (
-		<main className={styles.main}>
-			<CluckHUD theme={chud.Book} />
+		<App theme={theme.Sepia} navTheme={navTheme.Book} title="Poetry?">
 			<div className={styles.container}>
 				<div className={styles.bannerWrapper}>
 					<h1 className={styles.banner}>Some Very (very) Bad Poetry</h1>
@@ -94,7 +94,9 @@ const Poetry: BlitzPage = () => {
 
 					<div className={styles.collapsibleWrapper}>
 						<details>
-							<summary className={styles.collapsibleTitle}>Law Abiding Citizen</summary>
+							<summary className={styles.collapsibleTitle}>
+								Law Abiding Citizen
+							</summary>
 							<p className={styles.collapsibleText}>
 								If you are what you eat, <br></br>
 								then I’ll be just fine. <br></br>
@@ -130,7 +132,8 @@ const Poetry: BlitzPage = () => {
 						<details>
 							<summary className={styles.collapsibleTitle}>To, Sleep</summary>
 							<p className={styles.collapsibleText}>
-								Why have you forsaken me? <br></br> <br></br>I lay here tired <br></br>
+								Why have you forsaken me? <br></br> <br></br>I lay here tired{" "}
+								<br></br>
 								In worry mired <br></br>
 								Trying to fall asleep <br></br> <br></br>
 								But my family&apos;s loud as fuck <br></br>
@@ -144,8 +147,8 @@ const Poetry: BlitzPage = () => {
 					</div>
 				</div>
 			</div>
-		</main>
+		</App>
 	)
 }
 
-export default Poetry;
+export default Poetry

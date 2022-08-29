@@ -1,4 +1,9 @@
-@use 'theme'
+@use 'themes/moon'
+@use 'themes/og'
+@use 'themes/forest'
+@use 'themes/sepia'
+@use 'themes/volcano'
+@use 'themes/offwhite'
 
 .link a
 	text-decoration: none
@@ -19,69 +24,69 @@
 		padding: 0
 
 .Moon
-	background: theme.$Moonlight_Border
+	background: moon.$Moonlight_Border
 
 	.intro h2:before
-		border: 3px outset theme.$Moonlight_Accent
+		border: 3px outset moon.$Moonlight_Accent
 
 	.btn
-		background-color: theme.$Moonlight_Bg_2
-		border: 1px solid theme.$Moonlight_Bg_2
+		background-color: moon.$Moonlight_Bg_2
+		border: 1px solid moon.$Moonlight_Bg_2
 
 		h3
-			color: theme.$Moonlight_Text
+			color: moon.$Moonlight_Text
 
 
 .Forest
-	background: theme.$Forest_Bg
+	background: forest.$Forest_Bg
 
 	.intro h2:before
-		border: 3px outset theme.$Forest_Tree
+		border: 3px outset forest.$Forest_Tree
 
 	.btn
-		background-color: theme.$Forest_Bg_2
-		border: 1px solid theme.$Forest_Bg_2
+		background-color: forest.$Forest_Bg_2
+		border: 1px solid forest.$Forest_Bg_2
 
 		h3
-			color: theme.$Forest_Text
+			color: forest.$Forest_Text
 
 
 .Book
-	background: theme.$Book_Fg
+	background: sepia.$Book_Fg
 
 	.intro h2:before
-		border: 3px outset theme.$Book_Txt
+		border: 3px outset sepia.$Book_Txt
 
 	.btn
-		background-color: theme.$Book_Bg_2
-		border: 1px solid theme.$Book_Bg_2
+		background-color: sepia.$Book_Bg_2
+		border: 1px solid sepia.$Book_Bg_2
 
 		h3
-			color: theme.$Book_Txt
+			color: sepia.$Book_Txt
 
 
 .Volcano
-	background: theme.$Volcano_Var
+	background: volcano.$Volcano_Var
 
 	.intro h2:before
-		border: 3px outset theme.$Volcano_Accent
+		border: 3px outset volcano.$Volcano_Accent
 
 	.btn
-		background-color: theme.$Volcano_Notifications
-		border: 1px solid theme.$Volcano_Bg
+		background-color: volcano.$Volcano_Notifications
+		border: 1px solid volcano.$Volcano_Bg
 
 		h3
-			color: theme.$Volcano_Disabled
+			color: volcano.$Volcano_Disabled
 
 .OffWhite
-	background: theme.$OffWhite_Bg
+	background: offwhite.$OffWhite_Bg
 
 	.intro h2:before
-		border: 3px outset theme.$secondaryColor
+		border: 3px outset og.$secondaryColor
 
 	.btn
-		background-color: theme.$OffWhite_Fg
-		// border: 1px solid theme.$Volcano_Bg
+		background-color: offwhite.$OffWhite_Fg
+		// border: 1px solid offwhite.$Volcano_Bg
 
 		h3
 			color: black
@@ -119,9 +124,9 @@
 	cursor: pointer
 
 .me
-	color: theme.$secondaryColor
+	color: og.$secondaryColor
 	margin: 0
 
 .span
-	color: theme.$tertiaryColor
+	color: og.$tertiaryColor
 	padding: 0

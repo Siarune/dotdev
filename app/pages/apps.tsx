@@ -1,12 +1,13 @@
 import { BlitzPage } from "blitz"
 import CluckHUD from "app/core/components/CluckHUD"
 import styles from "styles/apps.module.sass"
-import chud from "styles/chud.module.sass"
+import theme from "styles/app.module.sass"
+import navTheme from "styles/chud.module.sass"
+import App from "app/core/components/App"
 
 const Page: BlitzPage = () => {
 	return (
-		<main className={styles.main}>
-			<CluckHUD theme={chud.OffWhite} />
+		<App theme={theme.offwhite} navTheme={navTheme.OffWhite} title="Poetry?">
 			<div className={styles.container}>
 				<h1>FOSS Android Mods</h1>
 				<p>
@@ -155,7 +156,7 @@ const Page: BlitzPage = () => {
 					GPLv3
 				</p>
 			</footer>
-		</main>
+		</App>
 	)
 }
 

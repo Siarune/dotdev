@@ -1,7 +1,6 @@
-import 'styles/global.sass'
-import base from 'styles/base.module.sass';
-import MetaBundle from 'app/core/components/MetaBundle'
-import { ClerkProvider } from '@clerk/nextjs';
+import "styles/global.sass"
+import MetaBundle from "app/core/components/MetaBundle"
+import { ClerkProvider } from "@clerk/nextjs"
 
 import {
 	AppProps,
@@ -24,12 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
 		>
 			{getLayout(
 				<ClerkProvider>
-					<MetaBundle />
-					<div className={base.app}>
-
-						<Component {...pageProps} />
-
-					</div>
+					{/* <MetaBundle /> */}
+					<Component {...pageProps} />
 				</ClerkProvider>
 			)}
 		</ErrorBoundary>
@@ -48,7 +43,10 @@ function RootErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
 		)
 	} else {
 		return (
-			<ErrorComponent statusCode={error.statusCode || 400} title={error.message || error.name} />
+			<ErrorComponent
+				statusCode={error.statusCode || 400}
+				title={error.message || error.name}
+			/>
 		)
 	}
 }

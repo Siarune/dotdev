@@ -1,12 +1,12 @@
 import styles from "styles/chud.module.sass"
 import Image from "next/image"
 import { useClerk, useUser, UserButton, SignedOut, SignedIn } from "@clerk/nextjs"
-// import { logout } from 'app/auth/mutations/logout'
-// import { useMutation } from "blitz"
 
-export default function CluckHUD({ theme }: { theme: any }) {
-	// const [logoutMutation] = useMutation(logout)
+type Props = {
+	theme?: string
+}
 
+export default function CluckHUD({ theme }: Props) {
 	return (
 		<nav className={theme}>
 			<ul className={styles.navbarNav}>
@@ -34,10 +34,6 @@ export default function CluckHUD({ theme }: { theme: any }) {
 				<SignedOut>
 					<SignedOutButton />
 				</SignedOut>
-
-				{/* <li>
-					<button onClick={() => logoutMutation()}></button>
-				</li> */}
 			</ul>
 		</nav>
 	)
