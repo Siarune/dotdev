@@ -1,0 +1,22 @@
+image: archlinux
+packages:
+	- nodejs
+	- yarn
+	- npm
+sources:
+	- https://git.sr.ht/~siarune/src
+secrets:
+	- 1d4233ec-b94b-4b97-9b0e-06cb60ff182d
+tasks:
+	- setup: |
+		mv src siarune
+		cd siarune
+		yarn install
+		yarn install vercel
+	- build: |
+		cd siarune
+		yarn vercel pull --yes --environment=production --token=pRjJDDbIhqiLi7vNRjkIqxYe
+		yarn vercel build --token=pRjJDDbIhqiLi7vNRjkIqxYe
+	- deploy: |
+		cd siarune
+		yarn vercel --prod --prebuilt  --token=pRjJDDbIhqiLi7vNRjkIqxYe
