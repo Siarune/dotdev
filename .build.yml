@@ -2,7 +2,6 @@ image: archlinux
 packages:
     - nodejs
     - yarn
-    - npm
 sources:
     - https://git.sr.ht/~siarune/src
 secrets:

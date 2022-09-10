@@ -1,8 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn tsc
-yarn lint
-vercel
-vercel --prod
+# yarn tsc --pretty
 # yarn test
+# yarn lint
