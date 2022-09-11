@@ -3,12 +3,12 @@ packages:
     - nodejs
     - yarn
 sources:
-    - https://git.sr.ht/~siarune/src
+    - https://git.sr.ht/~siarune/siarune.dev
 secrets:
     - 1d4233ec-b94b-4b97-9b0e-06cb60ff182d
 tasks:
     - setup: |
-        mv src siarune
+        mv siarune.dev siarune
         cd siarune
         yarn install
         yarn add vercel
