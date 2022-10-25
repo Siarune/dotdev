@@ -1,7 +1,7 @@
 import Head from "next/head"
 // import styles from '/styles/index.module.sass'
 
-export default function metaBundle({ title }: { title: string }) {
+export default function MetaBundle({ title }: { title: string }) {
 	return (
 		<Head>
 			<title>{title}</title>

@@ -1,6 +1,54 @@
-import styles from "styles/chud.module.sass"
+import styles from "styles/sys/chud.module.sass"
 import Image from "next/image"
-import { useClerk, useUser, UserButton, SignedOut, SignedIn } from "@clerk/nextjs"
+
+import { useCurrentUser } from "app/core/hooks/useCurrentUser"
+import logout from "app/auth/mutations/logout"
+import { useMutation } from "@blitzjs/rpc"
+import { Routes } from "@blitzjs/next"
+import Link from "next/link"
+import { Suspense } from "react"
+
+const UserInfo = () => {
+	const currentUser = useCurrentUser()
+	const [logoutMutation] = useMutation(logout)
+
+	if (currentUser) {
+		return (
+			<>
+				<button
+					className="button small"
+					onClick={async () => {
+						await logoutMutation()
+					}}
+				>
+					Logout
+				</button>
+				{/* <div>
+					User id: <code>{currentUser.id}</code>
+					<br />
+					User role: <code>{currentUser.role}</code>
+				</div> */}
+			</>
+		)
+	} else {
+		return (
+			<>
+				<Link href={Routes.SignupPage()}>
+					<button className={styles.signInButton}>
+						<a>
+							<strong>Sign In</strong>
+						</a>
+					</button>
+				</Link>
+				{/* <Link href={Routes.LoginPage()}>
+					<a className="button small">
+						<strong>Login</strong>
+					</a>
+				</Link> */}
+			</>
+		)
+	}
+}
 
 type Props = {
 	theme?: string
@@ -27,34 +75,10 @@ export default function CluckHUD({ theme }: Props) {
 					</h2>
 					{/* </Link> */}
 				</li>
-
-				<SignedIn>
-					<SignedInButton />
-				</SignedIn>
-				<SignedOut>
-					<SignedOutButton />
-				</SignedOut>
+				<Suspense fallback="Loading...">
+					<UserInfo />
+				</Suspense>{" "}
 			</ul>
 		</nav>
-	)
-}
-
-const SignedOutButton = () => {
-	const { openSignIn, openSignUp } = useClerk()
-
-	return (
-		<li className={styles.sign}>
-			<button className={styles.btn} onClick={() => openSignIn()}>
-				<h3>Sign in</h3>
-			</button>
-		</li>
-	)
-}
-
-const SignedInButton = () => {
-	return (
-		<li className={styles.sign}>
-			<UserButton />
-		</li>
 	)
 }
