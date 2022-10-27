@@ -4,7 +4,7 @@ import MetaBundle from "app/core/components/MetaBundle"
 import Link from "next/link"
 
 import styles from "styles/projects.module.sass"
-import theme from "styles/chud.module.sass"
+import theme from "styles/sys/chud.module.sass"
 import { GetStaticProps } from "next"
 import { getSortedProjectsData } from "lib/projects"
 
@@ -20,6 +20,8 @@ export default function Projects({
 }) {
 	return (
 		<div className={styles.app}>
+			<CluckHUD theme={theme.Moon} />
+			<MetaBundle title="Projects" />
 			<div className={styles.heading}>
 				<h1>My Projects</h1>
 				{/* <h2>Ramblings from yours truly</h2> */}

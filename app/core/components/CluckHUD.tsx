@@ -23,11 +23,6 @@ const UserInfo = () => {
 				>
 					Logout
 				</button>
-				{/* <div>
-					User id: <code>{currentUser.id}</code>
-					<br />
-					User role: <code>{currentUser.role}</code>
-				</div> */}
 			</>
 		)
 	} else {
@@ -40,11 +35,6 @@ const UserInfo = () => {
 						</a>
 					</button>
 				</Link>
-				{/* <Link href={Routes.LoginPage()}>
-					<a className="button small">
-						<strong>Login</strong>
-					</a>
-				</Link> */}
 			</>
 		)
 	}
@@ -69,11 +59,11 @@ export default function CluckHUD({ theme }: Props) {
 							layout="fixed"
 						/>
 					</div>
-					{/* <Link href="/"> */}
 					<h2 className={styles.me}>
-						Siarune<span className={styles.span}>.dev</span>
+					<Link href="/">
+						<a>Siarune<span className={styles.span}>.dev</span></a>
+					</Link>
 					</h2>
-					{/* </Link> */}
 				</li>
 				<Suspense fallback="Loading...">
 					<UserInfo />

@@ -1,13 +1,13 @@
 import styles from "styles/poetry.module.sass"
 import theme from "styles/sys/chud.module.sass"
-// import navTheme from "styles/chud.module.sass"
 import { BlitzPage } from "@blitzjs/next"
-import App from "app/core/components/App"
+import CluckHUD from "app/core/components/CluckHUD"
 
 const Poetry: BlitzPage = () => {
 	return (
 		<div className={styles.app}>
-			<div className={styles.container}>
+			<CluckHUD theme={theme.Book}/>
+			<div className={styles.main}>
 				<div className={styles.bannerWrapper}>
 					<h1 className={styles.banner}>Some Very (very) Bad Poetry</h1>
 				</div>

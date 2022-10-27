@@ -5,6 +5,7 @@ import { getSortedPostsData } from "lib/posts"
 import Link from "next/link"
 import Date from "app/core/components/date"
 import { GetStaticProps } from "next"
+import MetaBundle from "app/core/components/MetaBundle"
 
 export default function Blogish({
 	allPostsData,
@@ -18,6 +19,7 @@ export default function Blogish({
 }) {
 	return (
 		<div className={styles.app}>
+			<MetaBundle title="Blog-ish" />
 			<div className={styles.heading}>
 				<h1>Blog-ish</h1>
 				<h2>Ramblings from yours truly</h2>

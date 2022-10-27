@@ -60,7 +60,7 @@ const Home: BlitzPage = () => {
 
 					<div className={styles.card}>
 						<h2>
-							<Link href="blogish">
+							<Link href="misc">
 								<a>Other Wacky Works</a>
 							</Link>
 						</h2>

@@ -8,7 +8,7 @@ const Apps: BlitzPage = () => {
 	return (
 		<div className={styles.app}>
 			<MetaBundle title="Apps" />
-			<CluckHUD theme={theme.offwhite} />
+			<CluckHUD theme={theme.OffWhite} />
 			<div className={styles.container}>
 				<h1>FOSS Android Mods</h1>
 				<p>
