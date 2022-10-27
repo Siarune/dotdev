@@ -68,13 +68,7 @@ const Home: BlitzPage = () => {
 					</div>
 				</div>
 			</div>
-
-			<footer className={styles.footer}>
-				<p>
-					Created and maintained by Aidan Sharp and open source on Github under the GPLv3
-					license
-				</p>
-			</footer>
+		<div />
 		</div>
 	)
 }

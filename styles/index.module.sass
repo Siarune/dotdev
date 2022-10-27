@@ -17,14 +17,21 @@
 	flex-direction: row
 	color: moon.$Moonlight_Text
 	min-height: 50vh
+	margin-bottom: 1rem
 
 	@media (max-width: 1000px)
 		flex-direction: column
 
+
 .feed
 	max-height: 50vh
 	overflow: scroll
-	// scroll-snap-type: proximity
+	display: grid
+
+
+	@media (max-width: 1000px)
+		overflow: hidden
+		max-height: fit-content
 
 .link a
 	color: currentColor
@@ -51,7 +58,9 @@
 .card
 	text-align: center
 	min-width: 20rem
-	// scroll-snap-align: center
+	padding: 0
+	margin-bottom: 0
+	height: 1fr
 
 	h4
 		opacity: 60%
@@ -60,11 +69,3 @@
 	box-shadow: rgba(2, 8, 20, 0.1) 0 0.35rem 1.75rem, rgba(2, 8, 20, 0.08) 0 0.175rem 0.5rem
 	transform: translateY(-3px) scale(1.05)
 	animation-fill-mode: cubic-bezier(.55, .09, .68, .53)
-
-.footer
-	color: moon.$Moonlight_Text
-
-	p
-		margin: .25rem
-		font-size: small
-		opacity: 60%
