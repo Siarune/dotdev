@@ -1,0 +1,88 @@
+@use 'themes/moon'
+
+.app
+	background: moon.$Moonlight_Contrast
+	// height: calc(100vh - 3rem)
+	min-height: 100vh
+	max-height: fit-content
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: space-between
+	margin: 0
+	padding: 0
+
+.main
+	display: grid
+	grid-template-rows: 1fr 8fr
+	// flex-direction: row
+	color: moon.$Moonlight_Text
+	background-color: moon.$Moonlight_Bg_2
+	border-radius: 10px
+	min-height: 75vh
+	width: 75vw
+	margin-bottom: 1rem
+
+	@media (max-width: 1000px)
+		flex-direction: column
+
+.tabrow
+	// height: 2rem
+	display: inline-grid
+	grid-template-columns: repeat(3, 1fr)
+	text-align: center
+	align-items: center
+	font-size: larger
+	border-bottom: 2px solid moon.$Moonlight_Disabled
+
+.tab
+	height: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+
+	a
+		width: 100%
+		height: 100%
+		border-radius: 10px
+
+	a:hover, .active
+		background-color: moon.$Moonlight_SelectedBg
+
+.container
+	padding: 10px
+	text-align: center
+
+.form
+	display: flex
+	flex-direction: column
+	align-items: center
+
+	button
+		display: none
+
+.top
+	display: flex
+	flex-direction: row
+
+	.select, input
+		background: moon.$Moonlight_SelectedBg
+		color: moon.$Moonlight_Text
+		border-radius: 5px
+		border: none !important
+
+	.select
+		margin-top: .5rem
+		margin-right: 5px
+
+.textbox
+	height: 58vh
+	width: 72.5vw
+	border: none !important
+	background: moon.$Moonlight_SelectedBg
+	color: moon.$Moonlight_Text
+
+	margin-top: .5rem
+	border-radius: 5px
+	resize: none
+
