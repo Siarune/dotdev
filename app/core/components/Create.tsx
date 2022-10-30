@@ -37,6 +37,7 @@ export default function Create() {
 					<option value="">Type</option>
 					<option value="project">Project</option>
 					<option value="blogpost">Blog</option>
+					<option value="poem">Poem</option>
 				</Field>
 
 				<LabeledTextField name="name" label="" placeholder="Name" />

@@ -3,7 +3,7 @@ import CluckHUD from "app/core/components/CluckHUD"
 import MetaBundle from "app/core/components/MetaBundle"
 import Link from "next/link"
 
-import styles from "styles/misc.module.sass"
+import styles from "styles/directory.module.sass"
 import theme from "styles/sys/chud.module.sass"
 
 const Other: BlitzPage = () => {

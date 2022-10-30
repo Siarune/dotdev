@@ -16,7 +16,7 @@ const UserInfo = () => {
 		return (
 			<>
 				<button
-					className="button small"
+					className={styles.signInButton}
 					onClick={async () => {
 						await logoutMutation()
 					}}
