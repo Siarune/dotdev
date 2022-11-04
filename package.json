@@ -12,7 +12,7 @@
 		"prepare": "husky install",
 		"pullConfig": "vercel pull --yes --environment=production -t pRjJDDbIhqiLi7vNRjkIqxYe",
 		"buildProd": "vercel build --prod",
-		"desploy": "vercel deploy --prod --prebuilt  -t pRjJDDbIhqiLi7vNRjkIqxYe"
+		"deploy": "vercel deploy --prod --prebuilt  -t pRjJDDbIhqiLi7vNRjkIqxYe"
 	},
 	"prisma": {
 		"schema": "db/schema.prisma"
