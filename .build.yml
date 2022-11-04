@@ -7,8 +7,8 @@ sources:
 tasks:
     - setup: |
         mv siarune.dev siarune
-        yarn install
         cd siarune
+        yarn install
         yarn pullConfig
     - build: |
         cd siarune
