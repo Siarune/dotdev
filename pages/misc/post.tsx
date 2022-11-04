@@ -1,4 +1,4 @@
-import { BlitzPage } from "@blitzjs/next"
+import { BlitzPage, Routes } from "@blitzjs/next"
 import CluckHUD from "app/core/components/CluckHUD"
 import MetaBundle from "app/core/components/MetaBundle"
 
@@ -10,6 +10,7 @@ import theme from "styles/sys/chud.module.sass"
 import Link from "next/link"
 
 import Create from "app/core/components/Create"
+import { invokeWithCtx } from "@blitzjs/rpc"
 
 const Post: BlitzPage = ({ router }: { router: any }) => {
 	const {
@@ -57,4 +58,5 @@ const Post: BlitzPage = ({ router }: { router: any }) => {
 	)
 }
 
+Post.authenticate = true
 export default withRouter(Post)
