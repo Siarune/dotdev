@@ -1,5 +1,6 @@
 {
 	"name": "siarune.dev",
+	"packageManager": "yarn@3.2.4",
 	"version": "1.0.0",
 	"license": "GPLv3",
 	"scripts": {
@@ -8,7 +9,10 @@
 		"start": "blitz start",
 		"studio": "blitz prisma studio",
 		"lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"pullConfig": "vercel pull --yes --environment=production -t pRjJDDbIhqiLi7vNRjkIqxYe",
+		"buildProd": "vercel build --prod",
+		"desploy": "vercel deploy --prod --prebuilt  -t pRjJDDbIhqiLi7vNRjkIqxYe"
 	},
 	"prisma": {
 		"schema": "db/schema.prisma"
@@ -50,6 +54,7 @@
 		"eslint-config-prettier": "8.5.0",
 		"husky": "7.0.4",
 		"lint-staged": "12.1.7",
+		"pnp-webpack-plugin": "^1.7.0",
 		"prettier": "^2.5.1",
 		"prettier-plugin-prisma": "3.8.0",
 		"pretty-quick": "3.1.3",

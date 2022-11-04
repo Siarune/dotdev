@@ -4,18 +4,14 @@ packages:
     - yarn
 sources:
     - https://git.sr.ht/~siarune/siarune.dev
-secrets:
-    - 1d4233ec-b94b-4b97-9b0e-06cb60ff182d
 tasks:
     - setup: |
         mv siarune.dev siarune
         cd siarune
-        yarn install
-        yarn add vercel
-        yarn vercel pull --yes --environment=production -t pRjJDDbIhqiLi7vNRjkIqxYe
+        yarn pullConfig
     - build: |
         cd siarune
-        yarn vercel -t pRjJDDbIhqiLi7vNRjkIqxYe
+        yarn buildProd
     - deploy: |
         cd siarune
-        yarn vercel --prod  -t pRjJDDbIhqiLi7vNRjkIqxYe
+        yarn deploy
