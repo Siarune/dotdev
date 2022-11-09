@@ -1,16 +1,16 @@
-import styles from "styles/sys/chud.module.sass"
-import Image from "next/image"
+import styles from "styles/sys/chud.module.sass";
+import Image from "next/image";
 
-import { useCurrentUser } from "app/core/hooks/useCurrentUser"
-import logout from "app/auth/mutations/logout"
-import { useMutation } from "@blitzjs/rpc"
-import { Routes } from "@blitzjs/next"
-import Link from "next/link"
-import { Suspense } from "react"
+import { useCurrentUser } from "app/core/hooks/useCurrentUser";
+import logout from "app/auth/mutations/logout";
+import { useMutation } from "@blitzjs/rpc";
+import { Routes } from "@blitzjs/next";
+import Link from "next/link";
+import { Suspense } from "react";
 
 const UserInfo = () => {
-	const currentUser = useCurrentUser()
-	const [logoutMutation] = useMutation(logout)
+	const currentUser = useCurrentUser();
+	const [logoutMutation] = useMutation(logout);
 
 	if (currentUser) {
 		return (
@@ -18,13 +18,13 @@ const UserInfo = () => {
 				<button
 					className={styles.signInButton}
 					onClick={async () => {
-						await logoutMutation()
+						await logoutMutation();
 					}}
 				>
 					Logout
 				</button>
 			</>
-		)
+		);
 	} else {
 		return (
 			<>
@@ -36,13 +36,13 @@ const UserInfo = () => {
 					</button>
 				</Link>
 			</>
-		)
+		);
 	}
-}
+};
 
 type Props = {
-	theme?: string
-}
+	theme?: string;
+};
 
 export default function CluckHUD({ theme }: Props) {
 	return (
@@ -60,9 +60,11 @@ export default function CluckHUD({ theme }: Props) {
 						/>
 					</div>
 					<h2 className={styles.me}>
-					<Link href="/">
-						<a>Siarune<span className={styles.span}>.dev</span></a>
-					</Link>
+						<Link href="/">
+							<a>
+								Siarune<span className={styles.span}>.dev</span>
+							</a>
+						</Link>
 					</h2>
 				</li>
 				<Suspense fallback="Loading...">
@@ -70,5 +72,5 @@ export default function CluckHUD({ theme }: Props) {
 				</Suspense>{" "}
 			</ul>
 		</nav>
-	)
+	);
 }

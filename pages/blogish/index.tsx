@@ -1,14 +1,14 @@
-import { BlitzPage } from "@blitzjs/next"
-import styles from "styles/directory.module.sass"
-import MetaBundle from "app/core/components/MetaBundle"
-import CluckHUD from "app/core/components/CluckHUD"
+import { BlitzPage } from "@blitzjs/next";
+import styles from "styles/directory.module.sass";
+import MetaBundle from "app/core/components/MetaBundle";
+import CluckHUD from "app/core/components/CluckHUD";
 
-import theme from "styles/sys/chud.module.sass"
+import theme from "styles/sys/chud.module.sass";
 
-import { useQuery } from "@blitzjs/rpc"
-import { Suspense } from "react"
-import getPosts from "app/posts/queries/getPosts"
-import Link from "next/link"
+import { useQuery } from "@blitzjs/rpc";
+import { Suspense } from "react";
+import getPosts from "app/posts/queries/getPosts";
+import Link from "next/link";
 
 const Blogish: BlitzPage = () => {
 	return (
@@ -20,11 +20,11 @@ const Blogish: BlitzPage = () => {
 				<Feed />
 			</Suspense>
 		</div>
-	)
-}
+	);
+};
 
 function Feed() {
-	const [posts] = useQuery(getPosts, { where: { type: "blogpost" } })
+	const [posts] = useQuery(getPosts, { where: { type: "blogpost" } });
 
 	return (
 		<ul className={styles.feed}>
@@ -36,7 +36,7 @@ function Feed() {
 				</Link>
 			))}
 		</ul>
-	)
+	);
 }
 
-export default Blogish
+export default Blogish;

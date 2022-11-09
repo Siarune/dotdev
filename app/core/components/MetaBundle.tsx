@@ -1,4 +1,4 @@
-import Head from "next/head"
+import Head from "next/head";
 // import styles from '/styles/index.module.sass'
 
 export default function MetaBundle({ title }: { title: string }) {
@@ -14,5 +14,5 @@ export default function MetaBundle({ title }: { title: string }) {
 			<meta name="msapplication-TileColor" content="#da532c" />
 			<meta name="theme-color" content="#ffffff" />
 		</Head>
-	)
+	);
 }

@@ -1,4 +1,4 @@
-const PnpWebpackPlugin = require(`pnp-webpack-plugin`)
+const PnpWebpackPlugin = require(`pnp-webpack-plugin`);
 
 module.exports = {
 	resolve: {
@@ -7,4 +7,4 @@ module.exports = {
 	resolveLoader: {
 		plugins: [PnpWebpackPlugin.moduleLoader(module)],
 	},
-}
+};

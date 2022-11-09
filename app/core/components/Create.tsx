@@ -1,15 +1,15 @@
-import createPost from "app/posts/mutations/createPost"
-import { AuthenticationError } from "blitz"
-import { Form, FORM_ERROR } from "app/core/components/Form"
-import { Post } from "app/auth/validations"
-import { useMutation } from "@blitzjs/rpc"
-import LabeledTextField from "app/core/components/LabeledTextField"
-import { Field } from "react-final-form"
+import createPost from "app/posts/mutations/createPost";
+import { AuthenticationError } from "blitz";
+import { Form, FORM_ERROR } from "app/core/components/Form";
+import { Post } from "app/auth/validations";
+import { useMutation } from "@blitzjs/rpc";
+import LabeledTextField from "app/core/components/LabeledTextField";
+import { Field } from "react-final-form";
 
-import styles from "styles/post.module.sass"
+import styles from "styles/post.module.sass";
 
 export default function Create() {
-	const [createpost] = useMutation(createPost)
+	const [createpost] = useMutation(createPost);
 	return (
 		<Form
 			submitText="+"
@@ -18,16 +18,15 @@ export default function Create() {
 			className={styles.form}
 			onSubmit={async (values) => {
 				try {
-					await createpost(values)
+					await createpost(values);
 				} catch (error: any) {
 					if (error instanceof AuthenticationError) {
-						return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }
+						return { [FORM_ERROR]: "Sorry, you need to be logged in for that" };
 					} else {
 						return {
 							[FORM_ERROR]:
-								"Sorry, we had an unexpected error. Please try again. - " +
-								error.toString(),
-						}
+								"Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+						};
 					}
 				}
 			}}
@@ -43,7 +42,13 @@ export default function Create() {
 				<LabeledTextField name="name" label="" placeholder="Name" />
 			</div>
 
-			<Field className={styles.textbox} component="textarea" name="content" label="" placeholder="" />
+			<Field
+				className={styles.textbox}
+				component="textarea"
+				name="content"
+				label=""
+				placeholder=""
+			/>
 		</Form>
-	)
+	);
 }

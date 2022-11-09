@@ -1,10 +1,10 @@
-import { BlitzPage } from "@blitzjs/next"
-import CluckHUD from "app/core/components/CluckHUD"
-import MetaBundle from "app/core/components/MetaBundle"
-import Link from "next/link"
+import { BlitzPage } from "@blitzjs/next";
+import CluckHUD from "app/core/components/CluckHUD";
+import MetaBundle from "app/core/components/MetaBundle";
+import Link from "next/link";
 
-import styles from "styles/index.module.sass"
-import theme from "styles/sys/chud.module.sass"
+import styles from "styles/index.module.sass";
+import theme from "styles/sys/chud.module.sass";
 
 const Home: BlitzPage = () => {
 	return (
@@ -17,8 +17,7 @@ const Home: BlitzPage = () => {
 					<p>
 						Hey, Sia here. Nice place, huh?
 						<br />
-						It&apos;s taken quite a few redesigns, and this certainly won&apos;t be the
-						last :D
+						It&apos;s taken quite a few redesigns, and this certainly won&apos;t be the last :D
 						<br />
 						I&apos;m just a computer science student with a little too much free time.
 						<br />
@@ -29,11 +28,7 @@ const Home: BlitzPage = () => {
 							old website
 						</a>
 						, or where it all started on{" "}
-						<a
-							href="https://github.com/Siarune"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href="https://github.com/Siarune" target="_blank" rel="noopener noreferrer">
 							Github
 						</a>
 					</p>
@@ -68,9 +63,9 @@ const Home: BlitzPage = () => {
 					</div>
 				</div>
 			</div>
-		<div />
+			<div />
 		</div>
-	)
-}
+	);
+};
 
-export default Home
+export default Home;
