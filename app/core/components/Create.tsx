@@ -3,13 +3,13 @@ import { AuthenticationError } from "blitz"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import { Post } from "app/auth/validations"
 import { useMutation } from "@blitzjs/rpc"
-import LabeledTextField from "app/core/components/LabeledTextField"
 import { Field } from "react-final-form"
 
 import styles from "styles/post.module.sass"
 
 export default function Create() {
 	const [createpost] = useMutation(createPost)
+
 	return (
 		<Form
 			submitText="+"
@@ -25,8 +25,8 @@ export default function Create() {
 					} else {
 						return {
 							[FORM_ERROR]:
-								"Sorry, we had an unexpected error. Please try again. - " +
-								error.toString(),
+							"Sorry, we had an unexpected error. Please try again. - " +
+							error.toString(),
 						}
 					}
 				}
@@ -40,10 +40,12 @@ export default function Create() {
 					<option value="poem">Poem</option>
 				</Field>
 
-				<LabeledTextField name="name" label="" placeholder="Name" />
+				<Field name="name" component="input" placeholder="Name" />
+
 			</div>
 
-			<Field className={styles.textbox} component="textarea" name="content" label="" placeholder="" />
+			<Field name="content" component="textarea" className={styles.textbox}
+			       placeholder="Lorem ipsum dolor sit amet..." />
 		</Form>
 	)
 }

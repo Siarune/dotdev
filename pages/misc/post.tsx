@@ -1,4 +1,4 @@
-import { BlitzPage, Routes } from "@blitzjs/next"
+import { BlitzPage } from "@blitzjs/next"
 import CluckHUD from "app/core/components/CluckHUD"
 import MetaBundle from "app/core/components/MetaBundle"
 
@@ -10,7 +10,7 @@ import theme from "styles/sys/chud.module.sass"
 import Link from "next/link"
 
 import Create from "app/core/components/Create"
-import { invokeWithCtx } from "@blitzjs/rpc"
+import Edit from "app/core/components/Edit"
 
 const Post: BlitzPage = ({ router }: { router: any }) => {
 	const {
@@ -19,7 +19,6 @@ const Post: BlitzPage = ({ router }: { router: any }) => {
 
 	const isTabOne = t === "1" || t == null
 	const isTabTwo = t === "2"
-	const isTabThree = t === "3"
 
 	return (
 		<div className={styles.app}>
@@ -30,27 +29,20 @@ const Post: BlitzPage = ({ router }: { router: any }) => {
 
 					<div className={styles.tab}>
 						<Link href={{ pathname: "/misc/post", query: { t: "1" } }}>
-							<a style={{background: isTabOne ? "#444a73" : "#2f334d"}}><p>Create</p></a>
+							<a style={{ background: isTabOne ? "#444a73" : "#2f334d" }}><p>Create</p></a>
 						</Link>
 					</div>
 
 					<div className={styles.tab}>
-					<Link href={{ pathname: "/misc/post", query: { t: "2" } }}>
-						<a style={{background: isTabTwo ? "#444a73" : "#2f334d"}}><p>Edit</p></a>
-					</Link>
-					</div>
-
-					<div className={styles.tab}>
-					<Link href={{ pathname: "/misc/post", query: { t: "3" } }}>
-						<a style={{background: isTabThree ? "#444a73" : "#2f334d"}}><p>Preview</p></a>
-					</Link>
+						<Link href={{ pathname: "/misc/post", query: { t: "2" } }}>
+							<a style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}><p>Edit</p></a>
+						</Link>
 					</div>
 
 				</div>
 				<div className={styles.container}>
 					{isTabOne && <Create />}
-					{isTabTwo && <h1>Coming Soon</h1>}
-					{isTabThree && <h1>Coming Soon</h1>}
+					{isTabTwo && <Edit />}
 				</div>
 			</div>
 			<div />
