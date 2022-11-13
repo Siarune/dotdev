@@ -12,7 +12,7 @@ export default resolver.pipe(resolver.zod(GetPost), resolver.authorize(), async 
 	// TODO: in multi-tenant app, you must add validation to ensure correct tenant
 	const post = await db.post.findFirst({ where: { id } });
 
-	if (!post) throw new NotFoundError();
+	if (!post) { throw new NotFoundError(); }
 
 	return post;
 });

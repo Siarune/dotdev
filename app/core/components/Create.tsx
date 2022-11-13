@@ -25,7 +25,7 @@ export default function Create() {
 					} else {
 						return {
 							[FORM_ERROR]:
-								"Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+								`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`,
 						};
 					}
 				}
@@ -40,7 +40,6 @@ export default function Create() {
 				</Field>
 
 				<Field name="name" component="input" placeholder="Name" />
-
 			</div>
 
 			<Field

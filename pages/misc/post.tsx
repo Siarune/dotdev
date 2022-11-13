@@ -10,7 +10,7 @@ import theme from "styles/sys/chud.module.sass";
 import Link from "next/link";
 
 import Create from "app/core/components/Create";
-import { invokeWithCtx } from "@blitzjs/rpc";
+import Edit from "app/core/components/Edit";
 
 const Post: BlitzPage = ({ router }: { router: any }) => {
 	const {

@@ -1,25 +1,24 @@
-import { AuthenticationError } from "blitz"
-import { Form, FORM_ERROR } from "app/core/components/Form"
-import { Post } from "app/auth/validations"
-import { useMutation, useQuery } from "@blitzjs/rpc"
-import { Field } from "react-final-form"
-import { Suspense } from "react"
+import { AuthenticationError } from "blitz";
+import { Form, FORM_ERROR } from "app/core/components/Form";
+import { Post } from "app/auth/validations";
+import { useMutation, useQuery } from "@blitzjs/rpc";
+import { Field } from "react-final-form";
+import { Suspense } from "react";
 
-import styles from "styles/post.module.sass"
-import getPosts from "app/posts/queries/getPosts"
-import Link from "next/link"
-import { withRouter } from "next/router"
-import React from "react"
-import updatePost from "app/posts/mutations/updatePost"
+import styles from "styles/post.module.sass";
+import getPosts from "app/posts/queries/getPosts";
+import Link from "next/link";
+import { withRouter } from "next/router";
+import React from "react";
+import updatePost from "app/posts/mutations/updatePost";
 
 const Edit = ({ router }: { router: any }) => {
-
 	const {
 		query: { p },
-	} = router
+	} = router;
 
-	const isTabOne = p == null
-	const isTabTwo = p
+	const isTabOne = p == null;
+	const isTabTwo = p;
 
 	return (
 		<>
@@ -28,13 +27,13 @@ const Edit = ({ router }: { router: any }) => {
 				{isTabTwo && <Editor router={router} />}
 			</Suspense>
 		</>
-	)
-}
+	);
+};
 
-export default withRouter(Edit)
+export default withRouter(Edit);
 
 const Select = () => {
-	const [posts] = useQuery(getPosts, { where: { public: true } })
+	const [posts] = useQuery(getPosts, { where: { public: true } });
 
 	return (
 		<>
@@ -48,16 +47,16 @@ const Select = () => {
 				))}
 			</ul>
 		</>
-	)
-}
+	);
+};
 
 const Editor = ({ router }: { router: any }) => {
 	const {
 		query: { p },
-	} = router
+	} = router;
 
-	const [posts] = useQuery(getPosts, { where: { name: p } })
-	const [updatepost] = useMutation(updatePost)
+	const [posts] = useQuery(getPosts, { where: { name: p } });
+	const [updatepost] = useMutation(updatePost);
 
 	return (
 		<>
@@ -70,17 +69,15 @@ const Editor = ({ router }: { router: any }) => {
 					key={id}
 					onSubmit={async (values) => {
 						try {
-							await updatepost(values)
-
+							await updatepost(values);
 						} catch (error: any) {
 							if (error instanceof AuthenticationError) {
-								return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }
+								return { [FORM_ERROR]: "Sorry, you need to be logged in for that" };
 							} else {
 								return {
 									[FORM_ERROR]:
-									"Sorry, we had an unexpected error. Please try again. - " +
-									error.toString(),
-								}
+										`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`,
+								};
 							}
 						}
 					}}
@@ -99,7 +96,7 @@ const Editor = ({ router }: { router: any }) => {
 				</Form>
 			))}
 		</>
-	)
-}
+	);
+};
 
-withRouter(Editor)
+withRouter(Editor);

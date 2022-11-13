@@ -8,7 +8,7 @@ import { Login } from "../validations";
 export const authenticateUser = async (rawEmail: string, rawPassword: string) => {
 	const { email, password } = Login.parse({ email: rawEmail, password: rawPassword });
 	const user = await db.user.findFirst({ where: { email } });
-	if (!user) throw new AuthenticationError();
+	if (!user) { throw new AuthenticationError(); }
 
 	const result = await SecurePassword.verify(user.hashedPassword, password);
 
