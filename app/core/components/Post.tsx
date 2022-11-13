@@ -1,17 +1,16 @@
-import { useQuery } from "@blitzjs/rpc"
-import getPosts from "app/posts/queries/getPosts"
-import { withRouter } from "next/router"
-import MetaBundle from "./MetaBundle"
-import styles from "styles/blog.module.sass"
-import ReactMarkdown from "react-markdown"
+import { useQuery } from "@blitzjs/rpc";
+import getPosts from "app/posts/queries/getPosts";
+import { withRouter } from "next/router";
+import MetaBundle from "./MetaBundle";
+import styles from "styles/blog.module.sass";
+import ReactMarkdown from "react-markdown";
 
 const Post = ({ router }: { router: any }) => {
-
 	const {
 		query: { p },
-	} = router
+	} = router;
 
-	const [posts] = useQuery(getPosts, { where: { name: p } })
+	const [posts] = useQuery(getPosts, { where: { name: p } });
 
 	return (
 		<>
@@ -20,14 +19,12 @@ const Post = ({ router }: { router: any }) => {
 					<MetaBundle title={name} />
 					<h1>{name}</h1>
 					<div className={styles.content}>
-						<ReactMarkdown>
-						{content}
-						</ReactMarkdown>
+						<ReactMarkdown>{content}</ReactMarkdown>
 					</div>
 				</div>
 			))}
 		</>
-	)
-}
+	);
+};
 
-export default withRouter(Post)
+export default withRouter(Post);

@@ -1,11 +1,11 @@
-import styles from "styles/poetry.module.sass"
-import theme from "styles/sys/chud.module.sass"
-import { BlitzPage } from "@blitzjs/next"
-import CluckHUD from "app/core/components/CluckHUD"
-import { useQuery } from "@blitzjs/rpc"
-import { Suspense } from "react"
-import getPosts from "app/posts/queries/getPosts"
-import ReactMarkdown from "react-markdown"
+import styles from "styles/poetry.module.sass";
+import theme from "styles/sys/chud.module.sass";
+import { BlitzPage } from "@blitzjs/next";
+import CluckHUD from "app/core/components/CluckHUD";
+import { useQuery } from "@blitzjs/rpc";
+import { Suspense } from "react";
+import getPosts from "app/posts/queries/getPosts";
+import ReactMarkdown from "react-markdown";
 
 const Poetry: BlitzPage = () => {
 	return (
@@ -23,11 +23,11 @@ const Poetry: BlitzPage = () => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 const Poems = () => {
-	const [poems] = useQuery(getPosts, { where: { type: "poem" } })
+	const [poems] = useQuery(getPosts, { where: { type: "poem" } });
 	return (
 		<div className={styles.poems}>
 			{poems.posts.map(({ id, name, content }) => (
@@ -36,18 +36,16 @@ const Poems = () => {
 						<summary className={styles.collapsibleTitle}>{name}</summary>
 
 						<p className={styles.collapsibleText}>
-							<ReactMarkdown>
-								{content}
-							</ReactMarkdown>
+							<ReactMarkdown>{content}</ReactMarkdown>
 						</p>
 					</details>
 				</div>
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export default Poetry
+export default Poetry;
 
 /*
 					<div className={styles.collapsibleWrapper}>

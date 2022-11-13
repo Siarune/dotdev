@@ -1,16 +1,16 @@
-import { forwardRef, ComponentPropsWithoutRef, PropsWithoutRef } from "react"
-import { useField, UseFieldConfig } from "react-final-form"
+import { forwardRef, ComponentPropsWithoutRef, PropsWithoutRef } from "react";
+import { useField, UseFieldConfig } from "react-final-form";
 
 export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
 	/** Field name. */
-	name: string
+	name: string;
 	/** Field label. */
-	label: string
+	label: string;
 	/** Field type. Doesn't include radio buttons and checkboxes */
-	type?: "text" | "password" | "email" | "number"
-	outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>
-	labelProps?: ComponentPropsWithoutRef<"label">
-	fieldProps?: UseFieldConfig<string>
+	type?: "text" | "password" | "email" | "number";
+	outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>;
+	labelProps?: ComponentPropsWithoutRef<"label">;
+	fieldProps?: UseFieldConfig<string>;
 }
 
 export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldProps>(
@@ -23,11 +23,11 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
 				props.type === "number"
 					? (Number as any)
 					: // Converting `""` to `null` ensures empty values will be set to null in the DB
-					(v) => (v === "" ? null : v),
+					  (v) => (v === "" ? null : v),
 			...fieldProps,
-		})
+		});
 
-		const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError
+		const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError;
 
 		return (
 			<div {...outerProps}>
@@ -60,8 +60,8 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
 					}
 				`}</style>
 			</div>
-		)
-	}
-)
+		);
+	},
+);
 
-export default LabeledTextField
+export default LabeledTextField;
