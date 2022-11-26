@@ -1,4 +1,4 @@
-import Document, { Html, Main, NextScript, Head } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document"
 
 class MyDocument extends Document {
 	// Only uncomment if you need to customize this behaviour
@@ -9,14 +9,14 @@ class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang="en">
-				<Head />
+				<Head/>
 				<body>
-					<Main />
-					<NextScript />
+				<Main/>
+				<NextScript/>
 				</body>
 			</Html>
-		);
+		)
 	}
 }
 
-export default MyDocument;
+export default MyDocument

@@ -1,16 +1,16 @@
-import styles from "styles/sys/chud.module.sass";
-import Image from "next/image";
+import { Routes } from "@blitzjs/next"
+import { useMutation } from "@blitzjs/rpc"
+import logout from "app/auth/mutations/logout"
 
-import { useCurrentUser } from "app/core/hooks/useCurrentUser";
-import logout from "app/auth/mutations/logout";
-import { useMutation } from "@blitzjs/rpc";
-import { Routes } from "@blitzjs/next";
-import Link from "next/link";
-import { Suspense } from "react";
+import { useCurrentUser } from "app/core/hooks/useCurrentUser"
+import Image from "next/image"
+import Link from "next/link"
+import { Suspense } from "react"
+import styles from "styles/sys/chud.module.sass"
 
 const UserInfo = () => {
-	const currentUser = useCurrentUser();
-	const [logoutMutation] = useMutation(logout);
+	const currentUser = useCurrentUser()
+	const [logoutMutation] = useMutation(logout)
 
 	if (currentUser) {
 		return (
@@ -18,17 +18,17 @@ const UserInfo = () => {
 				<button
 					className={styles.signInButton}
 					onClick={async () => {
-						await logoutMutation();
+						await logoutMutation()
 					}}
 				>
 					Logout
 				</button>
 			</>
-		);
+		)
 	} else {
 		return (
 			<>
-				<Link href={Routes.SignupPage()}>
+				<Link href={Routes.LoginPage()}>
 					<button className={styles.signInButton}>
 						<a>
 							<strong>Sign In</strong>
@@ -36,15 +36,15 @@ const UserInfo = () => {
 					</button>
 				</Link>
 			</>
-		);
+		)
 	}
-};
+}
 
 type Props = {
 	theme?: string;
-};
+}
 
-export default function CluckHUD({ theme }: Props) {
+export default function CluckHUD( { theme }: Props ) {
 	return (
 		<nav className={theme}>
 			<ul className={styles.navbarNav}>
@@ -68,9 +68,9 @@ export default function CluckHUD({ theme }: Props) {
 					</h2>
 				</li>
 				<Suspense fallback="Loading...">
-					<UserInfo />
+					<UserInfo/>
 				</Suspense>{" "}
 			</ul>
 		</nav>
-	);
+	)
 }

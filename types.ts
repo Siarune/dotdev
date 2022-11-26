@@ -1,5 +1,5 @@
-import { SimpleRolesIsAuthorized } from "@blitzjs/auth";
-import { User } from "db";
+import { SimpleRolesIsAuthorized } from "@blitzjs/auth"
+import { User } from "app/db"
 
 export type Role = "ADMIN" | "USER";
 

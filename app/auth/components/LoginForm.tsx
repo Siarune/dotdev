@@ -1,20 +1,20 @@
-import { AuthenticationError, PromiseReturnType } from "blitz";
-import Link from "next/link";
-import { LabeledTextField } from "app/core/components/LabeledTextField";
-import { Form, FORM_ERROR } from "app/core/components/Form";
-import login from "app/auth/mutations/login";
-import { Login } from "app/auth/validations";
-import { useMutation } from "@blitzjs/rpc";
-import { Routes } from "@blitzjs/next";
+import { Routes } from "@blitzjs/next"
+import { useMutation } from "@blitzjs/rpc"
+import login from "app/auth/mutations/login"
+import { Login } from "app/auth/validations"
+import { Form, FORM_ERROR } from "app/core/components/Form"
+import { LabeledTextField } from "app/core/components/LabeledTextField"
+import { AuthenticationError, PromiseReturnType } from "blitz"
+import Link from "next/link"
 
-import styles from "styles/sys/authform.module.sass";
+import styles from "styles/sys/authform.module.sass"
 
 type LoginFormProps = {
-	onSuccess?: (user: PromiseReturnType<typeof login>) => void;
+	onSuccess?: ( user: PromiseReturnType<typeof login> ) => void;
 };
 
-export const LoginForm = (props: LoginFormProps) => {
-	const [loginMutation] = useMutation(login);
+export const LoginForm = ( props: LoginFormProps ) => {
+	const [loginMutation] = useMutation(login)
 	return (
 		<div className={styles.app}>
 			<div className={styles.main}>
@@ -24,27 +24,27 @@ export const LoginForm = (props: LoginFormProps) => {
 					submitText="Login"
 					schema={Login}
 					initialValues={{ email: "", password: "" }}
-					onSubmit={async (values) => {
+					onSubmit={async ( values ) => {
 						try {
-							const user = await loginMutation(values);
-							props.onSuccess?.(user);
+							const user = await loginMutation(values)
+							props.onSuccess?.(user)
 						} catch (error: any) {
 							if (error instanceof AuthenticationError) {
-								return { [FORM_ERROR]: "Sorry, those credentials are invalid" };
+								return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
 							} else {
 								return {
 									[FORM_ERROR]:
 										`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`,
-								};
+								}
 							}
 						}
 					}}
 				>
-					<LabeledTextField name="email" label="Email" placeholder="Email" />
+					<LabeledTextField name="email" label="Email" placeholder="JohnDoe@mail.com"/>
 					<LabeledTextField
 						name="password"
 						label="Password"
-						placeholder="Password"
+						placeholder="Super-Secret-Password"
 						type="password"
 					/>
 					<div>
@@ -61,7 +61,7 @@ export const LoginForm = (props: LoginFormProps) => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default LoginForm;
+export default LoginForm

@@ -1,32 +1,31 @@
-import createPost from "app/posts/mutations/createPost";
-import { AuthenticationError } from "blitz";
-import { Form, FORM_ERROR } from "app/core/components/Form";
-import { Post } from "app/auth/validations";
-import { useMutation } from "@blitzjs/rpc";
-import LabeledTextField from "app/core/components/LabeledTextField";
-import { Field } from "react-final-form";
+import { useMutation } from "@blitzjs/rpc"
+import { Post } from "app/auth/validations"
+import { Form, FORM_ERROR } from "app/core/components/Form"
+import createPost from "app/posts/mutations/createPost"
+import { AuthenticationError } from "blitz"
+import { Field } from "react-final-form"
 
-import styles from "styles/post.module.sass";
+import styles from "styles/post.module.sass"
 
 export default function Create() {
-	const [createpost] = useMutation(createPost);
+	const [createpost] = useMutation(createPost)
 	return (
 		<Form
 			submitText="+"
 			schema={Post}
 			initialValues={{ type: "", name: "", content: "" }}
 			className={styles.form}
-			onSubmit={async (values) => {
+			onSubmit={async ( values ) => {
 				try {
-					await createpost(values);
+					await createpost(values)
 				} catch (error: any) {
 					if (error instanceof AuthenticationError) {
-						return { [FORM_ERROR]: "Sorry, you need to be logged in for that" };
+						return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }
 					} else {
 						return {
 							[FORM_ERROR]:
 								`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`,
-						};
+						}
 					}
 				}
 			}}
@@ -39,7 +38,7 @@ export default function Create() {
 					<option value="poem">Poem</option>
 				</Field>
 
-				<Field name="name" component="input" placeholder="Name" />
+				<Field name="name" component="input" placeholder="Name"/>
 			</div>
 
 			<Field
@@ -50,5 +49,5 @@ export default function Create() {
 				placeholder=""
 			/>
 		</Form>
-	);
+	)
 }

@@ -1,5 +1,5 @@
-import { forwardRef, ComponentPropsWithoutRef, PropsWithoutRef } from "react";
-import { useField, UseFieldConfig } from "react-final-form";
+import { ComponentPropsWithoutRef, forwardRef, PropsWithoutRef } from "react"
+import { useField, UseFieldConfig } from "react-final-form"
 
 export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
 	/** Field name. */
@@ -14,7 +14,7 @@ export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElem
 }
 
 export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldProps>(
-	({ name, label, outerProps, fieldProps, labelProps, ...props }, ref) => {
+	( { name, label, outerProps, fieldProps, labelProps, ...props }, ref ) => {
 		const {
 			input,
 			meta: { touched, error, submitError, submitting },
@@ -23,17 +23,17 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
 				props.type === "number"
 					? (Number as any)
 					: // Converting `""` to `null` ensures empty values will be set to null in the DB
-					  (v) => (v === "" ? null : v),
+					( v ) => (v === "" ? null : v),
 			...fieldProps,
-		});
+		})
 
-		const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError;
+		const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError
 
 		return (
 			<div {...outerProps}>
 				<label {...labelProps}>
 					{label}
-					<input {...input} disabled={submitting} {...props} ref={ref} />
+					<input {...input} disabled={submitting} {...props} ref={ref}/>
 				</label>
 
 				{touched && normalizedError && (
@@ -60,8 +60,8 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
 					}
 				`}</style>
 			</div>
-		);
+		)
 	},
-);
+)
 
-export default LabeledTextField;
+export default LabeledTextField

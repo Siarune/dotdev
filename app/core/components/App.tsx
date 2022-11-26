@@ -1,7 +1,5 @@
-import styles from "styles/app.module.sass";
-import MetaBundle from "app/core/components/MetaBundle";
-import CluckHUD from "app/core/components/CluckHUD";
-import chud from "styles/chud.module.sass";
+import CluckHUD from "app/core/components/CluckHUD"
+import MetaBundle from "app/core/components/MetaBundle"
 
 type Props = {
 	// preview?: boolean
@@ -11,12 +9,12 @@ type Props = {
 	title: string;
 };
 
-export default function App({ children, theme, navTheme, title }: Props) {
+export default function App( { children, theme, navTheme, title }: Props ) {
 	return (
 		<div className={theme}>
-			<MetaBundle title={title} />
-			<CluckHUD theme={navTheme} />
+			<MetaBundle title={title}/>
+			<CluckHUD theme={navTheme}/>
 			{children}
 		</div>
-	);
+	)
 }

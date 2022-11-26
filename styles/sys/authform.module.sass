@@ -22,15 +22,18 @@
 	input
 		// width: 100%
 		border-radius: 3px
-		border: none
+		border: none !important
+		background: moon.$Moonlight_Text
+		color: moon.$Moonlight_Bg_2
 
 	button
 		background: moon.$Moonlight_Btn
 		// text-size: 10px
-		color: whitesmoke
+		color: moon.$Moonlight_Text
 		border: none
 		border-radius: 3px
 		padding: 4px
+		font-size: large
 
 	p
 		font-size: small
@@ -41,3 +44,9 @@
 	.back
 		margin: 0
 		text-decoration: none
+
+	@media (max-width: 1000px)
+		width: 50vw
+
+	@media (max-width: 676px)
+		width: 75vw

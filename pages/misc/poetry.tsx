@@ -1,16 +1,16 @@
-import styles from "styles/poetry.module.sass";
-import theme from "styles/sys/chud.module.sass";
-import { BlitzPage } from "@blitzjs/next";
-import CluckHUD from "app/core/components/CluckHUD";
-import { useQuery } from "@blitzjs/rpc";
-import { Suspense } from "react";
-import getPosts from "app/posts/queries/getPosts";
-import ReactMarkdown from "react-markdown";
+import { BlitzPage } from "@blitzjs/next"
+import { useQuery } from "@blitzjs/rpc"
+import CluckHUD from "app/core/components/CluckHUD"
+import getPosts from "app/posts/queries/getPosts"
+import { Suspense } from "react"
+import ReactMarkdown from "react-markdown"
+import styles from "styles/poetry.module.sass"
+import theme from "styles/sys/chud.module.sass"
 
 const Poetry: BlitzPage = () => {
 	return (
 		<div className={styles.app}>
-			<CluckHUD theme={theme.Book} />
+			<CluckHUD theme={theme.Book}/>
 			<div className={styles.main}>
 				<div className={styles.bannerWrapper}>
 					<h1 className={styles.banner}>Some Very (very) Bad Poetry</h1>
@@ -18,19 +18,19 @@ const Poetry: BlitzPage = () => {
 
 				<div className={styles.poems}>
 					<Suspense>
-						<Poems />
+						<Poems/>
 					</Suspense>
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 const Poems = () => {
-	const [poems] = useQuery(getPosts, { where: { type: "poem" } });
+	const [poems] = useQuery(getPosts, {where: {type: "poem"}})
 	return (
 		<div className={styles.poems}>
-			{poems.posts.map(({ id, name, content }) => (
+			{poems.posts.map(({id, name, content}) => (
 				<div className={styles.collapsibleWrapper} key={id}>
 					<details>
 						<summary className={styles.collapsibleTitle}>{name}</summary>
@@ -42,10 +42,10 @@ const Poems = () => {
 				</div>
 			))}
 		</div>
-	);
-};
+	)
+}
 
-export default Poetry;
+export default Poetry
 
 /*
 					<div className={styles.collapsibleWrapper}>

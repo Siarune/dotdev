@@ -1,20 +1,19 @@
-import { LabeledTextField } from "app/core/components/LabeledTextField";
-import { Form, FORM_ERROR } from "app/core/components/Form";
-import signup from "app/auth/mutations/signup";
-import { Signup } from "app/auth/validations";
-import { useMutation } from "@blitzjs/rpc";
-import { Routes } from "@blitzjs/next";
+import { Routes } from "@blitzjs/next"
+import { useMutation } from "@blitzjs/rpc"
+import signup from "app/auth/mutations/signup"
+import { Signup } from "app/auth/validations"
+import { Form, FORM_ERROR } from "app/core/components/Form"
+import { LabeledTextField } from "app/core/components/LabeledTextField"
+import Link from "next/link"
 // import { useRouter } from "next/router"
-
-import styles from "styles/sys/authform.module.sass";
-import Link from "next/link";
+import styles from "styles/sys/authform.module.sass"
 
 type SignupFormProps = {
 	onSuccess?: () => void;
 };
 
-export const SignupForm = (props: SignupFormProps) => {
-	const [signupMutation] = useMutation(signup);
+export const SignupForm = ( props: SignupFormProps ) => {
+	const [signupMutation] = useMutation(signup)
 	// const router = useRouter()
 	return (
 		<div className={styles.app}>
@@ -25,25 +24,25 @@ export const SignupForm = (props: SignupFormProps) => {
 					submitText="Create Account"
 					schema={Signup}
 					initialValues={{ email: "", password: "" }}
-					onSubmit={async (values) => {
+					onSubmit={async ( values ) => {
 						try {
-							await signupMutation(values);
-							props.onSuccess?.();
+							await signupMutation(values)
+							props.onSuccess?.()
 						} catch (error: any) {
 							if (error.code === "P2002" && error.meta?.target?.includes("email")) {
 								// This error comes from Prisma
-								return { email: "This email is already being used" };
+								return { email: "This email is already being used" }
 							} else {
-								return { [FORM_ERROR]: error.toString() };
+								return { [FORM_ERROR]: error.toString() }
 							}
 						}
 					}}
 				>
-					<LabeledTextField name="email" label="Email" placeholder="Email" />
+					<LabeledTextField name="email" label="Email" placeholder="JohnDoe@mail.com"/>
 					<LabeledTextField
 						name="password"
 						label="Password"
-						placeholder="Password"
+						placeholder="Super-Secret-Password"
 						type="password"
 					/>
 				</Form>
@@ -51,10 +50,9 @@ export const SignupForm = (props: SignupFormProps) => {
 					Already have an account? <Link href={Routes.LoginPage()}>Sign in!</Link>
 				</p>
 
-				{/* <Link href={Routes.Home()} className={styles.back}>{"<--Back--"}</Link> */}
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default SignupForm;
+export default SignupForm

@@ -1,18 +1,20 @@
-import { NotFoundError } from "blitz";
-import { resolver } from "@blitzjs/rpc";
-import db from "db";
-import { z } from "zod";
+import { resolver } from "@blitzjs/rpc"
+import db from "app/db"
+import { NotFoundError } from "blitz"
+import { z } from "zod"
 
 const GetPost = z.object({
 	// This accepts type of undefined, but is required at runtime
 	id: z.number().optional().refine(Boolean, "Required"),
-});
+})
 
-export default resolver.pipe(resolver.zod(GetPost), resolver.authorize(), async ({ id }) => {
+export default resolver.pipe(resolver.zod(GetPost), resolver.authorize(), async ( { id } ) => {
 	// TODO: in multi-tenant app, you must add validation to ensure correct tenant
-	const post = await db.post.findFirst({ where: { id } });
+	const post = await db.post.findFirst({ where: { id } })
 
-	if (!post) { throw new NotFoundError(); }
+	if (!post) {
+		throw new NotFoundError()
+	}
 
-	return post;
-});
+	return post
+})
