@@ -1,9 +1,10 @@
 @use 'themes/moon'
 
 .app
-	background: moon.$Moonlight_Contrast
-	// height: calc(100vh - 3rem)
-	min-height: 100vh
+	position: absolute
+	top: 3rem
+	bottom: 0
+	width: 100%
 	max-height: fit-content
 	display: flex
 	flex-direction: column
@@ -21,7 +22,7 @@
 	border-radius: 10px
 	min-height: 75vh
 	width: 75vw
-	margin-bottom: 1rem
+	margin: 3rem
 
 	@media (max-width: 1000px)
 		flex-direction: column
@@ -76,6 +77,9 @@
 		border-radius: 5px
 		border: none !important
 		margin: .5rem
+
+	button:hover
+		cursor: pointer
 
 .top
 	display: flex

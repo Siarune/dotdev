@@ -4,14 +4,14 @@ import resetPassword from "app/auth/mutations/resetPassword"
 import { ResetPassword } from "app/auth/validations"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import { LabeledTextField } from "app/core/components/LabeledTextField"
-import Layout from "app/core/layouts/Layout"
+import Layout from "app/core/layouts/App"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import styles from "styles/sys/password.module.sass"
 
 const ResetPasswordPage: BlitzPage = () => {
 	const router = useRouter()
-	const [resetPasswordMutation, {isSuccess}] = useMutation(resetPassword)
+	const [resetPasswordMutation, { isSuccess }] = useMutation(resetPassword)
 
 	return (
 		<div className={styles.app}>
@@ -34,7 +34,7 @@ const ResetPasswordPage: BlitzPage = () => {
 							passwordConfirmation: "",
 							token: router.query.token as string,
 						}}
-						onSubmit={async (values) => {
+						onSubmit={async ( values ) => {
 							try {
 								await resetPasswordMutation(values)
 							} catch (error: any) {
@@ -64,6 +64,6 @@ const ResetPasswordPage: BlitzPage = () => {
 }
 
 ResetPasswordPage.redirectAuthenticatedTo = "/"
-ResetPasswordPage.getLayout = (page) => <Layout title="Reset Your Password">{page}</Layout>
+ResetPasswordPage.getLayout = ( page ) => <Layout title="Reset Your Password">{page}</Layout>
 
 export default ResetPasswordPage

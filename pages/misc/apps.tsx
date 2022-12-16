@@ -1,176 +1,174 @@
 import { BlitzPage } from "@blitzjs/next"
-import CluckHUD from "app/core/components/CluckHUD"
-import MetaBundle from "app/core/components/MetaBundle"
+import App from "app/core/layouts/App"
 import styles from "styles/apps.module.sass"
-import theme from "styles/sys/chud.module.sass"
 
 const Apps: BlitzPage = () => {
 	return (
-		<div className={styles.app}>
-			<MetaBundle title="Apps"/>
-			<CluckHUD theme={theme.Moon}/>
-			<div className={styles.container}>
-				<h1>FOSS Android Mods</h1>
-				<p>
-					The following is a list of free, safe, and open-source Android mods for your
-					convenience
-					(click for details)
-				</p>
-				<div className={styles.box}>
-					{/* xManager */}
-					<details className={styles.listItem}>
-						<summary>
-							<div className={styles.info}>
-								<h4>xManager for Spotify</h4>
-								<p>Spotify as it should be</p>
-							</div>
+		<App title={"Apps"} theme={"Moon"}>
+			<div className={styles.app}>
+				<div className={styles.container}>
+					<h1>FOSS Android Mods</h1>
+					<p>
+						The following is a list of free, safe, and open-source Android mods for your
+						convenience
+						(click for details)
+					</p>
+					<div className={styles.box}>
+						{/* xManager */}
+						<details className={styles.listItem}>
+							<summary>
+								<div className={styles.info}>
+									<h4>xManager for Spotify</h4>
+									<p>Spotify as it should be</p>
+								</div>
 
-							<div>
-								<a href="https://github.com/xManager-v2/xManager-Spotify">
-									<VisitIcon/>
-								</a>
-								<a href="https://github.com/xManager-v2/xManager-Spotify/releases/latest">
-									<DownloadIcon/>
-								</a>
+								<div>
+									<a href="https://github.com/xManager-v2/xManager-Spotify">
+										<VisitIcon/>
+									</a>
+									<a href="https://github.com/xManager-v2/xManager-Spotify/releases/latest">
+										<DownloadIcon/>
+									</a>
+								</div>
+							</summary>
+							<hr/>
+							<div className={styles.content}>
+								<ul>
+									<li>Full suite of management tools</li>
+									<li>Amoled black theme (optional)</li>
+									<li>Sleek and easy to use</li>
+								</ul>
 							</div>
-						</summary>
-						<hr/>
-						<div className={styles.content}>
-							<ul>
-								<li>Full suite of management tools</li>
-								<li>Amoled black theme (optional)</li>
-								<li>Sleek and easy to use</li>
-							</ul>
-						</div>
-					</details>
+						</details>
 
-					{/* Aliucord */}
-					<details className={styles.listItem}>
-						<summary>
-							<div className={styles.info}>
-								<h4>Aliucord</h4>
-								<p>Discord with superpowers</p>
+						{/* Aliucord */}
+						<details className={styles.listItem}>
+							<summary>
+								<div className={styles.info}>
+									<h4>Aliucord</h4>
+									<p>Discord with superpowers</p>
+								</div>
+								<div>
+									<a href="https://github.com/Aliucord/Aliucord/">
+										<VisitIcon/>
+									</a>
+									<a href="https://github.com/Aliucord/Aliucord/releases/latest">
+										<DownloadIcon/>
+									</a>
+								</div>
+							</summary>
+							<hr/>
+							<div className={styles.content}>
+								<ul>
+									<li>Plugins for everything</li>
+									<li>Themes on themes on themes</li>
+									<li>Blocks most tracking/analytics, if that matters to you</li>
+								</ul>
 							</div>
-							<div>
-								<a href="https://github.com/Aliucord/Aliucord/">
-									<VisitIcon/>
-								</a>
-								<a href="https://github.com/Aliucord/Aliucord/releases/latest">
-									<DownloadIcon/>
-								</a>
-							</div>
-						</summary>
-						<hr/>
-						<div className={styles.content}>
-							<ul>
-								<li>Plugins for everything</li>
-								<li>Themes on themes on themes</li>
-								<li>Blocks most tracking/analytics, if that matters to you</li>
-							</ul>
-						</div>
-					</details>
+						</details>
 
-					{/* Saikou */}
-					<details className={styles.listItem}>
-						<summary>
-							<div className={styles.info}>
-								<h4>Saikou</h4>
-								<p>Stream and download anime & manga</p>
-							</div>
+						{/* Saikou */}
+						<details className={styles.listItem}>
+							<summary>
+								<div className={styles.info}>
+									<h4>Saikou</h4>
+									<p>Stream and download anime & manga</p>
+								</div>
 
-							<div>
-								<a href="https://github.com/saikou-app/saikou">
-									<VisitIcon/>
-								</a>
-								<a href="https://github.com/saikou-app/saikou/releases/latest">
-									<DownloadIcon/>
-								</a>
+								<div>
+									<a href="https://github.com/saikou-app/saikou">
+										<VisitIcon/>
+									</a>
+									<a href="https://github.com/saikou-app/saikou/releases/latest">
+										<DownloadIcon/>
+									</a>
+								</div>
+							</summary>
+							<hr/>
+							<div className={styles.content}>
+								<ul>
+									<li>Anilist tracking</li>
+									<li>Plenty of sources</li>
+									<li>Ad-free, of course</li>
+								</ul>
 							</div>
-						</summary>
-						<hr/>
-						<div className={styles.content}>
-							<ul>
-								<li>Anilist tracking</li>
-								<li>Plenty of sources</li>
-								<li>Ad-free, of course</li>
-							</ul>
-						</div>
-					</details>
+						</details>
 
-					{/* Tachiyomi */}
-					<details className={styles.listItem}>
-						<summary>
-							<div className={styles.info}>
-								<h4>Tachiyomi</h4>
-								<p>Manga and Webtoon reader</p>
-							</div>
+						{/* Tachiyomi */}
+						<details className={styles.listItem}>
+							<summary>
+								<div className={styles.info}>
+									<h4>Tachiyomi</h4>
+									<p>Manga and Webtoon reader</p>
+								</div>
 
-							<div>
-								<a href="https://tachiyomi.org/">
-									<VisitIcon/>
-								</a>
-								<a href="https://tachiyomi.org/download/">
-									<DownloadIcon/>
-								</a>
+								<div>
+									<a href="https://tachiyomi.org/">
+										<VisitIcon/>
+									</a>
+									<a href="https://tachiyomi.org/download/">
+										<DownloadIcon/>
+									</a>
+								</div>
+							</summary>
+							<hr/>
+							<div className={styles.content}>
+								<ul>
+									<li>Downloading content</li>
+									<li>Themes and settings up the wazoo</li>
+									<li>List tracking (MAL, Anilist)</li>
+									<li>Automatic library updates and backups</li>
+								</ul>
+								<p>
+									Also consider <a
+									href="https://tachiyomi.org/forks/TachiyomiSY/">TachiyomiSY</a>{" "}
+									<a href="https://tachiyomi.org/forks/TachiyomiSY/">{/* <DownloadIcon /> */}</a>
+								</p>
+								<p>
+									Source code for <a
+									href="https://github.com/tachiyomiorg/tachiyomi">original</a> and{" "}
+									<a href="https://github.com/jobobby04/TachiyomiSY">SY</a>
+								</p>
 							</div>
-						</summary>
-						<hr/>
-						<div className={styles.content}>
-							<ul>
-								<li>Downloading content</li>
-								<li>Themes and settings up the wazoo</li>
-								<li>List tracking (MAL, Anilist)</li>
-								<li>Automatic library updates and backups</li>
-							</ul>
-							<p>
-								Also consider <a
-								href="https://tachiyomi.org/forks/TachiyomiSY/">TachiyomiSY</a>{" "}
-								<a href="https://tachiyomi.org/forks/TachiyomiSY/">{/* <DownloadIcon /> */}</a>
-							</p>
-							<p>
-								Source code for <a
-								href="https://github.com/tachiyomiorg/tachiyomi">original</a> and{" "}
-								<a href="https://github.com/jobobby04/TachiyomiSY">SY</a>
-							</p>
-						</div>
-					</details>
+						</details>
 
-					{/* ReVanced */}
-					<details className={styles.listItem}>
-						<summary>
-							<div className={styles.info}>
-								<h4>ReVanced Manager</h4>
-								<p>Multi-patcher with style (still in beta)</p>
+						{/* ReVanced */}
+						<details className={styles.listItem}>
+							<summary>
+								<div className={styles.info}>
+									<h4>ReVanced Manager</h4>
+									<p>Multi-patcher with style (still in beta)</p>
+								</div>
+								<div>
+									<a href="https://github.com/revanced/revanced-manager">
+										<VisitIcon/>
+									</a>
+									<a href="https://github.com/revanced/revanced-manager/releases/latest">
+										<DownloadIcon/>
+									</a>
+								</div>
+							</summary>
+							<hr/>
+							<div className={styles.content}>
+								<ul>
+									<li>Patch Youtube, Spotify, Twitter, TikTok, and more!</li>
+									<li>Patch list still growing</li>
+									<li>Update everything easily</li>
+									<li>Still in fairly early development, use with caution</li>
+								</ul>
 							</div>
-							<div>
-								<a href="https://github.com/revanced/revanced-manager">
-									<VisitIcon/>
-								</a>
-								<a href="https://github.com/revanced/revanced-manager/releases/latest">
-									<DownloadIcon/>
-								</a>
-							</div>
-						</summary>
-						<hr/>
-						<div className={styles.content}>
-							<ul>
-								<li>Patch Youtube, Spotify, Twitter, TikTok, and more!</li>
-								<li>Patch list still growing</li>
-								<li>Update everything easily</li>
-								<li>Still in fairly early development, use with caution</li>
-							</ul>
-						</div>
-					</details>
+						</details>
+					</div>
 				</div>
-			</div>
 
-			<footer className={styles.footer}>
-				<p>
-					Contact: <a href="mailto:sia@siarune.dev">sia@siarune.dev</a> | Liscenced under
-					GPLv3
-				</p>
-			</footer>
-		</div>
+				<footer className={styles.footer}>
+					<p>
+						Contact: <a href="mailto:sia@siarune.dev">sia@siarune.dev</a> | Liscenced under
+						GPLv3
+					</p>
+				</footer>
+			</div>
+		</App>
 	)
 }
 

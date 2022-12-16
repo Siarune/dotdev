@@ -1,20 +1,12 @@
-import { ErrorComponent } from "@blitzjs/next"
-import Head from "next/head"
+import Error from "app/core/components/Error"
+import App from "app/core/layouts/App"
 
-// ------------------------------------------------------
-// This page is rendered if a route match is not found
-// ------------------------------------------------------
 export default function Page404() {
 	const statusCode = 404
-	const title = "This page could not be found"
+	const title = "Page not found"
 	return (
-		<>
-			<Head>
-				<title>
-					{statusCode}: {title}
-				</title>
-			</Head>
-			<ErrorComponent statusCode={statusCode} title={title}/>
-		</>
+		<App title={title} theme={"Moon"}>
+			<Error statusCode={statusCode} errorMessage={title}/>
+		</App>
 	)
 }

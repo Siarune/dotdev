@@ -1,5 +1,5 @@
 import { resolver } from "@blitzjs/rpc"
-import db, { Prisma } from "app/db"
+import db, { Prisma } from "db"
 import { paginate } from "blitz"
 
 interface GetPostsInput

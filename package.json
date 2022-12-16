@@ -15,7 +15,7 @@
 		"postinstall": "prisma generate || true"
 	},
 	"prisma": {
-		"schema": "app/db/schema.prisma"
+		"schema": "db/schema.prisma"
 	},
 	"dependencies": {
 		"@blitzjs/auth": "2.0.0-beta.19",

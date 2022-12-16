@@ -38,7 +38,7 @@ const Select = () => {
 		<>
 			<ul className={styles.cards}>
 				{posts.posts.map(( { id, name } ) => (
-					<Link href={{ pathname: "/misc/post", query: { t: "2", p: name } }} key={id}>
+					<Link href={{ pathname: "/misc/post", query: { t: "edit", p: name } }} key={id}>
 						<a className={styles.card}>
 							<li>{name}</li>
 						</a>

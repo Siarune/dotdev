@@ -1,25 +1,21 @@
 import { BlitzPage } from "@blitzjs/next"
-
 import { useQuery } from "@blitzjs/rpc"
-import CluckHUD from "app/core/components/CluckHUD"
-import MetaBundle from "app/core/components/MetaBundle"
+import App from "app/core/layouts/App"
 import getPosts from "app/posts/queries/getPosts"
 import Link from "next/link"
 import { Suspense } from "react"
 import styles from "styles/directory.module.sass"
 
-import theme from "styles/sys/chud.module.sass"
-
 const Projects: BlitzPage = () => {
 	return (
-		<div className={styles.app}>
-			<MetaBundle title="Projects"/>
-			<CluckHUD theme={theme.Moon}/>
-			<h1>Projects</h1>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Feed/>
-			</Suspense>
-		</div>
+		<App title={"Projects"} theme={"Moon"}>
+			<div className={styles.app}>
+				<h1>Projects</h1>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Feed/>
+				</Suspense>
+			</div>
+		</App>
 	)
 }
 

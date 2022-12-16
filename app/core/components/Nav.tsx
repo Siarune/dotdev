@@ -6,7 +6,7 @@ import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
-import styles from "styles/sys/chud.module.sass"
+import styles from "styles/sys/nav.module.sass"
 
 const UserInfo = () => {
 	const currentUser = useCurrentUser()
@@ -41,12 +41,12 @@ const UserInfo = () => {
 }
 
 type Props = {
-	theme?: string;
+	theme: string;
 }
 
-export default function CluckHUD( { theme }: Props ) {
+export default function Nav( { theme }: Props ) {
 	return (
-		<nav className={theme}>
+		<nav className={styles[theme]}>
 			<ul className={styles.navbarNav}>
 				<li className={styles.intro}>
 					<div className={styles.tWrap}>

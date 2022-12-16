@@ -4,12 +4,12 @@ import forgotPassword from "app/auth/mutations/forgotPassword"
 import { ForgotPassword } from "app/auth/validations"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import { LabeledTextField } from "app/core/components/LabeledTextField"
-import Layout from "app/core/layouts/Layout"
+import Layout from "app/core/layouts/App"
 
 import styles from "styles/sys/password.module.sass"
 
 const ForgotPasswordPage: BlitzPage = () => {
-	const [forgotPasswordMutation, {isSuccess}] = useMutation(forgotPassword)
+	const [forgotPasswordMutation, { isSuccess }] = useMutation(forgotPassword)
 
 	return (
 		<Layout title="Forgot Your Password?">
@@ -30,8 +30,8 @@ const ForgotPasswordPage: BlitzPage = () => {
 						<Form
 							submitText="Send Reset Password Instructions"
 							schema={ForgotPassword}
-							initialValues={{email: ""}}
-							onSubmit={async (values) => {
+							initialValues={{ email: "" }}
+							onSubmit={async ( values ) => {
 								try {
 									await forgotPasswordMutation(values)
 								} catch (error: any) {

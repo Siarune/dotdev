@@ -1,6 +1,6 @@
 import { resolver } from "@blitzjs/rpc"
-import db from "app/db"
 import { NotFoundError } from "blitz"
+import db from "db"
 import { z } from "zod"
 
 const GetPost = z.object({

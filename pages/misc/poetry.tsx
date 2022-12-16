@@ -1,16 +1,16 @@
 import { BlitzPage } from "@blitzjs/next"
 import { useQuery } from "@blitzjs/rpc"
-import CluckHUD from "app/core/components/CluckHUD"
+import App from "app/core/layouts/App"
 import getPosts from "app/posts/queries/getPosts"
 import { Suspense } from "react"
 import ReactMarkdown from "react-markdown"
 import styles from "styles/poetry.module.sass"
-import theme from "styles/sys/chud.module.sass"
+
 
 const Poetry: BlitzPage = () => {
 	return (
-		<div className={styles.app}>
-			<CluckHUD theme={theme.Book}/>
+		<App title={"Poetry"} theme={"Book"}>
+			{/*<div className={styles.app}>*/}
 			<div className={styles.main}>
 				<div className={styles.bannerWrapper}>
 					<h1 className={styles.banner}>Some Very (very) Bad Poetry</h1>
@@ -22,15 +22,16 @@ const Poetry: BlitzPage = () => {
 					</Suspense>
 				</div>
 			</div>
-		</div>
+			{/*</div>*/}
+		</App>
 	)
 }
 
 const Poems = () => {
-	const [poems] = useQuery(getPosts, {where: {type: "poem"}})
+	const [poems] = useQuery(getPosts, { where: { type: "poem" } })
 	return (
 		<div className={styles.poems}>
-			{poems.posts.map(({id, name, content}) => (
+			{poems.posts.map(( { id, name, content } ) => (
 				<div className={styles.collapsibleWrapper} key={id}>
 					<details>
 						<summary className={styles.collapsibleTitle}>{name}</summary>
