@@ -1,10 +1,10 @@
 import { BlitzPage } from "@blitzjs/next"
 import { useMutation } from "@blitzjs/rpc"
-import forgotPassword from "app/auth/mutations/forgotPassword"
-import { ForgotPassword } from "app/auth/validations"
-import { Form, FORM_ERROR } from "app/core/components/Form"
-import { LabeledTextField } from "app/core/components/LabeledTextField"
-import Layout from "app/core/layouts/App"
+import forgotPassword from "src/auth/mutations/forgotPassword"
+import { ForgotPassword } from "src/auth/validations"
+import { Form, FORM_ERROR } from "src/core/components/Form"
+import { LabeledTextField } from "src/core/components/LabeledTextField"
+import Layout from "src/core/layouts/App"
 
 import styles from "styles/sys/password.module.sass"
 

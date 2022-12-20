@@ -1,16 +1,16 @@
-import { BlitzPage, Routes } from "@blitzjs/next"
-import { SignupForm } from "app/auth/components/SignupForm"
-import App from "app/core/layouts/App"
 import { useRouter } from "next/router"
+import App from "src/core/layouts/App"
+import { SignupForm } from "src/auth/components/SignupForm"
+import { BlitzPage, Routes } from "@blitzjs/next"
 
 const SignupPage: BlitzPage = () => {
-	const router = useRouter()
+  const router = useRouter()
 
-	return (
-		<App title="Sign Up">
-			<SignupForm onSuccess={() => router.push(Routes.Home())}/>
-		</App>
-	)
+  return (
+    <App title="Sign Up">
+      <SignupForm onSuccess={() => router.push(Routes.Home())} />
+    </App>
+  )
 }
 
 export default SignupPage

@@ -1,5 +1,5 @@
 import { BlitzPage } from "@blitzjs/next"
-import App from "app/core/layouts/App"
+import App from "src/core/layouts/App"
 import Link from "next/link"
 import styles from "styles/directory.module.sass"
 

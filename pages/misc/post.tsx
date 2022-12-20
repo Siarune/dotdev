@@ -1,8 +1,8 @@
 import { BlitzPage } from "@blitzjs/next"
-import App from "app/core/layouts/App"
+import App from "src/core/layouts/App"
 
-import Create from "app/posts/components/Create"
-import Edit from "app/posts/components/Edit"
+import Create from "src/posts/components/Create"
+import Edit from "src/posts/components/Edit"
 import Link from "next/link"
 import { withRouter } from "next/router"
 
@@ -19,7 +19,7 @@ const Post: BlitzPage = ( { router }: { router: any } ) => {
 	const isTabTwo = t === "edit"
 
 	return (
-		<App>
+		<App title={"Post Submission"}>
 			<div className={styles.app}>
 				<div className={styles.main}>
 					<div className={styles.tabrow}>

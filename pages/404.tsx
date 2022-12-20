@@ -1,5 +1,5 @@
-import Error from "app/core/components/Error"
-import App from "app/core/layouts/App"
+import Error from "src/core/components/Error"
+import App from "src/core/layouts/App"
 
 export default function Page404() {
 	const statusCode = 404

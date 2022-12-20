@@ -1,8 +1,8 @@
 import { BlitzPage } from "@blitzjs/next"
 
 import { useQuery } from "@blitzjs/rpc"
-import App from "app/core/layouts/App"
-import getPosts from "app/posts/queries/getPosts"
+import App from "src/core/layouts/App"
+import getPosts from "src/posts/queries/getPosts"
 import Link from "next/link"
 import { Suspense } from "react"
 import styles from "styles/directory.module.sass"

@@ -1,6 +1,6 @@
 import { BlitzPage } from "@blitzjs/next"
-import App from "app/core/layouts/App"
 import Link from "next/link"
+import App from "src/core/layouts/App"
 
 import styles from "styles/index.module.sass"
 
@@ -8,20 +8,20 @@ const Home: BlitzPage = () => {
 	return (
 		<App theme={"Moon"}>
 			<div className={styles.container}>
-				<div/>
+				<div />
 				<div className={styles.main}>
 					<div className={styles.bio}>
 						<h2>About Me</h2>
 						<p>
 							Hey, Sia here. Nice place, huh?
-							<br/>
+							<br />
 							It&apos;s taken quite a few redesigns, and this certainly won&apos;t be the
 							last :D
-							<br/>
+							<br />
 							I&apos;m just a computer science student with a little too much free time.
-							<br/>
+							<br />
 							Why don&apos;t you check out the place while you&apos;re here?
-							<br/>
+							<br />
 							You can also take a look at my{" "}
 							<a href="https://siarune.me/" target="_blank" rel="noopener noreferrer">
 								old website
@@ -63,20 +63,10 @@ const Home: BlitzPage = () => {
 						</div>
 					</div>
 				</div>
-				<div/>
+				<div />
 			</div>
 		</App>
 	)
 }
 
 export default Home
-
-{/*
-App
-	Layout - Context?
-		Container
-			Main
-
-*/
-}
-

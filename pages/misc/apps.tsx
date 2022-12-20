@@ -1,5 +1,5 @@
 import { BlitzPage } from "@blitzjs/next"
-import App from "app/core/layouts/App"
+import App from "src/core/layouts/App"
 import styles from "styles/apps.module.sass"
 
 const Apps: BlitzPage = () => {
