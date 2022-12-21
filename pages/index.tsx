@@ -11,7 +11,7 @@ const Home: BlitzPage = () => {
 				<div />
 				<div className={styles.main}>
 					<div className={styles.bio}>
-						<h2>About Me</h2>
+						<h1>About Me</h1>
 						<p>
 							Hey, Sia here. Nice place, huh?
 							<br />
@@ -59,7 +59,7 @@ const Home: BlitzPage = () => {
 									<a>Other Wacky Works</a>
 								</Link>
 							</h2>
-							<h4>I didn&apos;t have anywhere else to put these</h4>
+							<h4>¯\_(ツ)_/¯</h4>
 						</div>
 					</div>
 				</div>

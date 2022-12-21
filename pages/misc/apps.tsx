@@ -5,7 +5,7 @@ import styles from "styles/apps.module.sass"
 const Apps: BlitzPage = () => {
 	return (
 		<App title={"Apps"} theme={"Moon"}>
-			<div className={styles.app}>
+			{/*<div className={styles.app}>*/}
 				<div className={styles.container}>
 					<h1>FOSS Android Mods</h1>
 					<p>
@@ -167,7 +167,7 @@ const Apps: BlitzPage = () => {
 						GPLv3
 					</p>
 				</footer>
-			</div>
+			{/*</div>*/}
 		</App>
 	)
 }
