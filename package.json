@@ -11,7 +11,11 @@
 		"lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
 		"test": "vitest run --passWithNoTests",
 		"test:watch": "vitest",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"pullConfig": "vercel pull --yes --environment=production -t pRjJDDbIhqiLi7vNRjkIqxYe",
+		"buildProd": "vercel build --prod",
+		"deploy": "vercel deploy --prod --prebuilt  -t pRjJDDbIhqiLi7vNRjkIqxYe",
+		"postinstall": "prisma generate || true"
 	},
 	"prisma": {
 		"schema": "db/schema.prisma"
