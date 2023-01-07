@@ -9,14 +9,14 @@ const Post = ( { router }: { router: any } ) => {
 		query: { p }
 	} = router
 
-	const [posts] = useQuery(getPosts, { where: { name: p } })
+	const [posts] = useQuery(getPosts, { where: { name: p }})
 
 	return (
 		<>
-			{posts.posts.map(( { id, name, content } ) => (
+			{posts.posts.map(( { id, type, name, content } ) => (
 				<div className={styles.main} key={id}>
 					<h1>{name}</h1>
-					<div className={styles.content}>
+					<div className={`${styles.content} ${styles[type || "blog"]}`}>
 						<ReactMarkdown>{content}</ReactMarkdown>
 					</div>
 				</div>

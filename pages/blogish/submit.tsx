@@ -10,7 +10,7 @@ import React from "react"
 
 import styles from "styles/post.module.sass"
 
-const Post: BlitzPage = ( { router }: { router: any } ) => {
+const Submit: BlitzPage = ({ router }: { router: any } ) => {
 	const {
 		query: { t },
 	} = router
@@ -19,7 +19,7 @@ const Post: BlitzPage = ( { router }: { router: any } ) => {
 	const isTabTwo = t === "edit"
 
 	return (
-		<App title={"Post Submission"}>
+		<App title={"Submit Submission"}>
 			<div className={styles.app}>
 				<div className={styles.main}>
 					<div className={styles.tabrow}>
@@ -51,5 +51,5 @@ const Post: BlitzPage = ( { router }: { router: any } ) => {
 	)
 }
 
-// Post.authenticate = true
-export default withRouter(Post)
+// Submit.authenticate = true
+export default withRouter(Submit)

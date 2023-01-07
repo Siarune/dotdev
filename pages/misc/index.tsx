@@ -10,17 +10,13 @@ const Other: BlitzPage = () => {
 				<div className={styles.main}>
 					<h1>The Random Stuff</h1>
 					<ul className={styles.feed}>
-						<li className={styles.listItem}>
-							<Link href="misc/poetry">
-								<a>Poetry(?)</a>
-							</Link>
-						</li>
 
 						<li className={styles.listItem}>
 							<Link href="misc/apps">
 								<a>Apps</a>
 							</Link>
 						</li>
+
 					</ul>
 				</div>
 			</div>

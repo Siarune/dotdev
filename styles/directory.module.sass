@@ -1,24 +1,30 @@
 @use 'themes/moon'
 
 .app
+	display: flex
 	flex: 1
-	width: 100%
+	flex-direction: column
+	align-items: center
+	max-height: fit-content
+	//width: 100%
 	background: moon.$Moonlight_Bg
 	color: moon.$Moonlight_Text
 
 	h1
-		margin: 1rem
-		margin-top: 0
+		margin: 0 1rem
 		text-align: center
 		font-size: 3rem
+	h2
+		font-size: 2rem
+		margin-top: 0
 
 
 .feed
-	margin: 5em auto 0
+	margin: 2em auto
 	display: flex
 	flex-direction: column
 	width: 50vw
-	height: 20em
+	//height: 20em
 	padding: 0
 	border-radius: 50%
 	list-style: none
@@ -35,7 +41,7 @@
 	justify-content: center
 
 	font-size: xx-large
-	animation-fill-mode: ease-in-out
+	//animation-fill-mode: ease-in-out
 	transition: all 1000ms
 
 	a

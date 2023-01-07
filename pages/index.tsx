@@ -35,35 +35,30 @@ const Home: BlitzPage = () => {
 					</div>
 
 					<div className={styles.feed}>
-						<div className={styles.card}>
-							<h2>
-								<Link href="/projects/">
-									<a>Projects</a>
-								</Link>
-							</h2>
-							<h4>What I do in my free time</h4>
-						</div>
 
-						<div className={styles.card}>
-							<h2>
-								<Link href="blogish">
-									<a>Blog-ish</a>
-								</Link>
-							</h2>
-							<h4>Ramblings from yours truly</h4>
-						</div>
+						<Link href={"blogish"}>
+							<div className={styles.card}>
+								<h2>
+									Blog-ish
+								</h2>
+								<h4>Ramblings from yours truly</h4>
+							</div>
+						</Link>
 
-						<div className={styles.card}>
-							<h2>
-								<Link href="misc">
-									<a>Other Wacky Works</a>
-								</Link>
-							</h2>
-							<h4>¯\_(ツ)_/¯</h4>
-						</div>
+						<Link href={"misc"}>
+							<div className={styles.card}>
+								<h2>
+									Other Wacky Works
+								</h2>
+								<h4>¯\_(ツ)_/¯</h4>
+							</div>
+						</Link>
+
 					</div>
 				</div>
+
 				<div />
+
 			</div>
 		</App>
 	)

@@ -11,9 +11,10 @@ const Blogish: BlitzPage = () => {
 	return (
 		<App title={"Blog-ish"} theme={"Moon"}>
 			<div className={styles.app}>
-				<h1>Blog Posts</h1>
+				<h1>Blog-ish</h1>
+				<h2>It&apos;s like a blog, but for everything!</h2>
 				<Suspense fallback={<div>Loading...</div>}>
-					<Feed/>
+					<Feed />
 				</Suspense>
 			</div>
 		</App>
@@ -21,18 +22,24 @@ const Blogish: BlitzPage = () => {
 }
 
 function Feed() {
-	const [posts] = useQuery(getPosts, { where: { type: "blogpost" } })
+	const [posts] = useQuery(getPosts, { orderBy: { createdAt: 'desc'}})
 
-	// @ts-ignore
 	return (
 		<ul className={styles.feed}>
-			{posts.posts.map(( { id, name } ) => (
-				<Link key={id} href={{ pathname: "blogish/post", query: { p: name } }}>
-					<li className={styles.listItem}>
-						<a>{name}</a>
-					</li>
-				</Link>
-			))}
+			{
+				posts.posts.map(({ id, name }) => (
+					<Link
+						key={id}
+						href={{
+							pathname: "blogish/post",
+							query: { p: name }
+						}}>
+						<li className={styles.listItem}>
+							<a>{name}</a>
+						</li>
+					</Link>
+				))
+			}
 		</ul>
 	)
 }

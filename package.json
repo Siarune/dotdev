@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "blitz dev",
 		"build": "blitz build",
+		"migrate": "blitz prisma migrate dev",
 		"start": "blitz start",
 		"studio": "blitz prisma studio",
 		"lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
@@ -21,8 +22,13 @@
 		"schema": "db/schema.prisma"
 	},
 	"prettier": {
+		"printWidth": 100,
+		"useTabs": true,
+		"tabWidth": 4,
 		"semi": false,
-		"printWidth": 100
+		"bracketSpacing": true,
+		"proseWrap": "preserve",
+		"singleAttributePerLine": "true"
 	},
 	"lint-staged": {
 		"*.{js,ts,tsx}": [
