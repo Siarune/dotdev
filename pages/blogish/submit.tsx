@@ -24,7 +24,7 @@ const Submit: BlitzPage = ({ router }: { router: any } ) => {
 				<div className={styles.main}>
 					<div className={styles.tabrow}>
 						<div className={styles.tab}>
-							<Link href={{ pathname: "/misc/post", query: { t: "create" } }}>
+							<Link href={{ pathname: "./submit", query: { t: "create" } }}>
 								<a style={{ background: isTabOne ? "#444a73" : "#2f334d" }}>
 									<p>Create</p>
 								</a>
@@ -32,7 +32,7 @@ const Submit: BlitzPage = ({ router }: { router: any } ) => {
 						</div>
 
 						<div className={styles.tab}>
-							<Link href={{ pathname: "/misc/post", query: { t: "edit" } }}>
+							<Link href={{ pathname: "./submit", query: { t: "edit" } }}>
 								<a style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}>
 									<p>Edit</p>
 								</a>
@@ -51,5 +51,5 @@ const Submit: BlitzPage = ({ router }: { router: any } ) => {
 	)
 }
 
-// Submit.authenticate = true
+Submit.authenticate = { role: "ADMIN", redirectTo: "/auth/login" }
 export default withRouter(Submit)

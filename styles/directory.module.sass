@@ -6,7 +6,6 @@
 	flex-direction: column
 	align-items: center
 	max-height: fit-content
-	//width: 100%
 	background: moon.$Moonlight_Bg
 	color: moon.$Moonlight_Text
 
@@ -16,6 +15,7 @@
 		font-size: 3rem
 	h2
 		font-size: 2rem
+		text-align: center
 		margin-top: 0
 
 
@@ -24,11 +24,13 @@
 	display: flex
 	flex-direction: column
 	width: 50vw
-	//height: 20em
 	padding: 0
 	border-radius: 50%
 	list-style: none
 	text-align: center
+
+	@media (max-width: 767px)
+		width: 80vw
 
 
 .listItem
@@ -41,8 +43,10 @@
 	justify-content: center
 
 	font-size: xx-large
-	//animation-fill-mode: ease-in-out
 	transition: all 1000ms
+
+	@media (max-width: 767px)
+		height: 6.5rem
 
 	a
 		transform: skew(15deg)
@@ -50,3 +54,9 @@
 .listItem:hover
 	background: moon.$Moonlight_SelectedBg
 	cursor: pointer
+
+.blog
+	text-decoration: underline
+
+.foo
+	color: hotpink

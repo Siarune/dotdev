@@ -30,7 +30,8 @@ const Edit = ( { router }: { router: any } ) => {
 export default withRouter(Edit)
 
 const Select = () => {
-	const [posts] = useQuery(getPosts, { where: { public: true } })
+	// const [posts] = useQuery(getPosts, { where: { public: true } })
+	const [posts] = useQuery(getPosts, { orderBy: { name: "asc" } })
 
 	return (
 		<>
