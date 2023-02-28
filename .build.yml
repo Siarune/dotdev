@@ -1,18 +1,20 @@
-image: archlinux
+image: alpine/latest
 packages:
     - nodejs
-    - yarn
+    - npm
 sources:
-    - https://git.sr.ht/~siarune/siarune.dev
+    - https://git.sr.ht/~siarune/siarune.dev#e0d5441d017d130f95e89e430a0db3be0ecf9a13
 tasks:
     - setup: |
-        mv siarune.dev siarune
-        cd siarune
-        yarn install
-        yarn pullConfig
+          sudo npm i -g pnpm
+          mv siarune.dev siarune
+          cd siarune
+          pnpm install
+          pnpm pullConfig
     - build: |
-        cd siarune
-        yarn buildProd
+          cd siarune
+          pnpm buildProd
     - deploy: |
-        cd siarune
-        yarn deploy
+          cd siarune
+          pnpm run deploy
+
