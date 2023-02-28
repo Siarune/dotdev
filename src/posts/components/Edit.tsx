@@ -7,13 +7,13 @@ import { Field } from "react-final-form"
 import { Form, FORM_ERROR } from "src/core/components/Form"
 import updatePost from "src/posts/mutations/updatePost"
 import getPosts from "src/posts/queries/getPosts"
-import { Post } from "src/posts/validations"
+import { updatePostVal } from "src/posts/validations"
 
-import styles from "styles/post.module.sass"
+import styles from "src/styles/post.module.sass"
 
-const Edit = ( { router }: { router: any } ) => {
+const Edit = ({ router }: { router: any }) => {
 	const {
-		query: { p }
+		query: { p },
 	} = router
 
 	const isTabOne = p == null
@@ -30,17 +30,18 @@ const Edit = ( { router }: { router: any } ) => {
 export default withRouter(Edit)
 
 const Select = () => {
-	// const [posts] = useQuery(getPosts, { where: { public: true } })
 	const [posts] = useQuery(getPosts, { orderBy: { name: "asc" } })
 
 	return (
 		<>
 			<ul className={styles.cards}>
-				{posts.posts.map(( { id, name } ) => (
-					<Link href={{ pathname: "/misc/post", query: { t: "edit", p: name } }} key={id}>
-						<a className={styles.card}>
-							<li>{name}</li>
-						</a>
+				{posts.posts.map(({ id, name }) => (
+					<Link
+						href={{ pathname: "/blogish/submit/", query: { t: "edit", p: name } }}
+						key={id}
+						className={styles.card}
+					>
+						<li>{name}</li>
 					</Link>
 				))}
 			</ul>
@@ -48,9 +49,9 @@ const Select = () => {
 	)
 }
 
-const Editor = ( { router }: { router: any } ) => {
+const Editor = ({ router }: { router: any }) => {
 	const {
-		query: { p }
+		query: { p },
 	} = router
 
 	const [posts] = useQuery(getPosts, { where: { name: p } })
@@ -58,14 +59,20 @@ const Editor = ( { router }: { router: any } ) => {
 
 	return (
 		<>
-			{posts.posts.map(( { id, name, type, content } ) => (
+			{posts.posts.map(({ id, name, type, format, content }) => (
 				<Form
 					submitText="+"
-					schema={Post}
-					initialValues={{ id: id, type: type, name: name, content: content }}
+					schema={updatePostVal}
+					initialValues={{
+						id: id,
+						type: type,
+						format: format,
+						name: name,
+						content: content,
+					}}
 					className={styles.form}
 					key={id}
-					onSubmit={async ( values ) => {
+					onSubmit={async (values) => {
 						try {
 							await updatepost(values)
 						} catch (error: any) {
@@ -73,8 +80,8 @@ const Editor = ( { router }: { router: any } ) => {
 								return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }
 							} else {
 								return {
-									[FORM_ERROR]:
-										`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`
+									[FORM_ERROR]: `Sorry, we had an unexpected error. Please try again.`,
+									//${error.toString()}
 								}
 							}
 						}
@@ -85,6 +92,13 @@ const Editor = ( { router }: { router: any } ) => {
 							<option value="project">Project</option>
 							<option value="blogpost">Blog</option>
 							<option value="poem">Poem</option>
+						</Field>
+
+						<Field name="format" component="select" className={styles.select}>
+							<option value="">Format</option>
+							<option value="project">Left</option>
+							<option value="blogpost">Center</option>
+							<option value="poem">Justified</option>
 						</Field>
 
 						<Field component="input" name="name" />

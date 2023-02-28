@@ -1,4 +1,4 @@
-import styles from "styles/sys/error.module.sass"
+import styles from "src/styles/sys/error.module.sass"
 
 type Props = {
 	statusCode: number

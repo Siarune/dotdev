@@ -6,7 +6,7 @@ import { Form, FORM_ERROR } from "src/core/components/Form"
 import { LabeledTextField } from "src/core/components/LabeledTextField"
 import Link from "next/link"
 // import { useRouter } from "next/router"
-import styles from "styles/sys/authform.module.sass"
+import styles from "src/styles/sys/authform.module.sass"
 
 type SignupFormProps = {
 	onSuccess?: () => void;

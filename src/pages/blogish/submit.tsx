@@ -7,8 +7,9 @@ import Link from "next/link"
 import { withRouter } from "next/router"
 
 import React from "react"
+import { Suspense } from "react"
 
-import styles from "styles/post.module.sass"
+import styles from "src/styles/post.module.sass"
 
 const Submit: BlitzPage = ({ router }: { router: any } ) => {
 	const {
@@ -24,25 +25,31 @@ const Submit: BlitzPage = ({ router }: { router: any } ) => {
 				<div className={styles.main}>
 					<div className={styles.tabrow}>
 						<div className={styles.tab}>
-							<Link href={{ pathname: "./submit", query: { t: "create" } }}>
-								<a style={{ background: isTabOne ? "#444a73" : "#2f334d" }}>
+							<Link
+                href={{ pathname: "./submit", query: { t: "create" } }}
+                style={{ background: isTabOne ? "#444a73" : "#2f334d" }}
+              >
 									<p>Create</p>
-								</a>
 							</Link>
 						</div>
 
 						<div className={styles.tab}>
-							<Link href={{ pathname: "./submit", query: { t: "edit" } }}>
-								<a style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}>
+							<Link
+                href={{ pathname: "./submit", query: { t: "edit" } }}
+                style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}
+              >
 									<p>Edit</p>
-								</a>
 							</Link>
 						</div>
 
 					</div>
 					<div className={styles.container}>
-						{isTabOne && <Create/>}
-						{isTabTwo && <Edit/>}
+						<Suspense>
+							{isTabOne && <Create/>}
+						</Suspense>
+						<Suspense>
+							{isTabTwo && <Edit/>}
+						</Suspense>
 					</div>
 				</div>
 				<div/>

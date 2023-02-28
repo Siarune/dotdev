@@ -1,17 +1,12 @@
 import { resolver } from "@blitzjs/rpc"
 import db from "db"
-import { z } from "zod"
-
-const CreatePost = z.object({
-	type: z.string(),
-	name: z.string(),
-	content: z.string()
-})
+import { newPostVal } from "src/posts/validations"
 
 export default resolver.pipe(
-	resolver.zod(CreatePost),
-	resolver.authorize(),
-	async ( input ) => {
-		// TODO: in multi-tenant app, you must add validation to ensure correct tenant
-		return await db.post.create({ data: input })
-	})
+  resolver.zod(newPostVal),
+  resolver.authorize(),
+  async (input) => {
+    //in multi-tenant app, you must add validation to ensure correct tenant
+    return await db.post.create({ data: input });
+  }
+);

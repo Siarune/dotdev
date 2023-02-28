@@ -5,7 +5,7 @@ import App from "src/core/layouts/App"
 import getPosts from "src/posts/queries/getPosts"
 import Link from "next/link"
 import { Suspense } from "react"
-import styles from "styles/directory.module.sass"
+import styles from "src/styles/directory.module.sass"
 
 const Blogish: BlitzPage = () => {
 	return (
@@ -22,20 +22,28 @@ const Blogish: BlitzPage = () => {
 }
 
 function Feed() {
-	const [posts] = useQuery(getPosts, { orderBy: { createdAt: 'desc'}})
+	const [posts] = useQuery(getPosts, {
+    orderBy: { createdAt: "desc" },
+    skip: undefined,
+    where: undefined,
+    take: undefined
+  })
 
-	return (
+  // @ts-ignore
+  return (
 		<ul className={styles.feed}>
 			{
-				posts.posts.map(({ id, name }) => (
+				posts.posts.map(({ id, type, name }) => (
 					<Link
 						key={id}
 						href={{
 							pathname: "blogish/post",
 							query: { p: name }
 						}}>
-						<li className={styles.listItem}>
-							<a>{name}</a>
+						<li className={`${styles.listItem} ${type}`}
+						// style={{ background: }}
+						>
+							{name}
 						</li>
 					</Link>
 				))

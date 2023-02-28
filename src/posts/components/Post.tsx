@@ -2,7 +2,7 @@ import { useQuery } from "@blitzjs/rpc"
 import getPosts from "src/posts/queries/getPosts"
 import { withRouter } from "next/router"
 import ReactMarkdown from "react-markdown"
-import styles from "styles/blog.module.sass"
+import styles from "src/styles/blog.module.sass"
 
 const Post = ( { router }: { router: any } ) => {
 	const {
@@ -13,10 +13,10 @@ const Post = ( { router }: { router: any } ) => {
 
 	return (
 		<>
-			{posts.posts.map(( { id, type, name, content } ) => (
+			{posts.posts.map(( { id, type, format, name, content } ) => (
 				<div className={styles.main} key={id}>
 					<h1>{name}</h1>
-					<div className={`${styles.content} ${styles[type || "blog"]}`}>
+					<div className={`${styles.content} ${styles[format]}`}>
 						<ReactMarkdown>{content}</ReactMarkdown>
 					</div>
 				</div>

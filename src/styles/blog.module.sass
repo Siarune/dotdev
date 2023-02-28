@@ -1,0 +1,99 @@
+@use 'themes/moon'
+
+.app
+	display: flex
+	flex: 1
+	flex-direction: column
+	align-items: center
+	background: moon.$Moonlight_Contrast
+	color: moon.$Moonlight_Text
+
+	h1
+		text-align: center
+		font-size: 3rem
+		margin-bottom: 3rem
+
+
+.content
+	min-width: 30vw
+	max-width: 50vw
+	border-radius: 5px
+	padding: 1rem
+	margin-bottom: 5rem
+	font-size: x-large
+	text-align: justify
+
+	a
+		text-decoration: dashed underline
+
+	@media (max-width: 1000px)
+		min-width: 75vw
+
+	@media (max-width: 500px)
+		min-width: 95vw
+
+
+.center
+	text-align: center
+
+.justify
+	text-align: justify
+
+.form
+	display: flex
+	//flex: 1
+	flex-direction: row
+	align-items: center
+	justify-content: center
+
+	.comment, button
+		background: moon.$Moonlight_Contrast
+		border: none
+		border-radius: 3px
+		color: moon.$Moonlight_Text
+
+	.comment
+		//height: 10vh
+		overflow: visible
+		width: 45vw
+		font-size: large
+		margin-right: .1rem
+		resize: none
+
+	button
+		height: 10vh
+		max-height: inherit
+		//height: 100%
+		//width: 1.5rem
+		//flex: 1
+
+	@media (max-width: 500px)
+		flex-direction: column
+
+
+.comment:focus
+	//border: moon.$Moonlight_Accent 1px solid
+	border: none
+
+
+.growWrap
+	display: grid
+	max-width: 50vw
+	margin: .2rem
+
+.growWrap::after
+	content: attr(data-replicated-value) " "
+	white-space: pre-wrap
+	visibility: hidden
+
+.growWrap > textarea
+	resize: none
+	overflow: hidden
+
+.growWrap > textarea, .growWrap::after
+	background: moon.$Moonlight_Contrast
+	color: moon.$Moonlight_Text
+	border: none
+	padding: 0.5rem
+	font: inherit
+	grid-area: 1 / 1 / 2 / 2

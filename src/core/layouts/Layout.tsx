@@ -1,21 +1,21 @@
-import { BlitzLayout } from "@blitzjs/next"
 import Head from "next/head"
-import React from "react"
+import React, { FC } from "react"
+import { BlitzLayout } from "@blitzjs/next"
 
-const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ( {
-	title,
-	children
-} ) => {
-	return (
-		<>
-			<Head>
-				<title>{title || "pnpm"}</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
+  title,
+  children,
+}) => {
+  return (
+    <>
+      <Head>
+        <title>{title || "backend"}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-			{children}
-		</>
-	)
+      {children}
+    </>
+  )
 }
 
 export default Layout

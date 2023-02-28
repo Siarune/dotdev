@@ -2,7 +2,7 @@ import { BlitzLayout } from "@blitzjs/next"
 import Head from "next/head"
 import React from "react"
 import Nav from "src/core/components/Nav"
-import styles from "styles/base.module.sass"
+import styles from "src/styles/base.module.sass"
 
 const App: BlitzLayout<{
 	title?: string;

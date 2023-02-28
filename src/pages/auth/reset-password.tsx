@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-import App from "src/core/layouts/App"
+import Layout from "src/core/layouts/Layout"
 import { LabeledTextField } from "src/core/components/LabeledTextField"
 import { Form, FORM_ERROR } from "src/core/components/Form"
 import { ResetPassword } from "src/auth/validations"
@@ -10,13 +9,9 @@ import { useMutation } from "@blitzjs/rpc"
 import Link from "next/link"
 
 const ResetPasswordPage: BlitzPage = () => {
-  const [token, setToken] = useState("")
   const router = useRouter()
+  const token = router.query.token?.toString() as string
   const [resetPasswordMutation, { isSuccess }] = useMutation(resetPassword)
-
-  useEffect(() => {
-    setToken(router.query.token as string)
-  }, [router.isReady])
 
   return (
     <div>
@@ -67,6 +62,6 @@ const ResetPasswordPage: BlitzPage = () => {
 }
 
 ResetPasswordPage.redirectAuthenticatedTo = "/"
-ResetPasswordPage.getLayout = (page) => <App title="Reset Your Password">{page}</App>
+ResetPasswordPage.getLayout = (page) => <Layout title="Reset Your Password">{page}</Layout>
 
 export default ResetPasswordPage

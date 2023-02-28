@@ -1,7 +1,7 @@
 import { BlitzPage } from "@blitzjs/next"
 import App from "src/core/layouts/App"
 import Link from "next/link"
-import styles from "styles/directory.module.sass"
+import styles from "src/styles/directory.module.sass"
 
 const Other: BlitzPage = () => {
 	return (
@@ -13,7 +13,7 @@ const Other: BlitzPage = () => {
 
 						<li className={styles.listItem}>
 							<Link href="misc/apps">
-								<a>Apps</a>
+								Apps
 							</Link>
 						</li>
 

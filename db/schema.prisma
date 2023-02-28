@@ -1,3 +1,4 @@
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -61,11 +62,24 @@ enum TokenType {
 //===========================================================================//
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt @default(now())
-  type      String
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+  type      String    @default("blogpost")
+  format    String    @default("left")
   name      String
   content   String
-  public    Boolean  @default(true)
+  public    Boolean   @default(true)
+  // comments  Comment[]
 }
+
+// model Comment {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @default(now()) @updatedAt
+//   content   String
+//   Post      Post     @relation(fields: [postId], references: [id])
+//   postId    Int
+//   User      User     @relation(fields: [userId], references: [id])
+//   UserId    Int
+// }

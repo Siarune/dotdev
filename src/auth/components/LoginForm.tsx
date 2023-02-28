@@ -7,7 +7,7 @@ import { LabeledTextField } from "src/core/components/LabeledTextField"
 import { AuthenticationError, PromiseReturnType } from "blitz"
 import Link from "next/link"
 
-import styles from "styles/sys/authform.module.sass"
+import styles from "src/styles/sys/authform.module.sass"
 
 type LoginFormProps = {
 	onSuccess?: ( user: PromiseReturnType<typeof login> ) => void;
@@ -49,7 +49,7 @@ export const LoginForm = ( props: LoginFormProps ) => {
 					/>
 					<div>
 						<Link href={Routes.ForgotPasswordPage()}>
-							<a>Forgot your password?</a>
+							Forgot your password?
 						</Link>
 					</div>
 				</Form>
