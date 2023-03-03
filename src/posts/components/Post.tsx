@@ -13,10 +13,10 @@ const Post = ( { router }: { router: any } ) => {
 
 	return (
 		<>
-			{posts.posts.map(( { id, type, name, content } ) => (
+			{posts.posts.map(( { id, type, format, name, content } ) => (
 				<div className={styles.main} key={id}>
 					<h1>{name}</h1>
-					<div className={`${styles.content} ${styles[type || "blog"]}`}>
+					<div className={`${styles.content} ${styles[format || "left"]}`}>
 						<ReactMarkdown>{content}</ReactMarkdown>
 					</div>
 				</div>

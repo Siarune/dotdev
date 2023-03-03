@@ -1,11 +1,13 @@
 import { BlitzPage } from "@blitzjs/next"
 
 import { useQuery } from "@blitzjs/rpc"
-import App from "src/core/layouts/App"
-import getPosts from "src/posts/queries/getPosts"
+import is from "@sindresorhus/is"
 import Link from "next/link"
 import { Suspense } from "react"
+import App from "src/core/layouts/App"
+import getPosts from "src/posts/queries/getPosts"
 import styles from "styles/directory.module.sass"
+import integer = is.integer
 
 const Blogish: BlitzPage = () => {
 	return (
@@ -22,12 +24,17 @@ const Blogish: BlitzPage = () => {
 }
 
 function Feed() {
-	const [posts] = useQuery(getPosts, { orderBy: { createdAt: 'desc'}})
+	const Posts = useQuery(getPosts, {
+		orderBy: { createdAt: "desc" },
+		where: { isPublic: true }
+	})
+
+	const posts = Posts[0].posts
 
 	return (
 		<ul className={styles.feed}>
 			{
-				posts.posts.map(({ id, name }) => (
+				posts.map(({ id, name }) => (
 					<Link
 						key={id}
 						href={{

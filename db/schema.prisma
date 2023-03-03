@@ -65,7 +65,8 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt @default(now())
   type      String
+  format	String
   name      String
   content   String
-  public    Boolean  @default(true)
+  isPublic  Boolean  @default(true)
 }

@@ -1,9 +1,9 @@
 import { useMutation } from "@blitzjs/rpc"
-import { Form, FORM_ERROR } from "src/core/components/Form"
-import createPost from "src/posts/mutations/createPost"
-import { Post } from "src/posts/validations"
 import { AuthenticationError } from "blitz"
 import { Field } from "react-final-form"
+import { Form, FORM_ERROR } from "src/core/components/Form"
+import createPost from "src/posts/mutations/createPost"
+import { CreatePost } from "src/posts/validations"
 
 import styles from "styles/post.module.sass"
 
@@ -11,15 +11,15 @@ type FormProps = {
 	onSuccess?: () => void
 }
 
-export const Create = ( props: FormProps ) => {
+export const Create = (props: FormProps) => {
 	const [createPostMutation] = useMutation(createPost)
 	return (
 		<Form
 			submitText="+"
-			schema={Post}
-			initialValues={{ type: "", name: "", content: "" }}
+			schema={CreatePost}
+			initialValues={{ type: "", format: "", name: "", content: "" }}
 			className={styles.form}
-			onSubmit={async ( values ) => {
+			onSubmit={async (values) => {
 				try {
 					// console.log(values)
 					await createPostMutation(values)
@@ -42,6 +42,13 @@ export const Create = ( props: FormProps ) => {
 					<option value="project">Project</option>
 					<option value="blogpost">Blog</option>
 					<option value="poem">Poem</option>
+				</Field>
+
+				<Field name="format" component="select" className={styles.select}>
+					<option value="">Format</option>
+					<option value="project">Left</option>
+					<option value="blogpost">Center</option>
+					<option value="poem">Right</option>
 				</Field>
 
 				<Field name="name" component="input" placeholder="Name" />

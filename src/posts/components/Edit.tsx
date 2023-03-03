@@ -7,11 +7,11 @@ import { Field } from "react-final-form"
 import { Form, FORM_ERROR } from "src/core/components/Form"
 import updatePost from "src/posts/mutations/updatePost"
 import getPosts from "src/posts/queries/getPosts"
-import { Post } from "src/posts/validations"
-
+import { UpdatePost } from "src/posts/validations"
+// import DeletePost from "sr/posts/mutations/deletePost"
 import styles from "styles/post.module.sass"
 
-const Edit = ( { router }: { router: any } ) => {
+const Edit = ({ router }: { router: any }) => {
 	const {
 		query: { p }
 	} = router
@@ -36,8 +36,13 @@ const Select = () => {
 	return (
 		<>
 			<ul className={styles.cards}>
-				{posts.posts.map(( { id, name } ) => (
-					<Link href={{ pathname: "/misc/post", query: { t: "edit", p: name } }} key={id}>
+				{posts.posts.map(({ id, name }) => (
+					<Link
+						href={{
+							pathname: "/blogish/submit",
+							query: { t: "edit", p: name }
+						}}
+						key={id}>
 						<a className={styles.card}>
 							<li>{name}</li>
 						</a>
@@ -48,25 +53,34 @@ const Select = () => {
 	)
 }
 
-const Editor = ( { router }: { router: any } ) => {
+const Editor = ({ router }: { router: any }) => {
 	const {
 		query: { p }
 	} = router
 
 	const [posts] = useQuery(getPosts, { where: { name: p } })
 	const [updatepost] = useMutation(updatePost)
+	// const [deletepost] = useMutation(DeletePost)
 
 	return (
 		<>
-			{posts.posts.map(( { id, name, type, content } ) => (
+			{posts.posts.map(({ id, type, format, name, content, isPublic }) => (
 				<Form
 					submitText="+"
-					schema={Post}
-					initialValues={{ id: id, type: type, name: name, content: content }}
+					schema={UpdatePost}
+					initialValues={{
+						id: id,
+						type: type,
+						format: format,
+						name: name,
+						content: content,
+						isPublic: isPublic
+					}}
 					className={styles.form}
 					key={id}
-					onSubmit={async ( values ) => {
+					onSubmit={async (values) => {
 						try {
+							console.log(values)
 							await updatepost(values)
 						} catch (error: any) {
 							if (error instanceof AuthenticationError) {
@@ -81,16 +95,49 @@ const Editor = ( { router }: { router: any } ) => {
 					}}
 				>
 					<div className={styles.top}>
-						<Field name="type" component="select" className={styles.select}>
-							<option value="project">Project</option>
-							<option value="blogpost">Blog</option>
-							<option value="poem">Poem</option>
-						</Field>
 
-						<Field component="input" name="name" />
+						<div className={styles.safe}>
+							<Field name="type" component="select" className={styles.select}>
+								<option value="project">Project</option>
+								<option value="blogpost">Blog</option>
+								<option value="poem">Poem</option>
+							</Field>
+
+							<Field name="format" component="select" className={styles.select}>
+								<option value="left">Left</option>
+								<option value="center">Center</option>
+								<option value="right">Right</option>
+							</Field>
+
+							<Field component="input" name="name" />
+						</div>
+
+						<div className={styles.risky}>
+
+							<Field component="input" type="checkbox" id="isPublic" name="isPublic" />
+							<label htmlFor="isPublic">Toggle</label>
+
+							{/*<button onSubmit={async ( values ) => {*/}
+							{/*	try {*/}
+							{/*		await deletepost(id: values)*/}
+							{/*	} catch (error: any) {*/}
+							{/*		if (error instanceof AuthenticationError) {*/}
+							{/*			return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }*/}
+							{/*		} else {*/}
+							{/*			return {*/}
+							{/*				[FORM_ERROR]:*/}
+							{/*					`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`*/}
+							{/*			}*/}
+							{/*		}*/}
+							{/*	}*/}
+							{/*}}>*/}
+							{/*	Delete*/}
+							{/*</button>*/}
+						</div>
 					</div>
 
 					<Field className={styles.textbox} component="textarea" name="content" />
+
 				</Form>
 			))}
 		</>
