@@ -1,13 +1,12 @@
 import { BlitzPage } from "@blitzjs/next"
 
 import { useQuery } from "@blitzjs/rpc"
-import is from "@sindresorhus/is"
 import Link from "next/link"
 import { Suspense } from "react"
 import App from "src/core/layouts/App"
 import getPosts from "src/posts/queries/getPosts"
 import styles from "styles/directory.module.sass"
-import integer = is.integer
+import Loading from "src/core/components/Loading"
 
 const Blogish: BlitzPage = () => {
 	return (
@@ -15,7 +14,7 @@ const Blogish: BlitzPage = () => {
 			<div className={styles.app}>
 				<h1>Blog-ish</h1>
 				<h2>It&apos;s like a blog, but for everything!</h2>
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loading/>}>
 					<Feed />
 				</Suspense>
 			</div>
@@ -50,5 +49,4 @@ function Feed() {
 		</ul>
 	)
 }
-
 export default Blogish

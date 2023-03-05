@@ -32,5 +32,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </ErrorBoundary>
   )
 }
-
+MyApp.suppressFirstRenderFlicker = true
 export default withBlitz(MyApp)

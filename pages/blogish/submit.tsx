@@ -4,13 +4,16 @@ import App from "src/core/layouts/App"
 import Create from "src/posts/components/Create"
 import Edit from "src/posts/components/Edit"
 import Link from "next/link"
-import { withRouter } from "next/router"
+import { useRouter } from "next/router"
 
 import React from "react"
 
 import styles from "styles/post.module.sass"
 
-const Submit: BlitzPage = ({ router }: { router: any } ) => {
+const Submit: BlitzPage = () => {
+
+	const router = useRouter()
+
 	const {
 		query: { t },
 	} = router
@@ -52,4 +55,4 @@ const Submit: BlitzPage = ({ router }: { router: any } ) => {
 }
 
 Submit.authenticate = { role: "ADMIN", redirectTo: "/auth/login" }
-export default withRouter(Submit)
+export default 	Submit

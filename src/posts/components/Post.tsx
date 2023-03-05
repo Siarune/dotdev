@@ -1,15 +1,21 @@
 import { useQuery } from "@blitzjs/rpc"
 import getPosts from "src/posts/queries/getPosts"
-import { withRouter } from "next/router"
 import ReactMarkdown from "react-markdown"
 import styles from "styles/blog.module.sass"
+import { useRouter } from "next/router"
 
-const Post = ( { router }: { router: any } ) => {
+export default function Post() {
+
+	const router = useRouter()
+
 	const {
 		query: { p }
 	} = router
 
-	const [posts] = useQuery(getPosts, { where: { name: p }})
+	const [posts] = useQuery(
+		getPosts, {
+			where: { name: p as string }
+	})
 
 	return (
 		<>
@@ -24,5 +30,3 @@ const Post = ( { router }: { router: any } ) => {
 		</>
 	)
 }
-
-export default withRouter(Post)
