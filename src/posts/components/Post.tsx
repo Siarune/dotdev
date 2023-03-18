@@ -19,11 +19,11 @@ export default function Post() {
 
 	return (
 		<>
-			{posts.posts.map(( { id, type, format, name, content } ) => (
+			{posts.posts.map((posts, id) => (
 				<div className={styles.main} key={id}>
-					<h1>{name}</h1>
-					<div className={`${styles.content} ${styles[format || "left"]}`}>
-						<ReactMarkdown>{content}</ReactMarkdown>
+					<h1>{posts.name}</h1>
+					<div className={`${styles.content} ${styles[posts.format || "left"]}`}>
+						<ReactMarkdown>{posts.content}</ReactMarkdown>
 					</div>
 				</div>
 			))}

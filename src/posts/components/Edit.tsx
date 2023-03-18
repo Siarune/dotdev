@@ -30,21 +30,20 @@ const Edit = ({ router }: { router: any }) => {
 export default withRouter(Edit)
 
 const Select = () => {
-	// const [posts] = useQuery(getPosts, { where: { public: true } })
 	const [posts] = useQuery(getPosts, { orderBy: { name: "asc" } })
 
 	return (
 		<>
 			<ul className={styles.cards}>
-				{posts.posts.map(({ id, name }) => (
+				{posts.posts.map((posts, id) => (
 					<Link
 						href={{
 							pathname: "/blogish/submit",
-							query: { t: "edit", p: name }
+							query: { t: "edit", p: posts.name }
 						}}
 						key={id}>
 						<a className={styles.card}>
-							<li>{name}</li>
+							<li>{posts.name}</li>
 						</a>
 					</Link>
 				))}
@@ -64,17 +63,17 @@ const Editor = ({ router }: { router: any }) => {
 
 	return (
 		<>
-			{posts.posts.map(({ id, type, format, name, content, isPublic }) => (
+			{posts.posts.map((posts, id) => (
 				<Form
 					submitText="+"
 					schema={UpdatePost}
 					initialValues={{
-						id: id,
-						type: type,
-						format: format,
-						name: name,
-						content: content,
-						isPublic: isPublic
+						id: posts.id,
+						type: posts.type,
+						format: posts.format,
+						name: posts.name,
+						content: posts.content,
+						isPublic: posts.isPublic
 					}}
 					className={styles.form}
 					key={id}
