@@ -67,7 +67,9 @@ export default function Nav( { theme }: Props ) {
 						</Link>
 					</h2>
 				</li>
-				<Suspense fallback="Loading...">
+				<Suspense fallback={
+					<button className={styles.signInButton}><a></a></button>
+				}>
 					<UserInfo />
 				</Suspense>{" "}
 			</ul>
