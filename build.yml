@@ -1,0 +1,19 @@
+image: archlinux
+packages:
+    - nodejs
+    - npm
+sources:
+    - https://git.sr.ht/~siarune/dotdev
+tasks:
+    - setup: |
+          sudo corepack enable
+          corepack prepare pnpm@latest --activate
+          cd dotdev
+          pnpm install
+          pnpm vercel pull --yes --environment=production -t IwAt7qAXZrMynR63hP8Y43yK
+    - build: |
+          cd dotdev
+          pnpm vercel build --prod
+    - deploy: |
+          cd dotdev
+          pnpm vercel deploy --prod -t IwAt7qAXZrMynR63hP8Y43yK

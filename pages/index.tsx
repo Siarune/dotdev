@@ -45,15 +45,6 @@ const Home: BlitzPage = () => {
 							</div>
 						</Link>
 
-						<Link href={"misc"}>
-							<div className={styles.card}>
-								<h2>
-									Other Wacky Works
-								</h2>
-								<h4>¯\_(ツ)_/¯</h4>
-							</div>
-						</Link>
-
 					</div>
 				</div>
 
