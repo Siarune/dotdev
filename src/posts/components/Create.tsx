@@ -4,26 +4,36 @@ import { Field } from "react-final-form"
 import { Form, FORM_ERROR } from "src/core/components/Form"
 import createPost from "src/posts/mutations/createPost"
 import { CreatePost } from "src/posts/validations"
+import { withRouter } from "next/router"
 
 import styles from "styles/post.module.sass"
+import React from "react"
+import { router } from "next/client"
 
-type FormProps = {
-	onSuccess?: () => void
-}
+// type FormProps = {
+// 	onSuccess?: () => void
+//
+// }
 
-export const Create = (props: FormProps) => {
+export const Create = ({ router }: { router: any }) => {
 	const [createPostMutation] = useMutation(createPost)
 	return (
 		<Form
+			key={router.asPath}
 			submitText="+"
 			schema={CreatePost}
-			initialValues={{ type: "", format: "", name: "", content: "" }}
+			initialValues={{
+				type: "",
+				format: "",
+				name: "",
+				content: "",
+				isPublic: true
+			}}
 			className={styles.form}
-			onSubmit={async (values) => {
+			onSubmit={async (values, initialValues) => {
 				try {
-					// console.log(values)
 					await createPostMutation(values)
-					props.onSuccess?.()
+					router.reload()
 				} catch (error: any) {
 					if (error instanceof AuthenticationError) {
 						return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }
@@ -34,26 +44,40 @@ export const Create = (props: FormProps) => {
 						}
 					}
 				}
-			}}
+			}
+		}
 		>
+
+
 			<div className={styles.top}>
-				<Field name="type" component="select" className={styles.select}>
-					<option value="">Type</option>
-					<option value="project">Project</option>
-					<option value="blogpost">Blog</option>
-					<option value="poem">Poem</option>
-				</Field>
 
-				<Field name="format" component="select" className={styles.select}>
-					<option value="">Format</option>
-					<option value="project">Left</option>
-					<option value="blogpost">Center</option>
-					<option value="poem">Right</option>
-				</Field>
+				<div className={styles.safe}>
+					<Field name="type" component="select" className={styles.select}>
+						<option value="">Type</option>
+						<option value="project">Project</option>
+						<option value="blogpost">Blog</option>
+						<option value="poem">Poem</option>
+					</Field>
 
-				<Field name="name" component="input" placeholder="Name" />
+					<Field name="format" component="select" className={styles.select}>
+						<option value="">Format</option>
+						<option value="project">Left</option>
+						<option value="blogpost">Center</option>
+						<option value="poem">Right</option>
+					</Field>
+
+					<Field name="name" component="input" placeholder="Name" />
+
+				</div>
+
+
+				<div className={styles.risky}>
+
+					<Field component="input" type="checkbox" id="isPublic" name="isPublic" />
+					<label htmlFor="isPublic">Toggle</label>
+
+				</div>
 			</div>
-
 			<Field
 				className={styles.textbox}
 				component="textarea"
@@ -65,4 +89,4 @@ export const Create = (props: FormProps) => {
 	)
 }
 
-export default Create
+export default withRouter(Create)

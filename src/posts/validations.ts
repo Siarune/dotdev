@@ -4,7 +4,8 @@ export const CreatePost = z.object({
 	type: z.string(),
 	format: z.string(),
 	name: z.string(),
-	content: z.string()
+	content: z.string(),
+	isPublic: z.boolean()
 })
 
 export const UpdatePost = z.object({
@@ -17,5 +18,9 @@ export const UpdatePost = z.object({
 })
 
 export const DeletePost = z.object({
+	id: z.number()
+})
+
+export const GetPost = z.object({
 	id: z.number()
 })

@@ -7,9 +7,7 @@ interface GetPostsInput
 }
 
 export default resolver.pipe(
-	//   resolver.authorize(),
 	async ( { where, orderBy, skip = 0, take = 100 }: GetPostsInput ) => {
-		//in multi-tenant app, you must add validation to ensure correct tenant
 		const {
 			items: posts,
 			hasMore,

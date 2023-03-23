@@ -8,8 +8,8 @@ import { Form, FORM_ERROR } from "src/core/components/Form"
 import updatePost from "src/posts/mutations/updatePost"
 import getPosts from "src/posts/queries/getPosts"
 import { UpdatePost } from "src/posts/validations"
-// import DeletePost from "sr/posts/mutations/deletePost"
 import styles from "styles/post.module.sass"
+import deletePost from "src/posts/mutations/deletePost"
 
 const Edit = ({ router }: { router: any }) => {
 	const {
@@ -58,8 +58,8 @@ const Editor = ({ router }: { router: any }) => {
 	} = router
 
 	const [posts] = useQuery(getPosts, { where: { name: p } })
-	const [updatepost] = useMutation(updatePost)
-	// const [deletepost] = useMutation(DeletePost)
+	const [updatePostMutation] = useMutation(updatePost)
+	const [deletePostMutation] = useMutation(deletePost)
 
 	return (
 		<>
@@ -79,8 +79,7 @@ const Editor = ({ router }: { router: any }) => {
 					key={id}
 					onSubmit={async (values) => {
 						try {
-							console.log(values)
-							await updatepost(values)
+							await updatePostMutation(values)
 						} catch (error: any) {
 							if (error instanceof AuthenticationError) {
 								return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }
@@ -116,22 +115,26 @@ const Editor = ({ router }: { router: any }) => {
 							<Field component="input" type="checkbox" id="isPublic" name="isPublic" />
 							<label htmlFor="isPublic">Toggle</label>
 
-							{/*<button onSubmit={async ( values ) => {*/}
-							{/*	try {*/}
-							{/*		await deletepost(id: values)*/}
-							{/*	} catch (error: any) {*/}
-							{/*		if (error instanceof AuthenticationError) {*/}
-							{/*			return { [FORM_ERROR]: "Sorry, you need to be logged in for that" }*/}
-							{/*		} else {*/}
-							{/*			return {*/}
-							{/*				[FORM_ERROR]:*/}
-							{/*					`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`*/}
-							{/*			}*/}
-							{/*		}*/}
-							{/*	}*/}
-							{/*}}>*/}
-							{/*	Delete*/}
-							{/*</button>*/}
+							<button
+								onClick={ async () => {
+									try {
+										alert(`Are you sure you want to delete "${posts.name}"?`)
+										await deletePostMutation({id: posts.id})
+										router.push("submit?t=edit")
+									} catch (error: any) {
+										if (error instanceof AuthenticationError) {
+											return { [FORM_ERROR]: "Authentication Error" }
+										} else {
+											return {
+												[FORM_ERROR]:
+													`Error ${error.toString()}`
+											}
+										}
+									}
+								}}
+							>
+								Delete
+							</button>
 						</div>
 					</div>
 
