@@ -13,6 +13,10 @@
 		font-size: 3rem
 		margin-bottom: 3rem
 
+		@media (max-width: 500px)
+			font-size: 2.5rem
+			margin-bottom: 0
+
 
 .content
 	min-width: 30vw
@@ -31,6 +35,8 @@
 
 	@media (max-width: 500px)
 		min-width: 95vw
+		font-size: large
+		margin-bottom: 2rem
 
 
 .center
@@ -38,3 +44,64 @@
 
 .right
 	text-align: justify
+
+.littleInfo
+	text-align: left
+	font-size: large
+	opacity: .6
+
+	@media (max-width: 500px)
+		font-size: medium
+
+.textbox
+	width: 15vw
+	resize: none
+	//height: 3rem
+	overflow: visible
+
+	@media (max-width: 1000px)
+		width: 30vw
+
+	@media (max-width: 500px)
+		min-width: 85vw
+
+.textbox, .form button
+	border: none
+	border-radius: 5px
+	background: moon.$Moonlight_Bg
+	color: moon.$Moonlight_Text
+	font-size: large
+	margin: .25rem
+
+.form
+	display: flex
+	align-items: center
+
+.comments
+	//line-height: .2rem
+	padding: 1rem
+
+	h3
+		font-size: x-large
+		opacity: .6
+
+	p
+		font-size: large
+		line-height: normal
+
+.comment
+	margin-bottom: 1.5rem
+	//line-height: .1rem
+	p
+		margin: 0
+
+	.author
+		font-size: x-large
+		opacity: .8
+
+	.timestamp
+		font-size: medium
+		opacity: .6
+
+
+

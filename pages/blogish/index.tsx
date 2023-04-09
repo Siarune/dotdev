@@ -24,24 +24,22 @@ const Blogish: BlitzPage = () => {
 
 function Feed() {
 	const Posts = useQuery(getPosts, {
-		orderBy: { createdAt: "desc" },
-		where: { isPublic: true }
-	})
-
-	const posts = Posts[0].posts
+		where: { isPublic: true },
+		orderBy: { createdAt: "desc" }
+	})[0].posts
 
 	return (
 		<ul className={styles.feed}>
 			{
-				posts.map(({ id, name }) => (
+				Posts.map((post, id) => (
 					<Link
 						key={id}
 						href={{
 							pathname: "blogish/post",
-							query: { p: name }
+							query: { p: post.name }
 						}}>
 						<li className={styles.listItem}>
-							<a>{name}</a>
+							<a>{post.name}</a>
 						</li>
 					</Link>
 				))

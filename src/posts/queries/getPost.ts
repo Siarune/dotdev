@@ -6,7 +6,7 @@ import { GetPost } from "../validations"
 
 export default resolver.pipe(
 	resolver.zod(GetPost),
-	resolver.authorize(),
+	// resolver.authorize(),
 	async ( { id } ) => {
 
 	const post = await db.post.findFirst({ where: { id } })

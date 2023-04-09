@@ -22,6 +22,7 @@ model User {
 
   tokens   Token[]
   sessions Session[]
+  comments Comment[]
 }
 
 model Session {
@@ -61,12 +62,26 @@ enum TokenType {
 //===========================================================================//
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt @default(now())
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
   type      String
-  format	String
+  format    String
   name      String
   content   String
-  isPublic  Boolean  @default(true)
+  isPublic  Boolean   @default(true)
+  comments  Comment[]
+  // likes		Int       @default(0)
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  author	String   @default("")
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
+  content	String
 }
