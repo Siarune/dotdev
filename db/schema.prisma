@@ -71,7 +71,7 @@ model Post {
   content   String
   isPublic  Boolean   @default(true)
   comments  Comment[]
-  // likes		Int       @default(0)
+  likes		Int       @default(0)
 }
 
 model Comment {
@@ -84,4 +84,5 @@ model Comment {
   post      Post     @relation(fields: [postId], references: [id])
   postId    Int
   content	String
+  testing	Boolean  @default(false)
 }

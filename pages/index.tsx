@@ -1,7 +1,7 @@
 import { BlitzPage } from "@blitzjs/next"
 import Link from "next/link"
 import App from "src/core/layouts/App"
-
+import { useSession } from "@blitzjs/auth"
 import styles from "styles/index.module.sass"
 
 const Home: BlitzPage = () => {
@@ -27,9 +27,9 @@ const Home: BlitzPage = () => {
 								old website
 							</a>
 							, or behind the scenes at{" "}
-							<a href="https://sr.ht/~siarune/" target="_blank"
+							<a href="https://github.com/Siarune" target="_blank"
 							   rel="noopener noreferrer">
-								Sourcehut
+								Github
 							</a>
 						</p>
 					</div>
@@ -45,6 +45,9 @@ const Home: BlitzPage = () => {
 							</div>
 						</Link>
 
+						<AdminCard />
+
+
 					</div>
 				</div>
 
@@ -53,6 +56,25 @@ const Home: BlitzPage = () => {
 			</div>
 		</App>
 	)
+}
+
+const AdminCard = () => {
+	const session = useSession()
+	if (session.role === "ADMIN") {
+		return (
+			<Link href={"blogish/studio"}>
+				<div className={styles.card}>
+					<h2>
+						Studio
+					</h2>
+					<h4>Create and manage posts</h4>
+					<h4>Admin Only</h4>
+				</div>
+			</Link>
+		)
+	} else {
+		return <></>
+	}
 }
 
 export default Home

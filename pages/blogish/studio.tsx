@@ -10,7 +10,7 @@ import React from "react"
 
 import styles from "styles/post.module.sass"
 
-const Submit: BlitzPage = () => {
+const Studio: BlitzPage = () => {
 
 	const router = useRouter()
 
@@ -18,16 +18,17 @@ const Submit: BlitzPage = () => {
 		query: { t },
 	} = router
 
-	const isTabOne = t === "create" || t == null
-	const isTabTwo = t === "edit"
+	const isTabOne = t === "New"
+	const isTabTwo = t === "Edit"
+	const tab = t || ""
 
 	return (
-		<App title={"Submit Submission"}>
+		<App title={"Post Creator: " + tab}>
 			<div className={styles.app}>
 				<div className={styles.main}>
 					<div className={styles.tabrow}>
 						<div className={styles.tab}>
-							<Link href={{ pathname: "./submit", query: { t: "create" } }}>
+							<Link href={{ pathname: "./submit", query: { t: "New" } }}>
 								<a style={{ background: isTabOne ? "#444a73" : "#2f334d" }}>
 									<p>Create</p>
 								</a>
@@ -35,7 +36,7 @@ const Submit: BlitzPage = () => {
 						</div>
 
 						<div className={styles.tab}>
-							<Link href={{ pathname: "./submit", query: { t: "edit" } }}>
+							<Link href={{ pathname: "./submit", query: { t: "Edit" } }}>
 								<a style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}>
 									<p>Edit</p>
 								</a>
@@ -54,5 +55,5 @@ const Submit: BlitzPage = () => {
 	)
 }
 
-Submit.authenticate = { role: "ADMIN", redirectTo: "/auth/login" }
-export default 	Submit
+Studio.authenticate = { role: "ADMIN", redirectTo: "/auth/login" }
+export default 	Studio

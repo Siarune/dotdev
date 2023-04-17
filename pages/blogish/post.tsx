@@ -12,65 +12,79 @@ import { CreateComment } from "src/comments/validations"
 import Form, { FORM_ERROR } from "src/core/components/Form"
 import Loading from "src/core/components/Loading"
 import App from "src/core/layouts/App"
-import getPosts from "src/posts/queries/getPosts"
+import getPost from "src/posts/queries/getPost"
 import { useCurrentUser } from "src/users/hooks/useCurrentUser"
 import styles from "styles/blog.module.sass"
-// const getAuthorQuery = useQuery(getAuthor)
 
 const BlogPost: BlitzPage = () => {
 
 	const router = useRouter()
+
+	//Gets query parameter "p"
 	const {
 		query: { p }
 	} = router
 
-	const Post = useQuery(
-		getPosts, {
-			where: { name: p as string }
-		})[0].posts
+	//Fetches post from db based on p
+	const [Post] = useQuery(
+		getPost, {
+			id: Number(p)
+		}
+	)
 
+	//Checks for user info
 	const user = useCurrentUser()
 
+	//Throw if null, return otherwise
+	function User() {
+		if (user) {
+			return user
+		} else {
+			return {
+				id: 9999,
+				name: "Anonymous User",
+				email: "Anon"
+			}
+		}
+	}
+
+	//Fetch comments based on Post info
 	const [createCommentMutation] = useMutation(createComment)
 	const Comments = useQuery(getComments,
 		{
 			where: {
-				// @ts-ignore
-				postId: Post[0].id
+				postId: Post.id,
+				testing: false
+				// testing: true
 			}
 		})[0].comments
 
-
 	return (
-		<App>
+		<App title={Post.name}>
 			<div className={styles.app}>
 				<Suspense fallback={<Loading />}>
 					<>
-						{Post.map((post, id) => (
-							<div className={styles.main} key={id}>
-								<h1>{post.name}</h1>
-								<div className={`${styles.content} ${styles[post.format || "left"]}`}>
-									<ReactMarkdown>{post.content}</ReactMarkdown>
-									<p className={styles.littleInfo}>
-										Posted {post.createdAt.toLocaleString()}
-										{/*<p>{post.likes} likes</p>*/}
-									</p>
-								</div>
+						<div className={styles.main}>
+							<h1>{Post.name}</h1>
+							<div className={`${styles.content} ${styles[Post.format || "left"]}`}>
+								<ReactMarkdown>
+									{Post.content}
+								</ReactMarkdown>
+								<p className={styles.littleInfo}>
+									Posted {Post.createdAt.toLocaleString()}
+									{/*<p>{post.likes} likes</p>*/}
+								</p>
 							</div>
-						))}
+						</div>
 					</>
 				</Suspense>
 
 				<Suspense fallback={<></>}>
 					<Form
-						// key={router.asPath}
 						initialValues={{
-							//@ts-ignore
-							author: user.name,
-							//@ts-ignore
-							userId: user.id,
-							//@ts-ignore
-							postId: Post[0].id,
+							author: User().name as string,
+							userId: User().id,
+							postId: Post.id,
 							content: ""
 						}}
 						submitText="→"
@@ -121,6 +135,7 @@ const BlogPost: BlitzPage = () => {
 						))}
 					</div>
 				</Suspense>
+
 			</div>
 		</App>
 	)

@@ -36,7 +36,7 @@ function Feed() {
 						key={id}
 						href={{
 							pathname: "blogish/post",
-							query: { p: post.name }
+							query: { p: post.id }
 						}}>
 						<li className={styles.listItem}>
 							<a>{post.name}</a>
