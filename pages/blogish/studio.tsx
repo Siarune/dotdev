@@ -28,7 +28,7 @@ const Studio: BlitzPage = () => {
 				<div className={styles.main}>
 					<div className={styles.tabrow}>
 						<div className={styles.tab}>
-							<Link href={{ pathname: "./submit", query: { t: "New" } }}>
+							<Link href={{ pathname: "./studio", query: { t: "New" } }}>
 								<a style={{ background: isTabOne ? "#444a73" : "#2f334d" }}>
 									<p>Create</p>
 								</a>
@@ -36,7 +36,7 @@ const Studio: BlitzPage = () => {
 						</div>
 
 						<div className={styles.tab}>
-							<Link href={{ pathname: "./submit", query: { t: "Edit" } }}>
+							<Link href={{ pathname: "./studio", query: { t: "Edit" } }}>
 								<a style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}>
 									<p>Edit</p>
 								</a>
