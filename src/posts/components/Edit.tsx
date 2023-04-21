@@ -39,8 +39,8 @@ const Select = () => {
 				{posts.posts.map((posts, id) => (
 					<Link
 						href={{
-							pathname: "/blogish/submit",
-							query: { t: "edit", p: posts.id }
+							pathname: "/blogish/studio",
+							query: { t: "Edit", p: posts.id }
 						}}
 						key={id}>
 						<a className={styles.card}>

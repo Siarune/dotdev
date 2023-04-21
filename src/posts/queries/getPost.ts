@@ -7,7 +7,7 @@ export default resolver.pipe(
 	resolver.zod(GetPost),
 	async ( { id } ) => {
 
-	const post = await db.post.findFirst({ where: { id, isPublic: true } })
+	const post = await db.post.findFirst({ where: { id } })
 
 	if (!post) {
 		throw new NotFoundError()

@@ -12,7 +12,7 @@ import { CreateComment } from "src/comments/validations"
 import Form, { FORM_ERROR } from "src/core/components/Form"
 import Loading from "src/core/components/Loading"
 import App from "src/core/layouts/App"
-import getPost from "src/posts/queries/getPost"
+import getPublicPost from "src/posts/queries/getPublicPost"
 import { useCurrentUser } from "src/users/hooks/useCurrentUser"
 import styles from "styles/blog.module.sass"
 
@@ -27,7 +27,7 @@ const BlogPost: BlitzPage = () => {
 
 	//Fetches post from db based on p
 	const [Post] = useQuery(
-		getPost, {
+		getPublicPost, {
 			id: Number(p)
 		}
 	)
