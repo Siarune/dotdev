@@ -49,6 +49,7 @@
 		"react-final-form": "6.5.9",
 		"react-markdown": "8.0.4",
 		"sass": "1.57.1",
+		"sharp": "0.32.0",
 		"vercel": "28.9.0",
 		"zod": "3.19.1"
 	},
