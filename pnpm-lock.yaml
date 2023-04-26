@@ -14,6 +14,7 @@ specifiers:
   '@types/preview-email': 2.0.1
   '@types/react': 18.0.25
   '@typescript-eslint/eslint-plugin': 5.42.1
+  '@vercel/analytics': 1.0.0
   '@vitejs/plugin-react': 2.2.0
   blitz: 2.0.0-beta.20
   eslint: 8.22.0
@@ -48,6 +49,7 @@ dependencies:
   '@blitzjs/rpc': 2.0.0-beta.20_yth2jxbv5nrzqtotlfycx6nwyq
   '@next/env': 13.0.7
   '@prisma/client': 4.6.0_prisma@4.6.0
+  '@vercel/analytics': 1.0.0_react@18.2.0
   blitz: 2.0.0-beta.20_dq2nm32faj5r3qito36lj2huwi
   final-form: 4.20.7
   next: 12.2.5_3duxcpitbtplz62feflag7fwby
@@ -2698,6 +2700,14 @@ packages:
       '@typescript-eslint/types': 5.47.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/1.0.0_react@18.2.0:
+    resolution: {integrity: sha512-RQmj7pv82JwGDHrnKeRc6TtSw2U7rWNubc2IH0ernTzWTj02yr9zvIYiYJeztsBzrJtWv7m8Nz6vxxb+cdEtJw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@vercel/build-utils/5.7.1:
     resolution: {integrity: sha512-JilBlPlqwH/d4dbRLyxbhr4y3Yb41cfyypGyCFOpdgXo1ie3v2wkNZWNyWpDHSocSS4PpdIGJ1OdnzULd2fdBQ==}
