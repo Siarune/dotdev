@@ -2,7 +2,7 @@
 	"name": "dotdev",
 	"packageManager": "pnpm@7.18.2",
 	"version": "1.0.0",
-	"license": "GPLv3",
+	"license": "MIT",
 	"private": true,
 	"scripts": {
 		"dev": "blitz dev",
