@@ -1,9 +1,11 @@
 import { AppProps, ErrorBoundary, ErrorComponent, ErrorFallbackProps } from "@blitzjs/next"
 import { AuthenticationError, AuthorizationError } from "blitz"
-import { Analytics } from '@vercel/analytics/react'
+import { inject } from "@vercel/analytics"
 import React, { Suspense } from "react"
 import { withBlitz } from "src/blitz-client"
 import "styles/sys/global.sass"
+
+inject()
 
 function RootErrorFallback({ error }: ErrorFallbackProps) {
 	if (error instanceof AuthenticationError) {
@@ -32,7 +34,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 			{getLayout(
 				<Suspense>
 					<Component {...pageProps} />
-					<Analytics />
 				</Suspense>
 			)}
 		</ErrorBoundary>
