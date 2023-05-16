@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Suspense } from "react"
 import App from "src/core/layouts/App"
 import getPosts from "src/posts/queries/getPosts"
-import styles from "styles/directory.module.sass"
+import styles from "styles/blogish.module.sass"
 import Loading from "src/core/components/Loading"
 
 const Blogish: BlitzPage = () => {

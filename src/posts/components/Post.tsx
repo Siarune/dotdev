@@ -1,7 +1,7 @@
 import { useQuery } from "@blitzjs/rpc"
 import getPosts from "src/posts/queries/getPosts"
 import ReactMarkdown from "react-markdown"
-import styles from "styles/blog.module.sass"
+import styles from "styles/post.module.sass"
 import { useRouter } from "next/router"
 
 export default function Post() {

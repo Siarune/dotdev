@@ -14,7 +14,7 @@ import Loading from "src/core/components/Loading"
 import App from "src/core/layouts/App"
 import getPublicPost from "src/posts/queries/getPublicPost"
 import { useCurrentUser } from "src/users/hooks/useCurrentUser"
-import styles from "styles/blog.module.sass"
+import styles from "styles/post.module.sass"
 
 const BlogPost: BlitzPage = () => {
 

@@ -10,7 +10,7 @@ import updatePost from "src/posts/mutations/updatePost"
 import getPost from "src/posts/queries/getPost"
 import getPosts from "src/posts/queries/getPosts"
 import { UpdatePost } from "src/posts/validations"
-import styles from "styles/post.module.sass"
+import styles from "styles/studio.module.sass"
 
 const Edit = ({ router }: { router: any }) => {
 	const {
