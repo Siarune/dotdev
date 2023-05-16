@@ -8,7 +8,7 @@ import { useRouter } from "next/router"
 
 import React from "react"
 
-import styles from "styles/post.module.sass"
+import styles from "styles/studio.module.sass"
 
 const Studio: BlitzPage = () => {
 
@@ -23,7 +23,7 @@ const Studio: BlitzPage = () => {
 	const tab = t || ""
 
 	return (
-		<App title={"Post Creator: " + tab}>
+		<App title={"Studio: " + tab}>
 			<div className={styles.app}>
 				<div className={styles.main}>
 					<div className={styles.tabrow}>

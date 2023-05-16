@@ -1,0 +1,179 @@
+@use 'themes/moon'
+
+.app
+	display: flex
+	flex: 1
+	width: 100%
+	flex-direction: column
+	align-items: center
+	justify-content: space-between
+	margin: 0
+	padding: 0
+
+.main
+	display: flex
+	flex-direction: column
+	color: moon.$Moonlight_Text
+	background-color: moon.$Moonlight_Bg_2
+	border-radius: 10px
+	width: 75vw
+	margin: 3rem
+
+	@media (max-width: 1000px)
+		flex-direction: column
+		width: 95vw
+
+.tabrow
+	display: inline-flex
+	text-align: center
+	align-items: center
+	font-size: larger
+	border-bottom: 2px solid moon.$Moonlight_Disabled
+
+.tab:nth-child(1)
+	border-top-left-radius: 10px
+
+.tab:nth-child(2)
+	border-top-right-radius: 10px
+
+.tab
+	height: 100%
+	display: flex
+	flex: 1
+	align-items: center
+	justify-content: center
+
+	a
+		width: 100%
+		height: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		border-radius: inherit
+
+	a:hover, .active
+		background-color: moon.$Moonlight_SelectedBg
+
+.container
+	padding: 0
+	text-align: center
+	height: fit-content
+
+.form
+	display: flex
+	flex-direction: column
+	align-items: center
+
+	button
+		width: 2.5rem
+		background: moon.$Moonlight_SelectedBg
+		color: moon.$Moonlight_Text
+		font-size: larger
+		border-radius: 5px
+		border: none !important
+		margin: .5rem
+
+	button:hover
+		cursor: pointer
+
+.top
+	display: flex
+	flex-direction: row
+	margin-top: .5rem
+	align-content: center
+
+	.select, input
+		background: moon.$Moonlight_SelectedBg
+		color: moon.$Moonlight_Text
+		border-radius: 5px
+		border: none !important
+		height: 1.5rem
+
+	button
+		margin: 0
+		width: auto
+
+	.select, input, label
+		margin-right: 5px
+
+	@media (max-width: 600px)
+		flex-direction: column
+		//margin-bottom: 1rem
+		align-items: center
+
+.textbox
+	height: 60vh
+	width: 95%
+	border: none !important
+	background: moon.$Moonlight_SelectedBg
+	color: moon.$Moonlight_Text
+
+	margin-top: .5rem
+	border-radius: 5px
+	resize: none
+
+.cards
+	list-style: none
+	display: grid
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+	font-size: larger
+	padding: 0
+
+.card
+	height: 5rem
+	display: flex
+	justify-content: center
+	align-items: center
+	background: moon.$Moonlight_SelectedBg
+	margin: 10px
+	padding: 5px
+	border-radius: 5px
+
+
+.form input[type=checkbox]
+	height: 0
+	width: 0
+	visibility: hidden
+
+.form label
+	cursor: pointer
+	text-indent: -9999px
+	width: 3rem
+	height: 1.5rem
+	background-color: moon.$Moonlight_Contrast
+	display: block
+	border-radius: 100px
+	position: relative
+
+
+.form label:after
+	content: ''
+	position: absolute
+	top: .25rem
+	left: .25rem
+	width: 1rem
+	height: 1rem
+	background: moon.$Moonlight_Text
+	border-radius: 90px
+	transition: 0.3s
+
+
+.form input:checked + label
+	background-color: moon.$Moonlight_SelectedBg
+
+
+.form input:checked + label:after
+	left: calc(100% - 5px)
+	transform: translateX(-100%)
+
+
+.form label:active:after
+	width: 1.2rem
+
+.risky
+	display: flex
+	flex-direction: row
+//font-weight: normal
+
+.safe, .risky
+	margin-bottom: .5rem
