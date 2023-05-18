@@ -48,6 +48,7 @@
 		"react-dom": "18.2.0",
 		"react-final-form": "6.5.9",
 		"react-markdown": "8.0.4",
+		"remark-gfm": "3.0.1",
 		"sass": "1.57.1",
 		"vercel": "28.9.0",
 		"zod": "3.19.1"
