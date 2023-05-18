@@ -36,6 +36,10 @@
 .listItem
 	height: 5rem
 	transform: skew(-15deg)
+	background: inherit
+	color: inherit
+	border: none
+	font-weight: normal
 
 	display: flex
 	text-align: center
@@ -44,6 +48,9 @@
 
 	font-size: xx-large
 	transition: all 1000ms
+
+	//text-decoration: underline
+	text-decoration-thickness: .2rem
 
 	@media (max-width: 767px)
 		height: 6.5rem
@@ -56,7 +63,13 @@
 	cursor: pointer
 
 .blog
-	text-decoration: underline
+	text-decoration-color: #ab47bcdd
 
-.foo
-	color: hotpink
+.project
+	text-decoration-color: #74a0f1cc
+
+.poem
+	text-decoration-color: #1E611Edd
+
+.story
+	text-decoration-color: #FFCC80bb

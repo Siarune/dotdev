@@ -5,12 +5,13 @@ import { useRouter } from "next/router"
 
 import React, { Suspense } from "react"
 import { Field } from "react-final-form"
-import ReactMarkdown from "react-markdown"
 import createComment from "src/comments/mutations/createComment"
 import getComments from "src/comments/queries/getComments"
 import { CreateComment } from "src/comments/validations"
 import Form, { FORM_ERROR } from "src/core/components/Form"
 import Loading from "src/core/components/Loading"
+
+import Markdown from "src/posts/components/Markdown"
 import App from "src/core/layouts/App"
 import getPublicPost from "src/posts/queries/getPublicPost"
 import { useCurrentUser } from "src/users/hooks/useCurrentUser"
@@ -67,9 +68,7 @@ const BlogPost: BlitzPage = () => {
 						<div className={styles.main}>
 							<h1>{Post.name}</h1>
 							<div className={`${styles.content} ${styles[Post.format || "left"]}`}>
-								<ReactMarkdown>
-									{Post.content}
-								</ReactMarkdown>
+								<Markdown source={Post.content} />
 								<p className={styles.littleInfo}>
 									Posted {Post.createdAt.toLocaleString()}
 									{/*<p>{post.likes} likes</p>*/}
@@ -90,7 +89,7 @@ const BlogPost: BlitzPage = () => {
 						submitText="→"
 						schema={CreateComment}
 						className={styles.form}
-						onSubmit={async (values, initialValues) => {
+						onSubmit={async ( values, initialValues ) => {
 							try {
 								console.log(values)
 								await createCommentMutation(values)
@@ -120,7 +119,7 @@ const BlogPost: BlitzPage = () => {
 
 				<Suspense fallback={<Loading />}>
 					<div className={styles.comments}>
-						{Comments.map((comment, id) => (
+						{Comments.map(( comment, id ) => (
 							<div className={styles.comment} key={id}>
 								<p className={styles.author}>
 									{comment.author}
