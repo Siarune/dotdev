@@ -1,88 +1,88 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider      = "prisma-client-js"
-  //rhel-openssl added to make client compatible with Vercel
-  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+    provider      = "prisma-client-js"
+    // rhel-openssl added to make client compatible with Vercel
+    binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
 //===========================================================================//
 
 model User {
-  id             Int      @id @default(autoincrement())
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  name           String?
-  email          String   @unique
-  hashedPassword String?
-  role           String   @default("USER")
+    id             Int      @id @default(autoincrement())
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+    name           String?
+    email          String   @unique
+    hashedPassword String?
+    role           String   @default("USER")
 
-  tokens   Token[]
-  sessions Session[]
-  comments Comment[]
+    tokens   Token[]
+    sessions Session[]
+    comments Comment[]
 }
 
 model Session {
-  id                 Int       @id @default(autoincrement())
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
-  expiresAt          DateTime?
-  handle             String    @unique
-  hashedSessionToken String?
-  antiCSRFToken      String?
-  publicData         String?
-  privateData        String?
+    id                 Int       @id @default(autoincrement())
+    createdAt          DateTime  @default(now())
+    updatedAt          DateTime  @updatedAt
+    expiresAt          DateTime?
+    handle             String    @unique
+    hashedSessionToken String?
+    antiCSRFToken      String?
+    publicData         String?
+    privateData        String?
 
-  user   User? @relation(fields: [userId], references: [id])
-  userId Int?
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int?
 }
 
 model Token {
-  id          Int       @id @default(autoincrement())
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  hashedToken String
-  type        TokenType
-  expiresAt   DateTime
-  sentTo      String
+    id          Int       @id @default(autoincrement())
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+    hashedToken String
+    type        TokenType
+    expiresAt   DateTime
+    sentTo      String
 
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
+    user   User @relation(fields: [userId], references: [id])
+    userId Int
 
-  @@unique([hashedToken, type])
+    @@unique([hashedToken, type])
 }
 
 enum TokenType {
-  RESET_PASSWORD
+    RESET_PASSWORD
 }
 
 //===========================================================================//
 
 model Post {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @default(now()) @updatedAt
-  type      String
-  format    String
-  name      String
-  content   String
-  isPublic  Boolean   @default(true)
-  comments  Comment[]
-  likes		Int       @default(0)
+    id        Int       @id @default(autoincrement())
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now()) @updatedAt
+    type      String
+    format    String
+    name      String
+    content   String
+    isPublic  Boolean   @default(true)
+    comments  Comment[]
+    likes     Int       @default(0)
 }
 
 model Comment {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-  author	String   @default("")
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    Int
-  content	String
-  testing	Boolean  @default(false)
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+    author    String   @default("")
+    user      User     @relation(fields: [userId], references: [id])
+    userId    Int
+    post      Post     @relation(fields: [postId], references: [id])
+    postId    Int
+    content   String
+    testing   Boolean  @default(false)
 }
