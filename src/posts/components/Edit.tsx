@@ -98,6 +98,7 @@ const Editor = ({ router }: { router: any }) => {
 							<option value="project">Project</option>
 							<option value="blogpost">Blog</option>
 							<option value="poem">Poem</option>
+							<option value="story">Story</option>
 						</Field>
 
 						<Field name="format" component="select" className={styles.select}>
