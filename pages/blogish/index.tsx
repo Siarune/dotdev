@@ -38,9 +38,9 @@ function Feed() {
 							pathname: "blogish/post",
 							query: { p: post.id }
 						}}>
-						<li className={styles.listItem}>
+						<button className={`${styles.listItem} ${styles[post.type]}`}>
 							<a>{post.name}</a>
-						</li>
+						</button>
 					</Link>
 				))
 			}
