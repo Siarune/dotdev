@@ -1,6 +1,6 @@
 {
 	"name": "dotdev",
-	"packageManager": "pnpm@7.18.2",
+	"packageManager": "pnpm@8.5.0",
 	"version": "1.0.0",
 	"license": "MIT",
 	"private": true,
@@ -8,6 +8,7 @@
 		"dev": "blitz dev",
 		"build": "blitz build",
 		"migrate": "blitz prisma migrate dev",
+		"pushdb": "blitz prisma db push",
 		"start": "blitz start",
 		"studio": "blitz prisma studio",
 		"lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
