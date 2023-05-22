@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Suspense } from "react"
 import App from "src/core/layouts/App"
 import getPosts from "src/posts/queries/getPosts"
-import styles from "styles/blogish.module.sass"
+import styles from "src/styles/blogish.module.sass"
 import Loading from "src/core/components/Loading"
 
 const Blogish: BlitzPage = () => {
@@ -37,10 +37,10 @@ function Feed() {
 						href={{
 							pathname: "blogish/post",
 							query: { p: post.id }
-						}}>
-						<button className={`${styles.listItem} ${styles[post.type]}`}>
-							<a>{post.name}</a>
-						</button>
+						}}
+            className={`${styles.listItem} ${styles[post.type]}`}
+          >
+							{post.name}
 					</Link>
 				))
 			}

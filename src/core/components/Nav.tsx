@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
 import logout from "src/auth/mutations/logout"
-import styles from "styles/sys/nav.module.sass"
+import styles from "src/styles/sys/nav.module.sass"
 
 import { useCurrentUser } from "src/users/hooks/useCurrentUser"
 
@@ -30,9 +30,7 @@ const UserInfo = () => {
 			<>
 				<Link href={Routes.LoginPage()}>
 					<button className={styles.signInButton}>
-						<a>
 							<strong>Sign In</strong>
-						</a>
 					</button>
 				</Link>
 			</>
@@ -56,19 +54,17 @@ export default function Nav( { theme }: Props ) {
 							className={styles.thumbnail}
 							height="32"
 							width="32"
-							layout="fixed"
+							// layout="fixed"
 						/>
 					</div>
 					<h2 className={styles.me}>
 						<Link href="/">
-							<a>
 								Siarune<span className={styles.span}>.dev</span>
-							</a>
 						</Link>
 					</h2>
 				</li>
 				<Suspense fallback={
-					<button className={styles.signInButton}><a></a></button>
+					<button className={styles.signInButton}></button>
 				}>
 					<UserInfo />
 				</Suspense>{" "}

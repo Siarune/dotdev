@@ -15,7 +15,7 @@ import Markdown from "src/posts/components/Markdown"
 import App from "src/core/layouts/App"
 import getPublicPost from "src/posts/queries/getPublicPost"
 import { useCurrentUser } from "src/users/hooks/useCurrentUser"
-import styles from "styles/post.module.sass"
+import styles from "src/styles/post.module.sass"
 
 const BlogPost: BlitzPage = () => {
 

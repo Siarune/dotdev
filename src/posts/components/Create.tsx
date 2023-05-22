@@ -6,7 +6,7 @@ import createPost from "src/posts/mutations/createPost"
 import { CreatePost } from "src/posts/validations"
 import { withRouter } from "next/router"
 
-import styles from "styles/studio.module.sass"
+import styles from "src/styles/studio.module.sass"
 import React from "react"
 import { router } from "next/client"
 

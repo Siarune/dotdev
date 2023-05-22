@@ -8,52 +8,50 @@ import { useRouter } from "next/router"
 
 import React from "react"
 
-import styles from "styles/studio.module.sass"
+import styles from "src/styles/studio.module.sass"
 
 const Studio: BlitzPage = () => {
 
 	const router = useRouter()
 
 	const {
-		query: { t },
+		query: { t }
 	} = router
 
 	const isTabOne = t === "New"
 	const isTabTwo = t === "Edit"
 	const tab = t || ""
 
-	return (
-		<App title={"Studio: " + tab}>
+	return (<App title={"Studio: " + tab}>
 			<div className={styles.app}>
 				<div className={styles.main}>
 					<div className={styles.tabrow}>
-						<div className={styles.tab}>
-							<Link href={{ pathname: "./studio", query: { t: "New" } }}>
-								<a style={{ background: isTabOne ? "#444a73" : "#2f334d" }}>
-									<p>Create</p>
-								</a>
+							<Link
+								href={{ pathname: "./studio", query: { t: "New" } }}
+								className={styles.tab}
+								style={{ background: isTabOne ? "#444a73" : "#2f334d" }}
+							>
+								Create
 							</Link>
-						</div>
 
-						<div className={styles.tab}>
-							<Link href={{ pathname: "./studio", query: { t: "Edit" } }}>
-								<a style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}>
-									<p>Edit</p>
-								</a>
+							<Link
+								href={{ pathname: "./studio", query: { t: "Edit" } }}
+								className={styles.tab}
+								style={{ background: isTabTwo ? "#444a73" : "#2f334d" }}
+							>
+								Edit
 							</Link>
-						</div>
 
 					</div>
 					<div className={styles.container}>
-						{isTabOne && <Create/>}
-						{isTabTwo && <Edit/>}
+						{isTabOne && <Create />}
+						{isTabTwo && <Edit />}
 					</div>
 				</div>
-				<div/>
+				<div />
 			</div>
-		</App>
-	)
+		</App>)
 }
 
 Studio.authenticate = { role: "ADMIN", redirectTo: "/auth/login" }
-export default 	Studio
+export default Studio

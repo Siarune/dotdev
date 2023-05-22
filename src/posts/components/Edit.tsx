@@ -10,7 +10,7 @@ import updatePost from "src/posts/mutations/updatePost"
 import getPost from "src/posts/queries/getPost"
 import getPosts from "src/posts/queries/getPosts"
 import { UpdatePost } from "src/posts/validations"
-import styles from "styles/studio.module.sass"
+import styles from "src/styles/studio.module.sass"
 
 const Edit = ({ router }: { router: any }) => {
 	const {
@@ -42,10 +42,10 @@ const Select = () => {
 							pathname: "/blogish/studio",
 							query: { t: "Edit", p: posts.id }
 						}}
-						key={id}>
-						<a className={styles.card}>
-							<li>{posts.name}</li>
-						</a>
+						key={id}
+            className={styles.card}
+          >
+							{posts.name}
 					</Link>
 				))}
 			</ul>

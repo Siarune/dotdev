@@ -3,9 +3,9 @@ import { setupBlitzClient } from "@blitzjs/next"
 import { BlitzRpcPlugin } from "@blitzjs/rpc"
 
 export const authConfig = {
-	cookiePrefix: "dotdev"
+  cookiePrefix: "dotdev",
 }
 
 export const { withBlitz } = setupBlitzClient({
-	plugins: [AuthClientPlugin(authConfig), BlitzRpcPlugin({})]
+  plugins: [AuthClientPlugin(authConfig), BlitzRpcPlugin({})],
 })
