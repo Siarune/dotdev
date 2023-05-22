@@ -1,0 +1,127 @@
+@use '../themes/moon'
+@use '../themes/og'
+@use '../themes/forest'
+@use '../themes/sepia'
+@use '../themes/volcano'
+@use '../themes/offwhite'
+
+.link a
+	text-decoration: none
+
+.Moon, .Forest, .Book, .Volcano, .OffWhite
+	position: sticky
+	top: 0
+	left: 0
+	width: 100%
+	height: 3rem
+	background-color: black
+	text-decoration: none
+	z-index: 100
+
+	ul, li
+		list-style-type: none
+		margin: 0
+		padding: 0
+
+.Moon
+	background: moon.$Moonlight_Border
+
+	.intro h2:before
+		border: 3px outset moon.$Moonlight_Accent
+
+	.signInButton
+		background-color: moon.$Moonlight_Bg_2
+		border: 1px solid moon.$Moonlight_Bg_2
+		color: moon.$Moonlight_Text
+
+.Forest
+	background: forest.$Forest_Bg
+
+	.intro h2:before
+		border: 3px outset forest.$Forest_Tree
+
+	.btn
+		background-color: forest.$Forest_Bg_2
+		border: 1px solid forest.$Forest_Bg_2
+
+		h3
+			color: forest.$Forest_Text
+
+.Book
+	background: sepia.$Book_Fg
+
+	.intro h2:before
+		border: 3px outset sepia.$Book_Txt
+
+	.signInButton
+		background-color: sepia.$Book_Bg_2
+		border: 1px solid sepia.$Book_Bg_2
+		color: sepia.$Book_Txt
+
+.Volcano
+	background: volcano.$Volcano_Var
+
+	.intro h2:before
+		border: 3px outset volcano.$Volcano_Accent
+
+	.btn
+		background-color: volcano.$Volcano_Notifications
+		border: 1px solid volcano.$Volcano_Bg
+
+		h3
+			color: volcano.$Volcano_Disabled
+
+.OffWhite
+	background: offwhite.$OffWhite_Bg
+
+	.intro h2:before
+		border: 3px outset og.$secondaryColor
+
+	.btn
+		background-color: offwhite.$OffWhite_Fg
+		// border: 1px solid offwhite.$Volcano_Bg
+
+		h3
+			color: black
+
+.navbarNav
+	display: flex
+	align-items: center
+	justify-content: space-around
+	height: 100%
+
+.tWrap
+	position: fixed
+	padding-left: 8px
+	padding-top: 7px
+
+.intro h2::before
+	content: ""
+	border-radius: 50%
+	width: 2.5rem
+	height: 2.5rem
+	display: inline-block
+	vertical-align: middle
+	margin-right: 5px
+	font-size: medium
+
+.me
+	color: og.$secondaryColor
+	margin: 0
+
+.span
+	color: og.$tertiaryColor
+	padding: 0
+
+.signInButton
+	// color: whitesmoke
+	width: 5rem
+	height: 2.5rem
+	font-size: large
+	border-radius: 10px
+	padding: 7.5px
+	transition: all 300ms
+
+.signInButton:hover
+	cursor: pointer
+	filter: brightness(1.1)

@@ -1,0 +1,56 @@
+@use '../themes/moon'
+
+.app
+	display: flex
+	//height: 100vh
+	position: absolute
+	top: 3rem
+	bottom: 0
+	width: 100%
+	align-items: center
+	justify-content: center
+	color: moon.$Moonlight_Text
+	background: moon.$Moonlight_Contrast
+
+.main
+	background: moon.$Moonlight_Bg_2
+	padding: 10px
+	width: 25vw
+	border-radius: 8px
+
+	h1
+		width: 100%
+		text-align: center
+		margin-top: 0
+
+	input
+		// width: 100%
+		border-radius: 3px
+		border: none !important
+		background: moon.$Moonlight_Text
+		color: moon.$Moonlight_Bg_2
+
+	button
+		background: moon.$Moonlight_Btn
+		// text-size: 10px
+		color: moon.$Moonlight_Text
+		border: none
+		border-radius: 3px
+		padding: 4px
+		font-size: large
+
+	p
+		font-size: small
+
+	a
+		text-decoration: underline dashed
+
+	.back
+		margin: 0
+		text-decoration: none
+
+	@media (max-width: 1000px)
+		width: 50vw
+
+	@media (max-width: 676px)
+		width: 75vw
