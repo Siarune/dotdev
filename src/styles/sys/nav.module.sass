@@ -1,9 +1,5 @@
-@use '../themes/moon'
-@use '../themes/og'
-@use '../themes/forest'
-@use '../themes/sepia'
-@use '../themes/volcano'
-@use '../themes/offwhite'
+@use 'src/styles/palettes' as theme
+
 
 .link a
 	text-decoration: none
@@ -24,61 +20,61 @@
 		padding: 0
 
 .Moon
-	background: moon.$Moonlight_Border
+	background: theme.$Moonlight_Border
 
 	.intro h2:before
-		border: 3px outset moon.$Moonlight_Accent
+		border: 3px outset theme.$Moonlight_Accent
 
 	.signInButton
-		background-color: moon.$Moonlight_Bg_2
-		border: 1px solid moon.$Moonlight_Bg_2
-		color: moon.$Moonlight_Text
+		background-color: theme.$Moonlight_Bg_2
+		border: 1px solid theme.$Moonlight_Bg_2
+		color: theme.$Moonlight_Text
 
 .Forest
-	background: forest.$Forest_Bg
+	background: theme.$Forest_Bg
 
 	.intro h2:before
-		border: 3px outset forest.$Forest_Tree
+		border: 3px outset theme.$Forest_Tree
 
 	.btn
-		background-color: forest.$Forest_Bg_2
-		border: 1px solid forest.$Forest_Bg_2
+		background-color: theme.$Forest_Bg_2
+		border: 1px solid theme.$Forest_Bg_2
 
 		h3
-			color: forest.$Forest_Text
+			color: theme.$Forest_Text
 
 .Book
-	background: sepia.$Book_Fg
+	background: theme.$Book_Fg
 
 	.intro h2:before
-		border: 3px outset sepia.$Book_Txt
+		border: 3px outset theme.$Book_Txt
 
 	.signInButton
-		background-color: sepia.$Book_Bg_2
-		border: 1px solid sepia.$Book_Bg_2
-		color: sepia.$Book_Txt
+		background-color: theme.$Book_Bg_2
+		border: 1px solid theme.$Book_Bg_2
+		color: theme.$Book_Txt
 
 .Volcano
-	background: volcano.$Volcano_Var
+	background: theme.$Volcano_Var
 
 	.intro h2:before
-		border: 3px outset volcano.$Volcano_Accent
+		border: 3px outset theme.$Volcano_Accent
 
 	.btn
-		background-color: volcano.$Volcano_Notifications
-		border: 1px solid volcano.$Volcano_Bg
+		background-color: theme.$Volcano_Notifications
+		border: 1px solid theme.$Volcano_Bg
 
 		h3
-			color: volcano.$Volcano_Disabled
+			color: theme.$Volcano_Disabled
 
 .OffWhite
-	background: offwhite.$OffWhite_Bg
+	background: theme.$OffWhite_Bg
 
 	.intro h2:before
-		border: 3px outset og.$secondaryColor
+		border: 3px outset theme.$secondaryColor
 
 	.btn
-		background-color: offwhite.$OffWhite_Fg
+		background-color: theme.$OffWhite_Fg
 		// border: 1px solid offwhite.$Volcano_Bg
 
 		h3
@@ -106,20 +102,20 @@
 	font-size: medium
 
 .me
-	color: og.$secondaryColor
+	color: theme.$secondaryColor
 	margin: 0
 
 .span
-	color: og.$tertiaryColor
+	color: theme.$tertiaryColor
 	padding: 0
 
 .signInButton
-	// color: whitesmoke
-	width: 5rem
-	height: 2.5rem
+	display: flex
+	justify-content: center
+	align-items: center
+	padding: .35rem .5rem .15rem .5rem
 	font-size: large
 	border-radius: 10px
-	padding: 7.5px
 	transition: all 300ms
 
 .signInButton:hover

@@ -63,22 +63,27 @@ const BlogPost: BlitzPage = () => {
 	return (
 		<App title={Post.name}>
 			<div className={styles.app}>
-				<Suspense fallback={<Loading />}>
-					<>
-						<div className={styles.main}>
-							<h1>{Post.name}</h1>
-							<div className={`${styles.content} ${styles[Post.format || "left"]}`}>
+				<Suspense fallback={
+					<Loading />
+				}>
+					<div className={styles.main}>
+
+						<h1>{Post.name}</h1>
+
+							<div className={`
+								${styles.content}
+								${styles[Post.format || "left"]}`
+							}>
 								<Markdown source={Post.content} />
+
 								<p className={styles.littleInfo}>
 									Posted {Post.createdAt.toLocaleString()}
-									{/*<p>{post.likes} likes</p>*/}
 								</p>
 							</div>
-						</div>
-					</>
+					</div>
 				</Suspense>
 
-				<Suspense fallback={<></>}>
+				<Suspense fallback={<Loading />}>
 					<Form
 						initialValues={{
 							author: User().name as string,
@@ -87,11 +92,11 @@ const BlogPost: BlitzPage = () => {
 							content: ""
 						}}
 						submitText="→"
-						schema={CreateComment}
+						schema={ CreateComment }
 						className={styles.form}
 						onSubmit={async ( values, initialValues ) => {
 							try {
-								console.log(values)
+								// console.log(values)
 								await createCommentMutation(values)
 								router.reload()
 							} catch (error: any) {

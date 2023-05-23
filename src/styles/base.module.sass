@@ -1,9 +1,4 @@
-@use 'themes/moon'
-@use 'themes/og'
-//@use 'themes'
-//@use "'themes"
-//@use 'themeso'
-//@use 'themeste'
+@use 'palettes' as theme
 
 .global
 	min-height: 100vh
@@ -14,7 +9,5 @@
 	scrollbar-color: black gray
 
 .Moon
-	background: moon.$Moonlight_Contrast
-//
-//.Book
-//	background: sepia.$Book_Bg
+	background: theme.$Moonlight_Contrast
+

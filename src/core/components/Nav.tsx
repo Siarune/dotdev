@@ -13,8 +13,7 @@ const UserInfo = () => {
 	const [logoutMutation] = useMutation(logout)
 
 	if (currentUser) {
-		return (
-			<>
+		return (<>
 				<button
 					className={styles.signInButton}
 					onClick={async () => {
@@ -23,18 +22,17 @@ const UserInfo = () => {
 				>
 					Logout
 				</button>
-			</>
-		)
+			</>)
 	} else {
 		return (
-			<>
-				<Link href={Routes.LoginPage()}>
-					<button className={styles.signInButton}>
-							<strong>Sign In</strong>
-					</button>
-				</Link>
-			</>
-		)
+			<Link
+				href={Routes.LoginPage()}
+				className={styles.signInButton}
+			>
+				{/*<button className={styles.signInButton}>*/}
+				<strong>Sign In</strong>
+				{/*</button>*/}
+			</Link>)
 	}
 }
 
@@ -43,8 +41,7 @@ type Props = {
 }
 
 export default function Nav( { theme }: Props ) {
-	return (
-		<nav className={styles[theme]}>
+	return (<nav className={styles[theme]}>
 			<ul className={styles.navbarNav}>
 				<li className={styles.intro}>
 					<div className={styles.tWrap}>
@@ -59,16 +56,13 @@ export default function Nav( { theme }: Props ) {
 					</div>
 					<h2 className={styles.me}>
 						<Link href="/">
-								Siarune<span className={styles.span}>.dev</span>
+							Siarune<span className={styles.span}>.dev</span>
 						</Link>
 					</h2>
 				</li>
-				<Suspense fallback={
-					<button className={styles.signInButton}></button>
-				}>
+				<Suspense fallback={<button className={styles.signInButton}></button>}>
 					<UserInfo />
 				</Suspense>{" "}
 			</ul>
-		</nav>
-	)
+		</nav>)
 }

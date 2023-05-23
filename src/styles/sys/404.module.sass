@@ -1,5 +1,4 @@
-@use '../themes/og'
-@use '../themes/moon'
+@use 'src/styles/palettes' as theme
 
 .cont
 	display: flex
@@ -10,7 +9,7 @@
 .infoBox
 	display: inherit
 	margin-bottom: 2em
-	color: og.$secondaryColor
+	color: theme.$secondaryColor
 
 	h2
 		margin: .4em
@@ -20,7 +19,7 @@
 	height: min-content
 	margin: auto
 	margin-right: .5em
-	color: og.$tertiaryColor
+	color: theme.$tertiaryColor
 	font-size: xxx-large
 
 .homeBtn

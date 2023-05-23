@@ -1,4 +1,4 @@
-@use 'src/styles/themes/moon'
+@use 'src/styles/palettes' as theme
 
 .container
 	display: flex
@@ -14,7 +14,7 @@
 .main
 	display: flex
 	flex-direction: row
-	color: moon.$Moonlight_Text
+	color: theme.$Moonlight_Text
 	min-height: 50vh
 	margin-bottom: 1rem
 
@@ -35,7 +35,7 @@
 	text-decoration: none
 
 .bio, .card
-	background-color: moon.$Moonlight_Bg_2
+	background-color: theme.$Moonlight_Bg_2
 	border-radius: 10px
 	padding: 1em
 	box-shadow: rgba(3, 8, 20, 0.1) 0 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0 0.075rem 0.175rem

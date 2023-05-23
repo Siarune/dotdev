@@ -1,4 +1,4 @@
-@use '../themes/moon'
+@use 'src/styles/palettes' as theme
 
 .app
 	display: flex
@@ -9,11 +9,11 @@
 	width: 100%
 	align-items: center
 	justify-content: center
-	color: moon.$Moonlight_Text
-	background: moon.$Moonlight_Contrast
+	color: theme.$Moonlight_Text
+	background: theme.$Moonlight_Contrast
 
 .main
-	background: moon.$Moonlight_Bg_2
+	background: theme.$Moonlight_Bg_2
 	padding: 10px
 	width: 25vw
 	border-radius: 8px
@@ -27,13 +27,13 @@
 		// width: 100%
 		border-radius: 3px
 		border: none !important
-		background: moon.$Moonlight_Text
-		color: moon.$Moonlight_Bg_2
+		background: theme.$Moonlight_Text
+		color: theme.$Moonlight_Bg_2
 
 	button
-		background: moon.$Moonlight_Btn
+		background: theme.$Moonlight_Btn
 		// text-size: 10px
-		color: moon.$Moonlight_Text
+		color: theme.$Moonlight_Text
 		border: none
 		border-radius: 3px
 		padding: 4px

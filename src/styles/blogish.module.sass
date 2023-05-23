@@ -1,4 +1,4 @@
-@use 'themes/moon'
+@use 'src/styles/palettes' as theme
 
 .app
 	display: flex
@@ -6,8 +6,8 @@
 	flex-direction: column
 	align-items: center
 	max-height: fit-content
-	background: moon.$Moonlight_Bg
-	color: moon.$Moonlight_Text
+	background: theme.$Moonlight_Bg
+	color: theme.$Moonlight_Text
 
 	h1
 		margin: 0 1rem
@@ -38,8 +38,6 @@
 	transform: skew(-15deg)
 	background: inherit
 	color: inherit
-	border: none
-	font-weight: normal
 
 	display: flex
 	text-align: center
@@ -49,7 +47,7 @@
 	font-size: xx-large
 	transition: all 1000ms
 
-	//text-decoration: underline
+	text-decoration: underline
 	text-decoration-thickness: .2rem
 
 	@media (max-width: 767px)
@@ -59,8 +57,8 @@
 		transform: skew(15deg)
 
 .listItem:hover
-	background: moon.$Moonlight_SelectedBg
-	cursor: pointer
+	background: theme.$Moonlight_SelectedBg
+	text-decoration: none
 
 .blog
 	text-decoration-color: #ab47bcdd

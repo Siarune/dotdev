@@ -1,4 +1,4 @@
-@use 'themes/moon'
+@use 'src/styles/palettes' as theme
 
 .app
 	display: flex
@@ -13,8 +13,8 @@
 .main
 	display: flex
 	flex-direction: column
-	color: moon.$Moonlight_Text
-	background-color: moon.$Moonlight_Bg_2
+	color: theme.$Moonlight_Text
+	background-color: theme.$Moonlight_Bg_2
 	border-radius: 10px
 	width: 75vw
 	margin: 3rem
@@ -30,7 +30,7 @@
 	display: inline-flex
 	height: 4rem
 	font-size: larger
-	border-bottom: 2px solid moon.$Moonlight_Disabled
+	border-bottom: 2px solid theme.$Moonlight_Disabled
 
 
 .tab
@@ -57,8 +57,8 @@
 	align-items: center
 
 	input, button, .select
-		background: moon.$Moonlight_SelectedBg
-		color: moon.$Moonlight_Text
+		background: theme.$Moonlight_SelectedBg
+		color: theme.$Moonlight_Text
 		border: none !important
 		border-radius: 5px
 		height: 1.5rem
@@ -102,8 +102,8 @@
 	height: 60vh
 	width: 95%
 	border: none !important
-	background: moon.$Moonlight_SelectedBg
-	color: moon.$Moonlight_Text
+	background: theme.$Moonlight_SelectedBg
+	color: theme.$Moonlight_Text
 	margin-top: .5rem
 	border-radius: 5px
 	resize: none
@@ -120,7 +120,7 @@
 	justify-content: center
 	text-align: center
 	align-items: center
-	background: moon.$Moonlight_SelectedBg
+	background: theme.$Moonlight_SelectedBg
 	margin: 10px
 	border-radius: 5px
 
@@ -136,7 +136,7 @@
 	text-indent: -9999px
 	width: 3rem
 	height: 1.5rem
-	background-color: moon.$Moonlight_Contrast
+	background-color: theme.$Moonlight_Contrast
 	display: block
 	border-radius: 100px
 	position: relative
@@ -149,13 +149,13 @@
 	left: .25rem
 	width: 1rem
 	height: 1rem
-	background: moon.$Moonlight_Text
+	background: theme.$Moonlight_Text
 	border-radius: 90px
 	transition: 0.3s
 
 
 .form input:checked + label
-	background-color: moon.$Moonlight_SelectedBg
+	background-color: theme.$Moonlight_SelectedBg
 
 .form input:checked + label:after
 	left: calc(100% - 5px)

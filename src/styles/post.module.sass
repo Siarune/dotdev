@@ -1,12 +1,12 @@
-@use 'themes/moon'
+@use 'src/styles/palettes' as theme
 
 .app
 	display: flex
 	flex: 1
 	flex-direction: column
 	align-items: center
-	background: moon.$Moonlight_Contrast
-	color: moon.$Moonlight_Text
+	background: theme.$Moonlight_Contrast
+	color: theme.$Moonlight_Text
 
 	h1
 		text-align: center
@@ -68,8 +68,8 @@
 .textbox, .form button
 	border: none
 	border-radius: 5px
-	background: moon.$Moonlight_Bg
-	color: moon.$Moonlight_Text
+	background: theme.$Moonlight_Bg
+	color: theme.$Moonlight_Text
 	font-size: large
 	margin: .25rem
 

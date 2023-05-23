@@ -1,9 +1,9 @@
-@use "../themes/moon"
+@use 'src/styles/palettes' as theme
 
 .wrap
 	display: flex
 	flex-direction: row
-	color: moon.$Moonlight_Text
+	color: theme.$Moonlight_Text
 	justify-content: center
 	align-items: center
 	height: 50vh
@@ -14,7 +14,7 @@
 		padding-left: 1rem
 
 	.code
-		border-right: 2px solid moon.$Moonlight_Border
+		border-right: 2px solid theme.$Moonlight_Border
 
 	.message
 		display: flex
