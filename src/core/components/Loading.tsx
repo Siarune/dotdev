@@ -1,4 +1,4 @@
-import styles from "styles/sys/loading.module.sass"
+import styles from "src/styles/sys/loading.module.sass"
 
 type Props = {
 	style?: string

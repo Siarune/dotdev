@@ -1,13 +1,13 @@
 import { Routes } from "@blitzjs/next"
 import { useMutation } from "@blitzjs/rpc"
 import login from "src/auth/mutations/login"
-import { Login } from "src/auth/validations"
+import { Login } from "src/auth/schemas"
 import { Form, FORM_ERROR } from "src/core/components/Form"
 import { LabeledTextField } from "src/core/components/LabeledTextField"
 import { AuthenticationError, PromiseReturnType } from "blitz"
 import Link from "next/link"
 
-import styles from "styles/sys/authform.module.sass"
+import styles from "src/styles/sys/authform.module.sass"
 
 type LoginFormProps = {
 	onSuccess?: ( user: PromiseReturnType<typeof login> ) => void;
@@ -33,14 +33,13 @@ export const LoginForm = ( props: LoginFormProps ) => {
 								return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
 							} else {
 								return {
-									[FORM_ERROR]:
-										`Sorry, we had an unexpected error. Please try again. - ${error.toString()}`,
+									[FORM_ERROR]: `Sorry, we had an unexpected error. Please try again. - ${error.toString()}`
 								}
 							}
 						}
 					}}
 				>
-					<LabeledTextField name="email" label="Email" placeholder="JohnDoe@mail.com"/>
+					<LabeledTextField name="email" label="Email" placeholder="JohnDoe@mail.com" />
 					<LabeledTextField
 						name="password"
 						label="Password"
@@ -49,7 +48,7 @@ export const LoginForm = ( props: LoginFormProps ) => {
 					/>
 					<div>
 						<Link href={Routes.ForgotPasswordPage()}>
-							<a>Forgot your password?</a>
+							Forgot your password?
 						</Link>
 					</div>
 				</Form>
@@ -60,8 +59,7 @@ export const LoginForm = ( props: LoginFormProps ) => {
 					</p>
 				</div>
 			</div>
-		</div>
-	)
+		</div>)
 }
 
 export default LoginForm

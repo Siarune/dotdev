@@ -1,0 +1,73 @@
+@use 'src/styles/palettes' as theme
+
+.app
+	display: flex
+	flex: 1
+	flex-direction: column
+	align-items: center
+	max-height: fit-content
+	background: theme.$Moonlight_Bg
+	color: theme.$Moonlight_Text
+
+	h1
+		margin: 0 1rem
+		text-align: center
+		font-size: 3rem
+	h2
+		font-size: 2rem
+		text-align: center
+		margin-top: 0
+
+
+.feed
+	margin: 2em auto
+	display: flex
+	flex-direction: column
+	width: 50vw
+	padding: 0
+	border-radius: 50%
+	list-style: none
+	text-align: center
+
+	@media (max-width: 767px)
+		width: 80vw
+
+
+.listItem
+	height: 5rem
+	transform: skew(-15deg)
+	background: inherit
+	color: inherit
+
+	display: flex
+	text-align: center
+	align-items: center
+	justify-content: center
+
+	font-size: xx-large
+	transition: all 1000ms
+
+	text-decoration: underline
+	text-decoration-thickness: .2rem
+
+	@media (max-width: 767px)
+		height: 6.5rem
+
+	a
+		transform: skew(15deg)
+
+.listItem:hover
+	background: theme.$Moonlight_SelectedBg
+	text-decoration: none
+
+.blog
+	text-decoration-color: #ab47bcdd
+
+.project
+	text-decoration-color: #74a0f1cc
+
+.poem
+	text-decoration-color: #1E611Edd
+
+.story
+	text-decoration-color: #FFCC80bb
