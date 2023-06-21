@@ -1,0 +1,123 @@
+@use 'src/styles/palettes' as theme
+
+
+.link a
+	text-decoration: none
+
+.Moon, .Forest, .Book, .Volcano, .OffWhite
+	position: sticky
+	top: 0
+	left: 0
+	width: 100%
+	height: 3rem
+	background-color: black
+	text-decoration: none
+	z-index: 100
+
+	ul, li
+		list-style-type: none
+		margin: 0
+		padding: 0
+
+.Moon
+	background: theme.$Moonlight_Border
+
+	.intro h2:before
+		border: 3px outset theme.$Moonlight_Accent
+
+	.signInButton
+		background-color: theme.$Moonlight_Bg_2
+		border: 1px solid theme.$Moonlight_Bg_2
+		color: theme.$Moonlight_Text
+
+.Forest
+	background: theme.$Forest_Bg
+
+	.intro h2:before
+		border: 3px outset theme.$Forest_Tree
+
+	.btn
+		background-color: theme.$Forest_Bg_2
+		border: 1px solid theme.$Forest_Bg_2
+
+		h3
+			color: theme.$Forest_Text
+
+.Book
+	background: theme.$Book_Fg
+
+	.intro h2:before
+		border: 3px outset theme.$Book_Txt
+
+	.signInButton
+		background-color: theme.$Book_Bg_2
+		border: 1px solid theme.$Book_Bg_2
+		color: theme.$Book_Txt
+
+.Volcano
+	background: theme.$Volcano_Var
+
+	.intro h2:before
+		border: 3px outset theme.$Volcano_Accent
+
+	.btn
+		background-color: theme.$Volcano_Notifications
+		border: 1px solid theme.$Volcano_Bg
+
+		h3
+			color: theme.$Volcano_Disabled
+
+.OffWhite
+	background: theme.$OffWhite_Bg
+
+	.intro h2:before
+		border: 3px outset theme.$secondaryColor
+
+	.btn
+		background-color: theme.$OffWhite_Fg
+		// border: 1px solid offwhite.$Volcano_Bg
+
+		h3
+			color: black
+
+.navbarNav
+	display: flex
+	align-items: center
+	justify-content: space-around
+	height: 100%
+
+.tWrap
+	position: fixed
+	padding-left: 8px
+	padding-top: 7px
+
+.intro h2::before
+	content: ""
+	border-radius: 50%
+	width: 2.5rem
+	height: 2.5rem
+	display: inline-block
+	vertical-align: middle
+	margin-right: 5px
+	font-size: medium
+
+.me
+	color: theme.$secondaryColor
+	margin: 0
+
+.span
+	color: theme.$tertiaryColor
+	padding: 0
+
+.signInButton
+	display: flex
+	justify-content: center
+	align-items: center
+	padding: .35rem .5rem .15rem .5rem
+	font-size: large
+	border-radius: 10px
+	transition: all 300ms
+
+.signInButton:hover
+	cursor: pointer
+	filter: brightness(1.1)

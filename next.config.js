@@ -4,6 +4,7 @@ const { withBlitz } = require("@blitzjs/next")
 /**
  * @type {import('@blitzjs/next').BlitzConfig}
  **/
-const config = {}
+const config = withBlitz({})
+delete config.target
 
-module.exports = withBlitz(config)
+module.exports = config

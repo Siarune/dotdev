@@ -5,7 +5,7 @@
 import { expect, vi, test } from "vitest"
 import { render } from "test/utils"
 
-import Home from "pages/index"
+import Home from "../src/pages/index"
 
 vi.mock("public/logo.png", () => ({
   default: { src: "/logo.png" },
@@ -27,6 +27,6 @@ test.skip("renders blitz documentation link", () => {
   }))
 
   const { getByText } = render(<Home />)
-  const linkElement = getByText(/Documentation/i)
+  const linkElement = getByText(/Blitz Docs/i)
   expect(linkElement).toBeInTheDocument()
 })
