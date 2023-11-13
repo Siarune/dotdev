@@ -14,7 +14,7 @@
 		"semi": false,
 		"bracketSpacing": true,
 		"proseWrap": "preserve",
-		"singleAttributePerLine": "true"
+		"singleAttributePerLine": true
 	},
 	"type": "module",
 	"devDependencies": {
@@ -34,6 +34,7 @@
 		"dotenv": "16.3.1",
 		"drizzle-orm": "0.28.6",
 		"solid-js": "^1.8.3",
+		"solid-markdown": "^2.0.0",
 		"solid-start": "^0.3.8",
 		"solid-start-vercel": "0.3.8"
 	},
