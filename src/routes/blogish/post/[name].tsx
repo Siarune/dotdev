@@ -1,48 +1,47 @@
-import { useParams, useSearchParams } from "solid-start"
-import { Resource, Suspense } from "solid-js"
-import { createServerData$ } from "solid-start/server/server"
+import {RouteDataFuncArgs, useRouteData} from "solid-start"
+import {For, Suspense} from "solid-js"
 import db from "~/db"
-import { post } from "~/db/schema"
-import { eq } from "drizzle-orm"
-import { useRouteData } from "@solidjs/router"
+import {post} from "~/db/schema"
+import {eq} from "drizzle-orm"
+import { createRouteData } from "solid-start"
 
-// export function routeData({ params }: RouteDataFuncArgs) {
-// 	return createServerData$(() =>
-// 		// db.select().from(post)
-// 		db.query.post.findMany({
-// 			where: eq(post.name, params.name)
-// 		})
-// 	)
-// }
 
-export function routeData() {
-	// const [searchParams] = useSearchParams()
-	const searchParams = useParams()
+export function routeData({ params }: RouteDataFuncArgs) {
 
-	return createServerData$(async (name) => {
-		return await db.query.post.findMany()
-			// @ts-ignore
-			// .where(eq(post.name, name.replaceAll("%20", " ")))
+	const query = params.name.replaceAll("%20", " ")
+
+	return createRouteData(async () => {
+		return db
+			.select({
+				name: post.name,
+				content: post.content
+			})
+			.from(post)
+			.where(eq(post.name, query))
+
 	}, {
-		key: () => searchParams.name
+		key: () => query
 	})
 }
 
 export default function Post() {
 
-	const Posts = useRouteData<() => Resource<any>>()
-	const post = Posts()
-	console.log(post)
+	const Post = useRouteData<typeof routeData>()
 
 	return (
 		<main>
 			<Suspense fallback={<></>}>
-				<h2>{}</h2>
+				<For each={Post()}>
+					{(posts) => <div>
+						<h2>{posts.name}</h2>
 
-				{/*<p>*/}
-				{/*	{post.content}*/}
-				{/*</p>*/}
+						<p>
+							{posts.content}
+						</p>
+					</div>}
+				</For>
 			</Suspense>
 		</main>
 	)
 }
+
