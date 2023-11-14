@@ -1,9 +1,8 @@
-import { For, Suspense } from "solid-js"
-import { A, useRouteData } from "solid-start"
-import { createServerData$ } from "solid-start/server/server"
-import db from "~/db"
-import { post } from "~/db/schema"
-import { desc } from "drizzle-orm"
+import {For, Suspense} from "solid-js"
+import {A, useRouteData} from "solid-start"
+import {createServerData$} from "solid-start/server/server"
+import db, {post} from "~/db"
+import {desc, eq} from "drizzle-orm"
 
 // Yes, the export is necessary
 export function routeData() {

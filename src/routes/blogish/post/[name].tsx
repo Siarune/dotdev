@@ -1,7 +1,6 @@
 import { RouteDataFuncArgs, useRouteData } from "solid-start"
 import { For, Suspense } from "solid-js"
-import db from "~/db"
-import { post } from "~/db/schema"
+import db, { post } from "~/db"
 import { eq } from "drizzle-orm"
 import { createRouteData } from "solid-start"
 import { SolidMarkdown } from "solid-markdown"
