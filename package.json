@@ -42,7 +42,7 @@
 		"@vercel/analytics": "1.0.1",
 		"blitz": "2.0.0-beta.27",
 		"final-form": "4.20.9",
-		"next": "^13.4.3",
+		"next": "^13.5.0",
 		"postmark": "3.0.18",
 		"prisma": "4.15.0",
 		"react": "18.2.0",
