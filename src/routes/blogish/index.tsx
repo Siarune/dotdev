@@ -1,8 +1,8 @@
-import {For, Suspense} from "solid-js"
-import {A, useRouteData} from "solid-start"
-import {createServerData$} from "solid-start/server/server"
-import db, {post} from "~/db"
-import {desc, eq} from "drizzle-orm"
+import { For, Suspense } from "solid-js"
+import { A, useRouteData } from "solid-start"
+import { createServerData$ } from "solid-start/server/server"
+import db, { post } from "~/db"
+import { desc, eq } from "drizzle-orm"
 
 // Yes, the export is necessary
 export function routeData() {
@@ -30,7 +30,7 @@ export default function Blogish() {
 						{(post) => (
 							<A class="decoration-none m0" href={`./post/${post.name}`}>
 								<li class="p8 text-xl text-center hover:bg-stone animate-duration-100 transition-500">
-									{ post.name }
+									{post.name}
 								</li>
 							</A>
 						)}

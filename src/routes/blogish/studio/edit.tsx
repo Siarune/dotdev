@@ -1,5 +1,5 @@
 export default function StudioEdit() {
-	return(
+	return (
 		<main></main>
 	)
 }

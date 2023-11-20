@@ -13,14 +13,14 @@ export default function Home() {
 					<h1>About</h1>
 					<p>
 						Hey, Sia here. Nice place, huh?
-						<br />
+						<br/>
 						It&apos;s taken quite a few redesigns, and this certainly won&apos;t be the
 						last :D
-						<br />
+						<br/>
 						I&apos;m just a computer science student with a little too much free time.
-						<br />
+						<br/>
 						Why don&apos;t you check out the place while you&apos;re here?
-						<br />
+						<br/>
 						You can also take a look at my{" "}
 						<A href="https://siarune.me/">
 							old website

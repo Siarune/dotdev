@@ -1,5 +1,5 @@
 export default function Nav() {
-	return(
+	return (
 		<div class="flex flex-inline ">
 
 		</div>

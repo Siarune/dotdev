@@ -1,6 +1,6 @@
-import {sql} from "@vercel/postgres"
-import {drizzle} from "drizzle-orm/vercel-postgres"
-import {boolean, integer, pgTable, serial, text, timestamp} from "drizzle-orm/pg-core"
+import { sql } from "@vercel/postgres"
+import { drizzle } from "drizzle-orm/vercel-postgres"
+import { boolean, integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
 
 export const post = pgTable("Post", {
 	id: serial("id").primaryKey(),

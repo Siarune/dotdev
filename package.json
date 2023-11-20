@@ -8,7 +8,7 @@
 		"pushdb": "drizzle-kit push:pg"
 	},
 	"prettier": {
-		"printWidth": 100,
+		"printWidth": 80,
 		"useTabs": true,
 		"tabWidth": 4,
 		"semi": false,
@@ -39,6 +39,6 @@
 		"solid-start-vercel": "0.3.10"
 	},
 	"engines": {
-		"node": ">=18"
+		"node": ">=20"
 	}
 }
