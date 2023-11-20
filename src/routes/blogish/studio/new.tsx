@@ -1,6 +1,6 @@
-import StudioLayout from "~/components/StudioLayout";
-import { createRouteAction } from 'solid-start'
-import db, { post } from "~/db";
+import { createRouteAction } from "solid-start"
+import StudioLayout from "~/components/StudioLayout"
+import db, { post } from "~/db"
 
 export default function StudioNew() {
 
@@ -21,12 +21,12 @@ export default function StudioNew() {
 	return (<StudioLayout>
 		<Form class="flex flex-col p4">
 			<div class="flex flex-row justify-center">
-				<input id="name" type="text" placeholder="Name"/>
-				<input id="isPublic" type="checkbox" checked={true}/>
+				<input id="name" type="text" placeholder="Name" />
+				<input id="isPublic" type="checkbox" checked={true} />
 			</div>
 
 
-			<textarea id="content" placeholder="Stuff..."/>
+			<textarea id="content" placeholder="Stuff..." />
 
 			<button type="submit" disabled={create.pending} class="w25px">
 				+

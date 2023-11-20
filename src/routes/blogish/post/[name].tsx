@@ -1,32 +1,34 @@
-import { RouteDataFuncArgs, useRouteData } from "solid-start"
-import { For, Suspense } from "solid-js"
-import db, { post } from "~/db"
 import { eq } from "drizzle-orm"
+import { For, Suspense } from "solid-js"
 import { SolidMarkdown } from "solid-markdown"
-import { createServerData$ } from "solid-start/server/server";
+import { RouteDataFuncArgs, useRouteData } from "solid-start"
+import { createServerData$ } from "solid-start/server"
+import db, { post } from "~/db"
 
 export const routeData = ({ params }: RouteDataFuncArgs) => {
-	// const query = params.name.replaceAll("%20", " ")
+	const query = params.name.replaceAll("%20", " ")
 
 	return createServerData$(
-		async (name: string) =>
-			db
+		async ([, query], { request }) => {
+			return db
 				.select({
 					name: post.name,
-					content: post.content,
+					content: post.content
 				})
 				.from(post)
 				.where(eq(post.isPublic, true))
-				.where(eq(post.name, name))
+				.where(eq(post.name, query))
+		},
 
-		// {
-		// 	key: () => query,
-		// }
+		{
+			key: () => ["name", query]
+		}
 	)
 }
 
 export default function Post() {
 	const Post = useRouteData<typeof routeData>()
+	// console.log(Post)
 
 	return (
 		<main>
@@ -36,7 +38,7 @@ export default function Post() {
 						<div>
 							<h2>{posts.name}</h2>
 
-							<SolidMarkdown children={posts.content}/>
+							<SolidMarkdown children={posts.content} />
 						</div>
 					)}
 				</For>

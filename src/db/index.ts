@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres"
-import { drizzle } from "drizzle-orm/vercel-postgres"
 import { boolean, integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
+import { drizzle } from "drizzle-orm/vercel-postgres"
 
 export const post = pgTable("Post", {
 	id: serial("id").primaryKey(),
@@ -11,7 +11,7 @@ export const post = pgTable("Post", {
 	name: text("name").notNull(),
 	content: text("content").notNull(),
 	isPublic: boolean("isPublic").default(true),
-	likes: integer("likes").default(0),
+	likes: integer("likes").default(0)
 })
 
 export const comment = pgTable("Comment", {
@@ -23,7 +23,7 @@ export const comment = pgTable("Comment", {
 		.references(() => post.id, { onDelete: "restrict", onUpdate: "cascade" }),
 	content: text("content").notNull(),
 	testing: boolean("testing").default(false),
-	author: text("author").default("").notNull(),
+	author: text("author").default("").notNull()
 })
 
 // const db = drizzle(sql, { schema })

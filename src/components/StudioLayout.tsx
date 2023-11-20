@@ -1,5 +1,5 @@
-import { JSXElement } from "solid-js";
-import { A } from "solid-start";
+import { JSXElement } from "solid-js"
+import { A } from "solid-start"
 
 export default function StudioLayout(props: { children: JSXElement }) {
 	return (
