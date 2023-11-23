@@ -1,61 +1,22 @@
-import { A } from "solid-start"
+import { A } from "solid-start";
 
 export default function Home() {
 	return (
-		<main class="main">
+		<main class="main justify-center">
 
-			{/*Centered content wrapper*/}
-			<div class="flex flex-col sm:flex-row
-			min-h-40vh sm:w-75vw w-95vw
-			items-center justify-center">
-
-				<div class={"banner m1em text-lg"}>
-					<h1>About</h1>
+				<div class="color-txt text-xl md:max-w-30vw p4">
 					<p>
-						Hey, Sia here. Nice place, huh?
+						Hello, and welcome to my website!
 						<br/>
-						It&apos;s taken quite a few redesigns, and this certainly won&apos;t be the
-						last :D
-						<br/>
-						I&apos;m just a computer science student with a little too much free time.
-						<br/>
-						Why don&apos;t you check out the place while you&apos;re here?
-						<br/>
-						You can also take a look at my{" "}
-						<A href="https://siarune.me/">
-							old website
-						</A>
-						, or behind the scenes at{" "}
-						<A href="https://github.com/Siarune">
-							Github
-						</A>
+						My name's Aidan Sharp, but I usually go by <em>siarune</em>.
+						<br /> <br/>
+						There's not much to look at for now, but you can explore at your leisure.
 					</p>
+					<div>
+						<A class="decoration-dashed color-txt" href="/blogish">Blog-ish</A>
+					</div>
 				</div>
 
-				<div class="flex flex-col gap-lg items-center items-start h-full justify-start pt2em">
-
-					<A class={"decoration-none m0"} href={"/blogish"}>
-						<div class={"card"}>
-							<h2 class={"m0"}>Blogish</h2>
-							<h4 class={"m0 opacity-60"}>Ramblings from yours truly</h4>
-						</div>
-					</A>
-					{/*<A class={"decoration-none m0"} href={""}>*/}
-					{/*	<div class={"card"}>*/}
-					{/*		<h2 class={"m0"}>Blogish</h2>*/}
-					{/*		<h4 class={"m0 opacity-60"}>Ramblings from yours truly</h4>*/}
-					{/*	</div>*/}
-					{/*</A>*/}
-					{/*<A class={"decoration-none m0"} href={""}>*/}
-					{/*	<div class={"card"}>*/}
-					{/*		<h2 class={"m0"}>Blogish</h2>*/}
-					{/*		<h4 class={"m0 opacity-60"}>Ramblings from yours truly</h4>*/}
-					{/*	</div>*/}
-					{/*</A>*/}
-
-
-				</div>
-			</div>
 		</main>
 	)
 }

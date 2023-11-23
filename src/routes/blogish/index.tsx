@@ -1,10 +1,9 @@
 import { desc, eq } from "drizzle-orm"
 import { For, Suspense } from "solid-js"
-import { A, useRouteData } from "solid-start"
+import { A, Head, Title, useRouteData } from "solid-start"
 import { createServerData$ } from "solid-start/server/server"
 import db, { post } from "~/db"
 
-// Yes, the export is necessary
 export function routeData() {
 	return createServerData$(() =>
 		db
@@ -24,12 +23,19 @@ export default function Blogish() {
 
 	return (
 		<main class={"main"}>
+			<Head>
+				<Title>Blog-ish</Title>
+			</Head>
+
+			<h1 class="mt5rem">Blog-ish</h1>
+			<h2>A blog, but for everything!</h2>
+
 			<Suspense>
-				<ul class="w50vw h-full mt20vh p0 list-none text-center">
+				<ul class="md:max-w-33vw max-h-fit mt5vh p0 list-none text-center">
 					<For each={Post()}>
 						{(post) => (
-							<A class="decoration-none m0" href={`./post/${post.name}`}>
-								<li class="p8 text-xl text-center hover:bg-stone animate-duration-100 transition-500">
+							<A class="decoration-none m0 color-txt" href={`./post/${post.name.replaceAll(" ", "_")}`}>
+								<li class="p8 text-3xl text-center hover:bg-fgd transition-1000">
 									{post.name}
 								</li>
 							</A>
