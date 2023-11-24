@@ -9,9 +9,7 @@ export default defineConfig(() => {
 		plugins: [
 			solid({
 				ssr: true,
-				adapter: vercel({
-					prerender: { expiration: 5*60 }
-				})
+				adapter: vercel()
 			}),
 			UnoCSS()
 		],
