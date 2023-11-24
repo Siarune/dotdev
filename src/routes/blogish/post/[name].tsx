@@ -14,7 +14,7 @@ export const routeData = ({ params }: RouteDataFuncArgs) => {
 				.select({
 					name: post.name,
 					content: post.content,
-					creationDate: post.createdAt,
+					creationDate: post.createdAt
 				})
 				.from(post)
 				.where(eq(post.isPublic, true))

@@ -19,7 +19,6 @@ export default function Root() {
 						</Routes>
 					</ErrorBoundary>
 				</Suspense>
-				<div/>
 				<Scripts />
 			</Body>
 		</Html>

@@ -1,21 +1,21 @@
-import { A } from "solid-start";
+import { A } from "solid-start"
 
 export default function Home() {
 	return (
 		<main class="main justify-center">
 
-				<div class="color-txt text-xl md:max-w-30vw p4">
-					<p>
-						Hello, and welcome to my website!
-						<br/>
-						My name's Aidan Sharp, but I usually go by <em>siarune</em>.
-						<br /> <br/>
-						There's not much to look at for now, but you can explore at your leisure.
-					</p>
-					<div>
-						<A class="decoration-dashed color-txt" href="/blogish">Blog-ish</A>
-					</div>
+			<div class="color-txt text-xl md:max-w-30vw p4">
+				<p>
+					Hello, and welcome to my website!
+					<br />
+					My name's Aidan Sharp, but I usually go by <em>siarune</em>.
+					<br /> <br />
+					There's not much to look at for now, but you can explore at your leisure.
+				</p>
+				<div>
+					<A class="decoration-dashed color-txt" href="/blogish">Blog-ish</A>
 				</div>
+			</div>
 
 		</main>
 	)
