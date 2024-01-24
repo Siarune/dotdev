@@ -14,6 +14,11 @@ export default defineConfig(() => {
 				})
 			}),
 			UnoCSS()
-		]
+		],
+		build: {
+			commonjsOptions: {
+				strictRequires: false
+			}
+		}
 	}
 })
