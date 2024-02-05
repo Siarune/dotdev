@@ -1,60 +1,30 @@
-# dependencies
-node_modules
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
-.npm
-web_modules/
 
-# blitz
-/.blitz/
-/.next/
-*.sqlite
-*.sqlite-journal
-.now
-.blitz**
-blitz-log.log
-
-# misc
-.DS_Store
-
-# local env files
-.env.local
-.env.*.local
-.envrc
-
-# Logs
-logs
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Testing
-.coverage
-*.lcov
-.nyc_output
-lib-cov
-
-# Caches
-*.tsbuildinfo
-.eslintcache
-.node_repl_history
-.yarn-integrity
-
-# Serverless directories
-.serverless/
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
+dist
+.solid
+.output
 .vercel
-.idea
-.vscode
+.netlify
+.next
+drizzle
+netlify
+
+# Environment
+.env
+.env*.local
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+
+# Temp
+gitignore
+
+# System Files
+.DS_Store
+Thumbs.db

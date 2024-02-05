@@ -2,7 +2,6 @@
 .env*
 *.ico
 *.lock
-db/migrations
 .next
 .yarn
 .pnp.*
