@@ -15,9 +15,7 @@ export default function App() {
 				</div>
 			)}
 		>
-			{/*<div class={"flex flex-1 h-screen p0 m0 bg-bgd"}>*/}
 			<FileRoutes/>
-			{/*</div>*/}
 		</Router>
 	);
 }

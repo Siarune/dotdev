@@ -32,13 +32,11 @@ export default function Post() {
 				{Post() && Post()!.map(post =>
 					<>
 						<title>{post.name}</title>
-						<h2>{post.name}</h2>
+						<h2 class="text-2xl">{post.name}</h2>
 
-						<SolidMarkdown children={post.content}/>
+						<SolidMarkdown class="m4 text-xl" children={post.content}/>
 
-						<br/>
-
-						<p class="opacity-60">
+						<p class="opacity-60 text-lg">
 							Posted: {post.creationDate!.toLocaleString()}
 						</p>
 					</>

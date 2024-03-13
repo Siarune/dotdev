@@ -13,7 +13,7 @@ const getPosts = cache(async () => {
 		.from(post)
 		.where(eq(post.isPublic, true))
 		.orderBy(desc(post.id))
-		.limit(500)
+		.limit(50)
 }, "posts")
 
 export const route = {
@@ -21,19 +21,17 @@ export const route = {
 }
 
 export default function Blogish() {
-	// const Post = useRouteData<typeof routeData>()
 	const Posts = createAsync(() => getPosts());
-
 	return (
-		<main class={"main"}>
-			<h1 class="mt5rem">Blog-ish</h1>
-			<h2>A blog, but for everything!</h2>
+		<main class="main">
+			<h1 class="mt5rem mb text-5xl">Blog-ish</h1>
+			<h2 class="text-4xl">A blog, but for everything!</h2>
 
 			<Suspense>
 				<ul class="md:max-w-33vw max-h-fit mt5vh p0 list-none text-center">
 					{Posts() && Posts()!.map(post =>
-						<A href={`./post/${post.name.replaceAll(" ", "_")}`}>
-							<li>
+						<A class="decoration-none m0 color-txt" href={`./post/${post.name.replaceAll(" ", "_")}`}>
+							<li class="p8 text-3xl text-center hover:bg-fgd transition-1000">
 								{post.name}
 							</li>
 						</A>
