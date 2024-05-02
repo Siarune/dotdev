@@ -1,35 +1,43 @@
-// import { createRouteAction } from "solid-start"
 import db, { post } from "~/db"
+import { action } from "@solidjs/router";
 
-export default function StudioNew() {
+export default function New() {
 
-	// const [create, { Form }] =
-	// 	createRouteAction(async (form: FormData) => {
-	//
-	// 		const name = form.get("name") as string
-	// 		const isPublic = form.get("isPublic") as unknown as boolean
-	// 		const content = form.get("content") as string
-	//
-	// 		db.insert(post).values({
-	// 			name: name,
-	// 			content: content,
-	// 			isPublic: isPublic
-	// 		})
-	// 	})
+	const createPost = action(async (formData: FormData) => {
+		"use server";
 
-	return (<>
-		{/*<Form class="flex flex-col p4">*/}
-		{/*	<div class="flex flex-row justify-center">*/}
-		{/*		<input id="name" type="text" placeholder="Name"/>*/}
-		{/*		<input id="isPublic" type="checkbox" checked={true}/>*/}
-		{/*	</div>*/}
+		const postData = {
+			name: formData.get("name")?.toString(),
+			content: formData.get("content")?.toString(),
+			isPublic: formData.get("isPublic") == "on"
+		}
 
+		console.log("Creating new post with data:")
+		console.log(postData)
 
-		{/*	<textarea id="content" placeholder="Stuff..."/>*/}
+		await new Promise((resolve, reject) => {
+			if (!postData) reject("No input data")
+			//@ts-ignore
+			db.insert(post).values(postData)
+				.then(resolve)
+			reject("Unknown db error")
+		})
+	})
 
-		{/*	<button type="submit" disabled={create.pending} class="w25px">*/}
-		{/*		+*/}
-		{/*	</button>*/}
-		{/*</Form>*/}
-	</>)
+	return (<main class="main">
+			<title>New Post</title>
+			<form action={createPost} method="post" class="w50vw mt5vh flex flex-col">
+				<div class="flex flex-row justify-between w-full mb">
+					<input required type="text" name="name" placeholder="Name" class="bg-fgd text-2xl w50% p1 rounded"/>
+					<div class="h-full">
+						<input checked type="checkbox" name="isPublic" class="mr "/>
+						<input type="submit" value="➔" class="pb1 rounded-10 text-4xl cursor-pointer"/>
+					</div>
+				</div>
+
+				<textarea required name="content" placeholder="Lorem ipsum dolor sit amet..."
+						  class="bg-fgd text-xl p1 h30vh rounded"/>
+
+			</form>
+		</main>)
 }

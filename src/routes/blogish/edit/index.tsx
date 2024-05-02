@@ -1,7 +1,7 @@
-import { desc, eq } from "drizzle-orm"
-import { Suspense } from "solid-js"
-import db, { post } from "~/db"
-import { cache, createAsync, A } from "@solidjs/router";
+import { A, cache, createAsync } from "@solidjs/router";
+import db, { post } from "~/db";
+import { desc } from "drizzle-orm";
+import { Suspense } from "solid-js";
 
 const getPosts = cache(async () => {
 	"use server";
@@ -11,7 +11,6 @@ const getPosts = cache(async () => {
 			name: post.name
 		})
 		.from(post)
-		.where(eq(post.isPublic, true))
 		.orderBy(desc(post.id))
 		.limit(50)
 }, "posts")
@@ -20,14 +19,11 @@ export const route = {
 	load: () => getPosts()
 }
 
-export default function Blogish() {
+export default function EditIndex() {
 	const Posts = createAsync(() => getPosts());
 	return (
 		<main class="main">
-			<title>Blog-ish</title>
-			<h1 class="mt5rem mb text-5xl">Blog-ish</h1>
-			<h2 class="text-4xl">A blog, but for everything!</h2>
-
+			<title>Edit a Post</title>
 			<Suspense>
 				<ul class="md:max-w-33vw max-h-fit mt5vh p0 list-none text-center">
 					{Posts() && Posts()!.map(post =>

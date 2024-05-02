@@ -13,7 +13,7 @@ import { drizzle } from "drizzle-orm/vercel-postgres"
 // const pgTable = pgTableCreator((name) => `dotdev_${name}`)
 
 export const post = pgTable("Post", {
-	id: serial("id").primaryKey(),
+	id: serial("id").primaryKey().notNull(),
 	createdAt: timestamp("createdAt", {
 		precision: 3,
 		mode: "string",
@@ -50,6 +50,12 @@ export const comment = pgTable("Comment", {
 	testing: boolean("testing").default(false),
 	author: text("author").default("").notNull(),
 })
+
+export const urmomQuotes = pgTable("urmom_quotes", {
+	id: serial("id").primaryKey().notNull(),
+	content: text("content").notNull(),
+	public: boolean("public").default(true).notNull(),
+});
 
 // const db = drizzle(sql, { schema })
 const db = drizzle(sql)
