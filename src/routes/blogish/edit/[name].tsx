@@ -51,7 +51,7 @@ export default function Edit() {
 		<main class="main">
 			{Post() && Post()!.map(post =>
 				<form action={updatePost} method="post"
-					  class="w50vw mt5vh flex flex-col">
+					  class="w90vw sm:w50vw mt5vh flex flex-col">
 					<div class="flex flex-row justify-between w-full mb">
 						<input type="text" name="name" required value={post.name}
 							   class="bg-fgd text-2xl w50% p1 rounded"
@@ -65,7 +65,7 @@ export default function Edit() {
 					</div>
 
 					<textarea name="content" required
-							  class="bg-fgd text-xl p1 h30vh rounded">
+							  class="bg-fgd text-xl p1 h85vh sm:h70vh rounded">
 					{post.content}
 				</textarea>
 

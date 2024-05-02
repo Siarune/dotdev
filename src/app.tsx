@@ -10,7 +10,7 @@ export default function App() {
 	return (
 		<Router
 			root={(props) => (
-				<div class={"flex flex-1 h-screen p0 m0 bg-bgd"}>
+				<div class={"flex flex-1 min-h-screen max-h-fit p0 m0 bg-bgd"}>
 					<Suspense>{props.children}</Suspense>
 				</div>
 			)}

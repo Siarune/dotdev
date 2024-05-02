@@ -3,7 +3,7 @@ import { defineConfig } from "unocss"
 
 export default defineConfig({
 	shortcuts: {
-		"main": "bg-bgd flex flex-1 flex-col items-center m0 p0 max-h-fit color-txt"
+		"main": "flex flex-1 flex-col items-center m0 p0 color-txt"
 	},
 	theme: {
 		colors: {

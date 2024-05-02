@@ -1,14 +1,10 @@
+import { A } from "@solidjs/router";
+
 export default function NotFound() {
 	return (
-		<main>
-			<h1>Page Not Found</h1>
-			<p>
-				Visit{" "}
-				<a href="https://start.solidjs.com" target="_blank">
-					start.solidjs.com
-				</a>{" "}
-				to learn how to build SolidStart apps.
-			</p>
+		<main class="main justify-center">
+			<h1 class="text-5xl m1">Page Not Found</h1>
+			<A href="/" class="text-3xl decoration-underline decoration-dashed">[Home]</A>
 		</main>
 	)
 }
