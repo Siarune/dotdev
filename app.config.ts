@@ -1,18 +1,16 @@
-import { defineConfig } from "@solidjs/start/config";
+import devtools from "solid-devtools/vite";
+import {defineConfig} from "@solidjs/start/config";
 import UnoCSS from "unocss/vite";
-import devtoolsPlugin from "solid-devtools/vite";
 
 export default defineConfig({
-	ssr: true,
+  vite: {
+    plugins: [UnoCSS(), devtools({ autoname: true})]
+  },
 	server: {
-		preset: "vercel"
-	},
-	vite: {
-		plugins: [
-			UnoCSS(),
-			devtoolsPlugin({
-				autoname: true
-			})
-		]
+	  preset: "vercel",
+		prerender: {
+		  routes: ["/"],
+		  // crawlLinks: true
+		}
 	}
 });
