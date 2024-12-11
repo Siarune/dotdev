@@ -1,55 +1,25 @@
 import { A } from "@solidjs/router"
-import Counter from "~/components/Counter"
 
 export default function Home() {
 	return (
-		<main class="text-center mx-auto text-gray-700 p-4">
-			<h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-				<div class="flex justify-center items-center">
-					<span class="mr-5">Hello</span>{" "}
-					<img
-						class="w-12 h-12"
-						src="https://unocss.dev/logo.svg"
-						alt="UnoCSS logo"
-					/>
-					!
-				</div>
-			</h1>
-			<Counter />
-			<p class="mt-8">
-				Visit{" "}
-				<a
-					href="https://solidjs.com"
-					target="_blank"
-					rel="noreferrer"
-					class="text-sky-600 hover:underline"
-				>
-					solidjs.com
-				</a>{" "}
-				to learn how to build Solid apps.
-			</p>
-			<p class="mt-2">
-				Visit{" "}
-				<a
-					href="https://unocss.dev"
-					target="_blank"
-					rel="noreferrer"
-					class="text-sky-600 hover:underline"
-				>
-					unocss.dev
-				</a>{" "}
-				to learn how to style your app.
-			</p>
-			<p class="my-4">
-				<span>Home</span>
-				{" - "}
+		<main class="main justify-center">
+			<title>Siarune.dev</title>
+			<div class="color-txt text-xl md:max-w-40vw p4">
+				<p>
+					Hello, and welcome to my website!
+					<br />
+					My name's Aidan Sharp, but I usually go by <em>siarune</em>.
+					<br /> <br />
+					There's not much to look at for now, but you can explore at
+					your leisure.
+				</p>
 				<A
-					href="/about"
-					class="text-sky-600 hover:underline"
+					class="decoration-underline decoration-dashed color-txt"
+					href="/blogish"
 				>
-					About Page
-				</A>{" "}
-			</p>
+					[Blog-ish]
+				</A>
+			</div>
 		</main>
 	)
 }
