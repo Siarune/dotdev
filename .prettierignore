@@ -1,0 +1,7 @@
+.gitkeep
+.env*
+*.ico
+*.lock
+.pnp.*
+node_modules
+README.md
