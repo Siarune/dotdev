@@ -1,26 +1,10 @@
-import { desc } from "drizzle-orm"
-import { For, Suspense } from "solid-js"
-import db, { posts } from "~/db"
-import { createAsync, A, query } from "@solidjs/router"
-
-const getPosts = query(async () => {
-	"use server"
-	return db
-		.select({
-			id: posts.id,
-			name: posts.name,
-		})
-		.from(posts)
-		.orderBy(desc(posts.id))
-		.limit(50)
-}, "posts")
-
-// export const route = {
-// 	load: () => getPosts()
-// }
+import { Suspense } from "solid-js"
+import { createAsync } from "@solidjs/router"
+import { getManyPosts } from "~/db/Post"
+import PostList from "~/components/PostList"
 
 export default function Blogish() {
-	const Posts = createAsync(() => getPosts())
+	const Posts = createAsync(() => getManyPosts())
 	return (
 		<main class="main">
 			<title>Blog-ish</title>
@@ -28,20 +12,7 @@ export default function Blogish() {
 			<h2 class="text-4xl text-center">A blog, but for everything!</h2>
 
 			<Suspense>
-				<ul class="md:max-w-33vw max-h-fit mt5vh p0 list-none text-center">
-					<For each={Posts()}>
-						{(posts) => (
-							<A
-								class="decoration-none m0 color-txt"
-								href={`./${posts.name.replaceAll(" ", "_")}`}
-							>
-								<li class="p8 text-3xl text-center hover:bg-fgd transition-1000">
-									{posts.name}
-								</li>
-							</A>
-						)}
-					</For>
-				</ul>
+				<PostList from={Posts()!} />
 			</Suspense>
 		</main>
 	)

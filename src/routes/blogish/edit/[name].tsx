@@ -1,46 +1,9 @@
-import { action, createAsync, query, useParams } from "@solidjs/router"
-import db, { posts } from "~/db"
-import { eq } from "drizzle-orm"
+import { createAsync, useParams } from "@solidjs/router"
 import { For } from "solid-js"
-
-const getPost = query(async (params) => {
-	"use server"
-	const query = params.name?.replaceAll("_", " ")
-	return db
-		.select({
-			id: posts.id,
-			name: posts.name,
-			content: posts.content,
-		})
-		.from(posts)
-		.where(eq(posts.name, query))
-}, "post")
-
-const updatePost = action(async (formData: FormData) => {
-	"use server"
-
-	const postId = Number(formData.get("id"))
-	const postData = {
-		name: formData.get("name")?.toString(),
-		content: formData.get("content")?.toString(),
-	}
-
-	console.log("Updating post with data:")
-	console.log(postData)
-
-	await new Promise((resolve, reject) => {
-		if (!postData) reject("No input data")
-		db.update(posts).set(postData).where(eq(posts.id, postId)).then(resolve)
-		reject("Unknown db error")
-	})
-})
-
-// export const route = {
-// 	load: () => getPost(useParams()),
-// }
+import { getSinglePost, updatePost } from "~/db/Post"
 
 export default function Edit() {
-	const Post = createAsync(() => getPost(useParams()))
+	const Post = createAsync(() => getSinglePost(useParams()))
 
 	return (
 		<main class="main">

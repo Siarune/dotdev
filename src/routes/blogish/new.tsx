@@ -1,19 +1,6 @@
-import db, { posts } from "~/db"
-import { action } from "@solidjs/router"
+import { createPost } from "~/db/Post"
 
 export default function New() {
-	const createPost = action(async (formData: FormData) => {
-		"use server"
-
-		const postData = {
-			name: formData.get("name")!.toString(),
-			content: formData.get("content")!.toString(),
-		}
-
-		if (!postData) return Error
-		return db.insert(posts).values(postData)
-	})
-
 	return (
 		<main class="main">
 			<title>New Post</title>

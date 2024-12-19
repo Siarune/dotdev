@@ -1,29 +1,10 @@
-import { eq } from "drizzle-orm"
 import { For, Suspense } from "solid-js"
 import { SolidMarkdown } from "solid-markdown"
-import db, { posts } from "~/db"
-import { query, createAsync, useParams } from "@solidjs/router"
-
-const getPost = query(async (params) => {
-	"use server"
-	const query = params.name?.replaceAll("_", " ")
-	return db
-		.select({
-			id: posts.id,
-			name: posts.name,
-			content: posts.content,
-			creationDate: posts.createdAt,
-		})
-		.from(posts)
-		.where(eq(posts.name, query))
-}, "post")
-
-// export const route = {
-// 	load: () => getPost(useParams()),
-// }
+import { createAsync, useParams } from "@solidjs/router"
+import { getSinglePost } from "~/db/Post"
 
 export default function Post() {
-	const Post = createAsync(() => getPost(useParams()))
+	const Post = createAsync(() => getSinglePost(useParams()))
 	return (
 		<main class="main justify-center">
 			<Suspense fallback={<></>}>
