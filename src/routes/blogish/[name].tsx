@@ -3,10 +3,6 @@ import { SolidMarkdown } from "solid-markdown"
 import { createAsync, useParams } from "@solidjs/router"
 import { getSinglePost } from "~/db/Post"
 
-// export const route = {
-// 	load: () => getPost(useParams()),
-// }
-
 export default function Post() {
 	const Post = createAsync(() => getSinglePost(useParams()))
 	return (

@@ -3,10 +3,6 @@ import { createAsync } from "@solidjs/router"
 import { getManyPosts } from "~/db/Post"
 import PostList from "~/components/PostList"
 
-// export const route = {
-// 	load: () => getManyPosts()
-// }
-
 export default function Blogish() {
 	const Posts = createAsync(() => getManyPosts())
 	return (
