@@ -1,5 +1,5 @@
 import { desc } from "drizzle-orm"
-import { Suspense } from "solid-js"
+import { For, Suspense } from "solid-js"
 import db, { posts } from "~/db"
 import { createAsync, A, query } from "@solidjs/router"
 
@@ -29,8 +29,8 @@ export default function Blogish() {
 
 			<Suspense>
 				<ul class="md:max-w-33vw max-h-fit mt5vh p0 list-none text-center">
-					{Posts() &&
-						Posts()!.map((posts) => (
+					<For each={Posts()}>
+						{(posts) => (
 							<A
 								class="decoration-none m0 color-txt"
 								href={`./${posts.name.replaceAll(" ", "_")}`}
@@ -39,7 +39,8 @@ export default function Blogish() {
 									{posts.name}
 								</li>
 							</A>
-						))}
+						)}
+					</For>
 				</ul>
 			</Suspense>
 		</main>

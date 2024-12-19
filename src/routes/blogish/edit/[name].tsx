@@ -1,6 +1,7 @@
 import { action, createAsync, query, useParams } from "@solidjs/router"
 import db, { posts } from "~/db"
 import { eq } from "drizzle-orm"
+import { For } from "solid-js"
 
 const getPost = query(async (params) => {
 	"use server"
@@ -43,8 +44,8 @@ export default function Edit() {
 
 	return (
 		<main class="main">
-			{Post() &&
-				Post()!.map((post) => (
+			<For each={Post()}>
+				{(post) => (
 					<form
 						action={updatePost}
 						method="post"
@@ -84,7 +85,8 @@ export default function Edit() {
 
 						<title>{"Editing: " + post.name}</title>
 					</form>
-				))}
+				)}
+			</For>
 		</main>
 	)
 }

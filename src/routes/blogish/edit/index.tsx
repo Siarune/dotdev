@@ -1,7 +1,7 @@
 import { A, query, createAsync } from "@solidjs/router"
 import db, { posts } from "~/db"
 import { desc } from "drizzle-orm"
-import { Suspense } from "solid-js"
+import { For, Suspense } from "solid-js"
 
 const getPosts = query(async () => {
 	"use server"
@@ -26,17 +26,18 @@ export default function EditIndex() {
 			<title>Edit a Post</title>
 			<Suspense>
 				<ul class="md:max-w-33vw max-h-fit mt5vh p0 list-none text-center">
-					{Posts() &&
-						Posts()!.map((post) => (
+					<For each={Posts()}>
+						{(posts) => (
 							<A
 								class="decoration-none m0 color-txt"
-								href={`./${post.name.replaceAll(" ", "_")}`}
+								href={`./${posts.name.replaceAll(" ", "_")}`}
 							>
 								<li class="p8 text-3xl text-center hover:bg-fgd transition-1000">
-									{post.name}
+									{posts.name}
 								</li>
 							</A>
-						))}
+						)}
+					</For>
 				</ul>
 			</Suspense>
 		</main>
