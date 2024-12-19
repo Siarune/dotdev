@@ -29,6 +29,18 @@ export const getManyPosts = query(async () => {
 		.limit(50)
 }, "posts")
 
+export const createPost = action(async (formData: FormData) => {
+	"use server"
+
+	const postData = {
+		name: formData.get("name")!.toString(),
+		content: formData.get("content")!.toString(),
+	}
+
+	if (!postData) return Error
+	return db.insert(posts).values(postData)
+})
+
 export const updatePost = action(async (formData: FormData) => {
 	"use server"
 
