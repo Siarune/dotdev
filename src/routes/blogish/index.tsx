@@ -1,26 +1,13 @@
-import { desc } from "drizzle-orm"
 import { For, Suspense } from "solid-js"
-import db, { posts } from "~/db"
-import { createAsync, A, query } from "@solidjs/router"
-
-const getPosts = query(async () => {
-	"use server"
-	return db
-		.select({
-			id: posts.id,
-			name: posts.name,
-		})
-		.from(posts)
-		.orderBy(desc(posts.id))
-		.limit(50)
-}, "posts")
+import { createAsync, A } from "@solidjs/router"
+import { getManyPosts } from "~/db/Post"
 
 // export const route = {
 // 	load: () => getPosts()
 // }
 
 export default function Blogish() {
-	const Posts = createAsync(() => getPosts())
+	const Posts = createAsync(() => getManyPosts())
 	return (
 		<main class="main">
 			<title>Blog-ish</title>

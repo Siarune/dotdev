@@ -1,26 +1,13 @@
-import { A, query, createAsync } from "@solidjs/router"
-import db, { posts } from "~/db"
-import { desc } from "drizzle-orm"
+import { A, createAsync } from "@solidjs/router"
 import { For, Suspense } from "solid-js"
+import { getManyPosts } from "~/db/Post"
 
-const getPosts = query(async () => {
-	"use server"
-	return db
-		.select({
-			id: posts.id,
-			name: posts.name,
-		})
-		.from(posts)
-		.orderBy(desc(posts.id))
-		.limit(50)
-}, "posts")
-
-export const route = {
-	load: () => getPosts(),
-}
+// export const route = {
+// 	load: () => getPosts(),
+// }
 
 export default function EditIndex() {
-	const Posts = createAsync(() => getPosts())
+	const Posts = createAsync(() => getManyPosts())
 	return (
 		<main class="main">
 			<title>Edit a Post</title>
