@@ -1,5 +1,6 @@
-import { A, createAsync } from "@solidjs/router"
-import { For, Suspense } from "solid-js"
+import { createAsync } from "@solidjs/router"
+import { Suspense } from "solid-js"
+import PostList from "~/components/PostList"
 import { getManyPosts } from "~/db/Post"
 
 // export const route = {
@@ -12,20 +13,7 @@ export default function EditIndex() {
 		<main class="main">
 			<title>Edit a Post</title>
 			<Suspense>
-				<ul class="md:max-w-33vw max-h-fit mt5vh p0 list-none text-center">
-					<For each={Posts()}>
-						{(posts) => (
-							<A
-								class="decoration-none m0 color-txt"
-								href={`./${posts.name.replaceAll(" ", "_")}`}
-							>
-								<li class="p8 text-3xl text-center hover:bg-fgd transition-1000">
-									{posts.name}
-								</li>
-							</A>
-						)}
-					</For>
-				</ul>
+				<PostList from={Posts()!} />
 			</Suspense>
 		</main>
 	)
