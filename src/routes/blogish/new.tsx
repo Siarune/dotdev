@@ -6,12 +6,11 @@ export default function New() {
 		"use server"
 
 		const postData = {
-			name: formData.get("name")?.toString(),
-			content: formData.get("content")?.toString(),
+			name: formData.get("name")!.toString(),
+			content: formData.get("content")!.toString(),
 		}
 
 		if (!postData) return Error
-		//@ts-ignore
 		return db.insert(posts).values(postData)
 	})
 
