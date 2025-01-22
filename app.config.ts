@@ -13,4 +13,11 @@ export default defineConfig({
 			// oxlintPlugin(),
 		],
 	},
+	server: {
+		preset: "vercel",
+		prerender: {
+			routes: ["/"],
+			// crawlLinks: true
+		},
+	},
 })
