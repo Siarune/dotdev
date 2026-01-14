@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@solidjs/router": "^0.15.4",
 		"@solidjs/start": "^1.2.1",
-		"@unocss/reset": "^0.59.4",
+		"@unocss/reset": "^66.5.12",
 		"drizzle-orm": "^0.38.4",
 		"pg": "^8.16.3",
 		"solid-js": "^1.9.10",
@@ -28,7 +28,7 @@
 		"oxlint": "^0.15.15",
 		"prettier": "3.4.2",
 		"solid-devtools": "^0.30.1",
-		"unocss": "^0.59.4"
+		"unocss": "^66.5.12"
 	},
 	"prettier": {
 		"useTabs": true,
