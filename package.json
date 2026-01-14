@@ -2,7 +2,7 @@
 	"name": "dotdev",
 	"type": "module",
 	"engines": {
-		"node": ">=24"
+		"node": ">=22"
 	},
 	"scripts": {
 		"dev": "vinxi dev",
