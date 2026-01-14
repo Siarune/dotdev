@@ -1,7 +1,6 @@
 {
 	"name": "dotdev",
 	"type": "module",
-	"packageManager": "pnpm@9.14.4",
 	"engines": {
 		"node": ">=18"
 	},
