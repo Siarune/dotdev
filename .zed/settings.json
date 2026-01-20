@@ -5,6 +5,7 @@
 {
   "languages": {
     "TypeScript": {
+      "language_servers": ["oxfmt", "oxlint", "!eslint"],
       "formatter": [
         {
           "external": {
@@ -14,6 +15,12 @@
       ],
     },
     "TSX": {
+      "language_servers": [
+        "oxfmt",
+        "oxlint",
+        "unocss-language-server",
+        "!eslint",
+      ],
       "formatter": [
         {
           "external": {
@@ -23,6 +30,12 @@
       ],
     },
     "JSON": {
+      "language_servers": [
+        "oxfmt",
+        "oxlint",
+        "package-version-server",
+        "!eslint",
+      ],
       "formatter": [
         {
           "external": {
