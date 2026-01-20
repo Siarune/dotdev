@@ -1,11 +1,12 @@
 // uno.config.ts
-import { defineConfig } from "unocss"
-import { presetOnu } from "@onu-ui/preset"
+import { defineConfig, presetWind4 } from "unocss"
 
 export default defineConfig({
 	presets: [
-		presetOnu({
-			preflights: false,
+		presetWind4({
+			preflights: {
+				reset: true,
+			},
 		}),
 	],
 	shortcuts: {
