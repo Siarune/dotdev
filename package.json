@@ -1,12 +1,13 @@
 {
 	"name": "dotdev",
 	"type": "module",
-	"engines": {
-		"node": ">=22"
-	},
 	"scripts": {
 		"dev": "vinxi dev",
 		"build": "vinxi build",
+		"fmt": "oxfmt",
+		"fmt:check": "oxfmt --check",
+		"lint": "oxlint",
+		"lint:fix": "oxlint --fix",
 		"start": "vinxi start",
 		"studio": "drizzle-kit studio"
 	},
@@ -24,13 +25,12 @@
 		"@types/pg": "^8.16.0",
 		"@unocss/preset-wind4": "^66.6.0",
 		"drizzle-kit": "^0.30.6",
+		"oxfmt": "^0.26.0",
+		"oxlint": "^1.41.0",
 		"prettier": "3.4.2",
 		"unocss": "^66.5.12"
 	},
-	"prettier": {
-		"useTabs": true,
-		"tabWidth": 4,
-		"semi": false,
-		"singleAttributePerLine": true
+	"engines": {
+		"node": ">=22"
 	}
 }

@@ -1,0 +1,17 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"semi": false,
+	"singleAttributePerLine": true,
+	"tabWidth": 4,
+	"useTabs": true,
+	"printWidth": 80,
+	"ignorePatterns": [
+		".gitkeep",
+		".env*",
+		"*.ico",
+		"*.lock",
+		".pnp.*",
+		"node_modules",
+		"README.md"
+	]
+}
