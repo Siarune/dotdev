@@ -1,7 +1,8 @@
 import { defineConfig } from "@solidjs/start/config"
+import { withSolidBase } from "@kobalte/solidbase/config"
 import UnoCSS from "unocss/vite"
 
-export default defineConfig({
+export default defineConfig(withSolidBase({
 	vite: {
 		plugins: [UnoCSS()],
 	},
@@ -11,5 +12,9 @@ export default defineConfig({
 			routes: ["/"],
 			// crawlLinks: true
 		},
-	},
-})
+	}
+},
+	{
+		title: "Rune.nz"
+	}
+))

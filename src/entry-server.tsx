@@ -1,10 +1,11 @@
 // @refresh reload
+import { getHtmlProps } from "@kobalte/solidbase/server"
 import { createHandler, StartServer } from "@solidjs/start/server"
 
 export default createHandler(() => (
 	<StartServer
 		document={({ assets, children, scripts }) => (
-			<html lang="en">
+			<html {...getHtmlProps()}>
 				<head>
 					<meta charset="utf-8" />
 					<meta
