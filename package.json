@@ -27,7 +27,6 @@
 		"drizzle-kit": "^0.30.6",
 		"oxfmt": "^0.26.0",
 		"oxlint": "^1.41.0",
-		"prettier": "3.4.2",
 		"unocss": "^66.5.12"
 	},
 	"engines": {
