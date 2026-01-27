@@ -2,34 +2,22 @@
 	"name": "dotdev",
 	"type": "module",
 	"scripts": {
-		"dev": "vinxi dev",
-		"build": "vinxi build",
-		"fmt": "oxfmt",
-		"fmt:check": "oxfmt --check",
-		"lint": "oxlint",
-		"lint:fix": "oxlint --fix",
-		"start": "vinxi start",
-		"studio": "drizzle-kit studio"
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
 	},
 	"dependencies": {
-		"@solidjs/router": "^0.15.4",
-		"@solidjs/start": "^1.2.1",
-		"drizzle-orm": "^0.45.1",
-		"pg": "^8.16.3",
-		"solid-js": "^1.9.10",
-		"solid-markdown": "^2.1.1",
-		"vinxi": "^0.5.7",
-		"vite": "^6.4.1"
+		"@astrojs/mdx": "^4.3.13",
+		"@astrojs/rss": "^4.0.15",
+		"@astrojs/sitemap": "^3.7.0",
+		"astro": "^5.16.15",
+		"sharp": "^0.34.3"
 	},
 	"devDependencies": {
-		"@types/pg": "^8.16.0",
-		"@unocss/preset-wind4": "^66.6.0",
-		"drizzle-kit": "^0.31.8",
-		"oxfmt": "^0.26.0",
-		"oxlint": "^1.41.0",
-		"unocss": "^66.5.12"
-	},
-	"engines": {
-		"node": ">=22"
+		"@unocss/reset": "^66.6.0",
+		"oxfmt": "^0.27.0",
+		"oxlint": "^1.42.0",
+		"unocss": "^66.6.0"
 	}
 }
