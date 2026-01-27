@@ -8,30 +8,30 @@ import { presetWebFonts, presetWind4 } from "unocss";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://rune.nz",
-  integrations: [
-    mdx(),
-    sitemap(),
-    UnoCSS({
-      injectReset: true,
-      // presets: [
-      //   presetWind4(),
-      //   presetWebFonts({
-      //     fonts: {
-      //       cursive: {
-      //         name: "Italianno",
-      //         weights: ["400"],
-      //         italic: false,
-      //       },
-      //     },
-      //   }),
-      // ],
-    }),
-  ],
-  markdown: {
-    shikiConfig: {
-      theme: "catppuccin-mocha",
-      wrap: true,
-    },
-  },
+	site: "https://rune.nz",
+	integrations: [
+		mdx(),
+		sitemap(),
+		UnoCSS({
+			injectReset: true,
+			// presets: [
+			//   presetWind4(),
+			//   presetWebFonts({
+			//     fonts: {
+			//       cursive: {
+			//         name: "Italianno",
+			//         weights: ["400"],
+			//         italic: false,
+			//       },
+			//     },
+			//   }),
+			// ],
+		}),
+	],
+	markdown: {
+		shikiConfig: {
+			theme: "catppuccin-mocha",
+			wrap: true,
+		},
+	},
 });

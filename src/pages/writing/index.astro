@@ -5,42 +5,42 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
 const posts = (await getCollection("writing")).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body class="body">
-        <main class="sm:w90vw md:w40vw">
-            <section>
-                <ul
-                    class="flex flex-col m0 p0 gap-8 sm:gap-4 list-none text-center"
-                >
-                    {
-                        posts.map((post) => (
-                            <a
-                                href={`/writing/${post.id}/`}
-                                class="hover:bg-surface0 transition-1000"
-                            >
-                                <li>
-                                    <h4 class="title mt2 color-text">
-                                        {post.data.title}
-                                    </h4>
-                                    <p class="date mb2 color-subtext0">
-                                        <FormattedDate
-                                            date={post.data.pubDate}
-                                        />
-                                    </p>
-                                </li>
-                            </a>
-                        ))
-                    }
-                </ul>
-            </section>
-        </main>
-    </body>
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="body">
+		<main class="sm:w90vw md:w40vw">
+			<section>
+				<ul
+					class="flex flex-col m0 p0 gap-8 sm:gap-4 list-none text-center"
+				>
+					{
+						posts.map((post) => (
+							<a
+								href={`/writing/${post.id}/`}
+								class="hover:bg-surface0 transition-1000"
+							>
+								<li>
+									<h4 class="title mt2 color-text">
+										{post.data.title}
+									</h4>
+									<p class="date mb2 color-subtext0">
+										<FormattedDate
+											date={post.data.pubDate}
+										/>
+									</p>
+								</li>
+							</a>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+	</body>
 </html>
