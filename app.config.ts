@@ -1,23 +1,24 @@
 import { defineConfig } from "@solidjs/start/config"
 import UnoCSS from "unocss/vite"
 import devtools from "solid-devtools/vite"
-// import oxlintPlugin from "vite-plugin-oxlint"
+import { Asciidox } from "./plugin/Asciidox"
 
 export default defineConfig({
+	// extensions: ["adoc"],
 	vite: {
 		plugins: [
 			devtools({
 				autoname: true,
 			}),
 			UnoCSS(),
-			// oxlintPlugin(),
+			Asciidox(),
 		],
 	},
 	server: {
 		preset: "vercel",
 		prerender: {
 			routes: ["/"],
-			// crawlLinks: true
+			crawlLinks: true,
 		},
 	},
 })

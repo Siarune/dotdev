@@ -7,13 +7,13 @@
 	"scripts": {
 		"dev": "vinxi dev",
 		"build": "vinxi build",
-		"start": "vinxi start",
-		"studio": "drizzle-kit studio"
+		"start": "vinxi start"
 	},
 	"dependencies": {
 		"@solidjs/router": "^0.15.4",
 		"@solidjs/start": "^1.2.1",
 		"@unocss/reset": "^66.5.12",
+		"asciidoctor": "^3.0.4",
 		"solid-js": "^1.9.10",
 		"solid-markdown": "^2.1.1",
 		"vinxi": "^0.5.7",

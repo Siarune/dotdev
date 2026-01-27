@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "Test1",
+    "filename": "Test1.adoc",
+    "title": "Test",
+    "tags": "hi",
+    "published": "2026-01-14"
+  },
+  {
+    "slug": "Test2",
+    "filename": "Test2.adoc",
+    "title": "Test",
+    "tags": "{hi, hello}",
+    "published": "2026-01-14"
+  }
+]
