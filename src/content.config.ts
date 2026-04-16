@@ -1,5 +1,5 @@
-import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { defineCollection, z } from "astro:content"
+import { glob } from "astro/loaders"
 
 const writing = defineCollection({
 	loader: glob({ base: "./src/content/writing", pattern: "**/*.{md,mdx}" }),
@@ -10,7 +10,7 @@ const writing = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 		}),
-});
+})
 
 const projects = defineCollection({
 	loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
@@ -20,8 +20,8 @@ const projects = defineCollection({
 			description: z.string(),
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			repo: z.string().url().optional()
+			repo: z.string().url().optional(),
 		}),
-});
+})
 
-export const collections = { writing, projects };
+export const collections = { writing, projects }
